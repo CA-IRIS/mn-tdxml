@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+
+<!-- ====================================================== -->
+<!-- DDS build file                                         -->
+<!-- Authors: Erik Engstrom, Douglas Lau                    -->
+<!-- Legal: Copyright (c) 1999-2007 Minnesota Department of -->
+<!--            Transportation. All Rights Reserved.        -->
+<!-- ====================================================== -->
+<project default="jar" basedir=".">
+	<property file="project.properties"/>
+	<property file="${user.home}/.ant.properties"/>
+
+	<property name="build.dir" value="build"/>
+	<property name="build.etc" value="${build.dir}/etc"/>
+	<property name="build.lib" value="${build.dir}/lib"/>
+	<property name="build.src" value="${build.dir}/src"/>
+	<property name="build.classes" value="${build.dir}/classes"/>
+	<property name="build.docs" value="${build.dir}/docs"/>
+
+	<property name="src.dir" value="src"/>
+	<property name="etc.dir" value="etc"/>
+	<property name="manifest" value="MANIFEST.MF"/>
+	<property name="lib.dir" value="lib"/>
+
+	<property name="dist.name" value="${name}-${version}"/>
+	<property name="dist.dir" value="${dist.name}"/>
+	<property name="dist.lib" value="${dist.dir}/lib"/>
+	<property name="dist.docs" value="${dist.dir}/docs"/>
+	<property name="dist.etc" value="${dist.dir}/etc"/>
+
+	<path id="classpath">
+		<fileset dir="lib" includes="**/*.jar"/>
+	</path>
+	<property name="tms-log.jar" value="tms-log-${tms-log.version}.jar"/>
+
+	<!-- ============================ -->
+	<!-- Check for one jar dependency -->
+	<!-- ============================ -->
+        <target name="check-jar">
+                <available property="jar.exists"
+                           file="${lib.dir}/${file.jar}"/>
+                <echo message="Checking for ${lib.dir}/${file.jar}"/>
+                <fail unless="jar.exists"
+                      message="Missing dependency: ${lib.dir}/${file.jar}"/>
+        </target>
+
+	<!-- ====================== -->
+	<!-- Check for dependencies -->
+	<!-- ====================== -->
+        <target name="check">
+		<antcall target="check-jar">
+			<param name="file.jar" value="${tms-log.jar}"/>
+		</antcall>
+        </target>
+
+	<!-- =========================== -->
+	<!-- Prepare the build directory -->
+	<!-- =========================== -->
+	<target name="prepare">
+		<tstamp/>
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.etc}"/>
+		<mkdir dir="${build.lib}"/>
+		<mkdir dir="${build.src}"/>
+		<mkdir dir="${build.docs}"/>
+		<copy todir="${build.etc}">
+			<fileset dir="${etc.dir}"/>
+			<filterset begintoken="@@" endtoken="@@">
+				<filter token="TMSLOG.VERSION"
+					value="${tms-log.version}"/>
+				<filter token="PROXY.HOST"
+					value="${proxy.host}"/>
+				<filter token="PROXY.PORT"
+					value="${proxy.port}"/>
+				<filter token="NO.PROXY.HOSTS"
+					value="${no.proxy.hosts}"/>
+			</filterset>
+		</copy>
+		<copy todir="${build.src}">
+			<fileset dir="${src.dir}">
+				<include name = "**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ======================= -->
+	<!-- Compile the source code -->
+	<!-- ======================= -->
+	<target name="compile"
+		depends="check,prepare"
+		description="--> compile the source code">
+		<mkdir dir="${build.classes}"/>
+		<javac srcdir="${build.src}"
+			destdir="${build.classes}"
+			debug="off"
+			optimize="${optimize}"
+			deprecation="on"
+			source="1.5"
+			target="1.5">
+			<classpath refid="classpath"/>
+			<compilerarg value="-Xlint:unchecked"/>
+		</javac>
+	</target>
+
+	<!-- =================== -->
+	<!-- Create the jar file -->
+	<!-- =================== -->
+	<target name="jar"
+		depends="compile"
+		description="--> generate the ${name} jar files">
+		<jar jarfile="${build.lib}/${name}-${version}.jar"
+			manifest="${build.etc}/${manifest}">
+			<fileset dir="${etc.dir}">
+				<include name="location_lookup.xml"/>
+			</fileset>
+			<fileset dir="${build.classes}">
+				<include name="us/mn/state/dot/dds/**"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- ======================== -->
+	<!-- Create api documentation -->
+	<!-- ======================== -->
+	<target name="javadocs"
+		depends="prepare"
+		description="--> create the javadocs for the project">
+		<mkdir dir="${build.docs}"/>
+		<javadoc packagenames="${packages}"
+			sourcepath="${basedir}/${build.src}"
+			destdir="${build.docs}"
+			author="true"
+			version="true"
+			windowtitle="${name} API"
+			doctitle="${name}"
+			bottom="Copyright &#169; Minnesota Department of
+				Transportation. All Rights Reserved.">
+			<classpath refid="classpath"/>
+		</javadoc>
+	</target>
+
+	<!-- ======================= -->
+	<!-- Create the distribution -->
+	<!-- ======================= -->
+	<target name="dist"
+		depends="jar,javadocs"
+		description="--> generate the ${name} distribution">
+		<mkdir dir="${dist.docs}"/>
+		<mkdir dir="${dist.etc}"/>
+		<mkdir dir="${dist.lib}"/>
+		<copy todir="${dist.lib}">
+			<fileset dir="${build.lib}">
+				<include name="${name}-${version}.jar"/>
+			</fileset>
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+
+		<copy file="${etc.dir}/ddsClient.properties"
+			tofile="${dist.lib}/ddsClient.properties"/>
+
+		<copy todir="${dist.etc}">
+			<fileset dir="${etc.dir}"/>
+		</copy>
+
+		<copy todir="${dist.docs}">
+			<fileset dir="${build.docs}"/>
+		</copy>
+
+		<copy todir="${dist.dir}">
+			<fileset dir=".">
+				<include name="README.txt"/>
+				<include name="LICENSE.txt"/>
+				<include name="COPYING.txt"/>
+			</fileset>
+		</copy>
+
+		<replace file="${dist.dir}/README.txt"
+			token="@@VERSION@@"
+			value="${version}"/>
+
+		<zip zipfile="${dist.name}.zip"
+			basedir="${dist.dir}/.."
+			includes="${dist.dir}/**"/>
+	</target>
+
+	<!-- =========================================== -->
+	<!-- Clean up build and distribution directories -->
+	<!-- =========================================== -->
+	<target name="clean"
+		description="--> clean up the created directories">
+		<delete dir="${build.dir}"/>
+		<delete dir="${dist.dir}"/>
+		<delete file="${dist.name}.zip"/>
+		<delete file="${dist.name}-src.zip"/>
+	</target>
+</project>

@@ -1,0 +1,4994 @@
+<?xml version="1.0"?>
+<station_data time_stamp="Wed Aug 13 16:05:47 CDT 2003" sample_period="30">
+	<station id="1" status="fail"/>
+	<station id="2" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>9.092593</occupancy>
+		<flow>1120</flow>
+		<speed>57</speed>
+	</station>
+	<station id="3" status="ok">
+		<volume>15.0</volume>
+		<occupancy>16.63889</occupancy>
+		<flow>1800</flow>
+		<speed>50</speed>
+	</station>
+	<station id="4" status="ok">
+		<volume>9.25</volume>
+		<occupancy>9.791666</occupancy>
+		<flow>1110</flow>
+		<speed>54</speed>
+	</station>
+	<station id="5" status="ok">
+		<volume>10.75</volume>
+		<occupancy>9.138888</occupancy>
+		<flow>1290</flow>
+		<speed>64</speed>
+	</station>
+	<station id="6" status="ok">
+		<volume>10.75</volume>
+		<occupancy>43.541664</occupancy>
+		<flow>1290</flow>
+		<speed>20</speed>
+	</station>
+	<station id="7" status="ok">
+		<volume>13.25</volume>
+		<occupancy>21.23611</occupancy>
+		<flow>1590</flow>
+		<speed>25</speed>
+	</station>
+	<station id="8" status="ok">
+		<volume>13.25</volume>
+		<occupancy>28.958334</occupancy>
+		<flow>1590</flow>
+		<speed>26</speed>
+	</station>
+	<station id="9" status="ok">
+		<volume>10.5</volume>
+		<occupancy>27.26389</occupancy>
+		<flow>1260</flow>
+		<speed>21</speed>
+	</station>
+	<station id="10" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>17.74074</occupancy>
+		<flow>1840</flow>
+		<speed>37</speed>
+	</station>
+	<station id="11" status="ok">
+		<volume>18.666666</volume>
+		<occupancy>17.685186</occupancy>
+		<flow>2240</flow>
+		<speed>44</speed>
+	</station>
+	<station id="12" status="ok">
+		<volume>17.0</volume>
+		<occupancy>17.444445</occupancy>
+		<flow>2040</flow>
+		<speed>44</speed>
+	</station>
+	<station id="13" status="ok">
+		<volume>8.5</volume>
+		<occupancy>8.222222</occupancy>
+		<flow>1020</flow>
+		<speed>58</speed>
+	</station>
+	<station id="14" status="ok">
+		<volume>16.666666</volume>
+		<occupancy>17.833334</occupancy>
+		<flow>2000</flow>
+		<speed>53</speed>
+	</station>
+	<station id="15" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>14.444444</occupancy>
+		<flow>1840</flow>
+		<speed>50</speed>
+	</station>
+	<station id="16" status="ok">
+		<volume>17.0</volume>
+		<occupancy>18.166666</occupancy>
+		<flow>2040</flow>
+		<speed>55</speed>
+	</station>
+	<station id="17" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>13.388889</occupancy>
+		<flow>1720</flow>
+		<speed>51</speed>
+	</station>
+	<station id="18" status="ok">
+		<volume>12.5</volume>
+		<occupancy>11.75</occupancy>
+		<flow>1500</flow>
+		<speed>61</speed>
+	</station>
+	<station id="19" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.851851</occupancy>
+		<flow>1320</flow>
+		<speed>64</speed>
+	</station>
+	<station id="20" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>10.055555</occupancy>
+		<flow>1400</flow>
+		<speed>58</speed>
+	</station>
+	<station id="21" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>12.055556</occupancy>
+		<flow>1520</flow>
+		<speed>59</speed>
+	</station>
+	<station id="22" status="ok">
+		<volume>11.5</volume>
+		<occupancy>10.888889</occupancy>
+		<flow>1380</flow>
+		<speed>56</speed>
+	</station>
+	<station id="23" status="ok">
+		<volume>9.0</volume>
+		<occupancy>5.5833335</occupancy>
+		<flow>1080</flow>
+		<speed>71</speed>
+	</station>
+	<station id="24" status="ok">
+		<volume>16.0</volume>
+		<occupancy>14.611111</occupancy>
+		<flow>1920</flow>
+		<speed>59</speed>
+	</station>
+	<station id="25" status="ok">
+		<volume>15.0</volume>
+		<occupancy>11.972222</occupancy>
+		<flow>1800</flow>
+		<speed>71</speed>
+	</station>
+	<station id="26" status="ok">
+		<volume>14.5</volume>
+		<occupancy>11.388889</occupancy>
+		<flow>1740</flow>
+		<speed>72</speed>
+	</station>
+	<station id="27" status="ok">
+		<volume>13.0</volume>
+		<occupancy>9.722222</occupancy>
+		<flow>1560</flow>
+		<speed>76</speed>
+	</station>
+	<station id="28" status="ok">
+		<volume>11.0</volume>
+		<occupancy>8.166666</occupancy>
+		<flow>1320</flow>
+		<speed>83</speed>
+	</station>
+	<station id="29" status="ok">
+		<volume>16.0</volume>
+		<occupancy>25.333332</occupancy>
+		<flow>1920</flow>
+		<speed>37</speed>
+	</station>
+	<station id="30" status="ok">
+		<volume>16.0</volume>
+		<occupancy>18.194445</occupancy>
+		<flow>1920</flow>
+		<speed>61</speed>
+	</station>
+	<station id="31" status="ok">
+		<volume>20.5</volume>
+		<occupancy>18.472223</occupancy>
+		<flow>2460</flow>
+		<speed>68</speed>
+	</station>
+	<station id="32" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.9444447</occupancy>
+		<flow>1080</flow>
+		<speed>81</speed>
+	</station>
+	<station id="33" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.5</occupancy>
+		<flow>720</flow>
+		<speed>65</speed>
+	</station>
+	<station id="34" status="ok">
+		<volume>15.0</volume>
+		<occupancy>12.638889</occupancy>
+		<flow>1800</flow>
+		<speed>73</speed>
+	</station>
+	<station id="35" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.25</occupancy>
+		<flow>1320</flow>
+		<speed>71</speed>
+	</station>
+	<station id="36" status="ok">
+		<volume>9.0</volume>
+		<occupancy>9.333333</occupancy>
+		<flow>1080</flow>
+		<speed>59</speed>
+	</station>
+	<station id="37" status="ok">
+		<volume>9.5</volume>
+		<occupancy>8.472222</occupancy>
+		<flow>1140</flow>
+		<speed>78</speed>
+	</station>
+	<station id="38" status="ok">
+		<volume>8.5</volume>
+		<occupancy>7.7777777</occupancy>
+		<flow>1020</flow>
+		<speed>61</speed>
+	</station>
+	<station id="39" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.138889</occupancy>
+		<flow>840</flow>
+		<speed>75</speed>
+	</station>
+	<station id="40" status="ok">
+		<volume>18.5</volume>
+		<occupancy>16.666668</occupancy>
+		<flow>2220</flow>
+		<speed>72</speed>
+	</station>
+	<station id="41" status="ok">
+		<volume>9.5</volume>
+		<occupancy>8.972221</occupancy>
+		<flow>1140</flow>
+		<speed>64</speed>
+	</station>
+	<station id="42" status="ok">
+		<volume>14.5</volume>
+		<occupancy>13.583334</occupancy>
+		<flow>1740</flow>
+		<speed>61</speed>
+	</station>
+	<station id="43" status="ok">
+		<volume>5.3333335</volume>
+		<occupancy>4.814815</occupancy>
+		<flow>640</flow>
+		<speed>65</speed>
+	</station>
+	<station id="44" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.3333335</occupancy>
+		<flow>840</flow>
+		<speed>65</speed>
+	</station>
+	<station id="45" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>9.981481</occupancy>
+		<flow>1400</flow>
+		<speed>73</speed>
+	</station>
+	<station id="46" status="ok">
+		<volume>13.0</volume>
+		<occupancy>11.388889</occupancy>
+		<flow>1560</flow>
+		<speed>67</speed>
+	</station>
+	<station id="47" status="ok">
+		<volume>12.0</volume>
+		<occupancy>9.944444</occupancy>
+		<flow>1440</flow>
+		<speed>68</speed>
+	</station>
+	<station id="48" status="ok">
+		<volume>14.5</volume>
+		<occupancy>16.027779</occupancy>
+		<flow>1740</flow>
+		<speed>43</speed>
+	</station>
+	<station id="49" status="ok">
+		<volume>14.0</volume>
+		<occupancy>27.166666</occupancy>
+		<flow>1680</flow>
+		<speed>26</speed>
+	</station>
+	<station id="50" status="ok">
+		<volume>13.666667</volume>
+		<occupancy>23.888891</occupancy>
+		<flow>1640</flow>
+		<speed>30</speed>
+	</station>
+	<station id="51" status="ok">
+		<volume>12.0</volume>
+		<occupancy>14.777778</occupancy>
+		<flow>1440</flow>
+		<speed>43</speed>
+	</station>
+	<station id="52" status="ok">
+		<volume>14.0</volume>
+		<occupancy>19.777779</occupancy>
+		<flow>1680</flow>
+		<speed>40</speed>
+	</station>
+	<station id="53" status="ok">
+		<volume>17.0</volume>
+		<occupancy>21.555555</occupancy>
+		<flow>2040</flow>
+		<speed>40</speed>
+	</station>
+	<station id="54" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>25.092592</occupancy>
+		<flow>1840</flow>
+		<speed>33</speed>
+	</station>
+	<station id="55" status="ok">
+		<volume>16.333334</volume>
+		<occupancy>16.037037</occupancy>
+		<flow>1960</flow>
+		<speed>51</speed>
+	</station>
+	<station id="56" status="ok">
+		<volume>15.0</volume>
+		<occupancy>14.055554</occupancy>
+		<flow>1800</flow>
+		<speed>59</speed>
+	</station>
+	<station id="57" status="ok">
+		<volume>11.75</volume>
+		<occupancy>7.9444447</occupancy>
+		<flow>1410</flow>
+		<speed>57</speed>
+	</station>
+	<station id="58" status="ok">
+		<volume>14.75</volume>
+		<occupancy>11.041667</occupancy>
+		<flow>1770</flow>
+		<speed>68</speed>
+	</station>
+	<station id="59" status="ok">
+		<volume>13.5</volume>
+		<occupancy>13.638888</occupancy>
+		<flow>1620</flow>
+		<speed>51</speed>
+	</station>
+	<station id="60" status="ok">
+		<volume>13.25</volume>
+		<occupancy>12.416667</occupancy>
+		<flow>1590</flow>
+		<speed>53</speed>
+	</station>
+	<station id="61" status="ok">
+		<volume>11.0</volume>
+		<occupancy>10.041667</occupancy>
+		<flow>1320</flow>
+		<speed>53</speed>
+	</station>
+	<station id="62" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>9.351852</occupancy>
+		<flow>1160</flow>
+		<speed>54</speed>
+	</station>
+	<station id="63" status="ok">
+		<volume>11.0</volume>
+		<occupancy>10.694445</occupancy>
+		<flow>1320</flow>
+		<speed>46</speed>
+	</station>
+	<station id="64" status="ok">
+		<volume>5.3333335</volume>
+		<occupancy>4.814815</occupancy>
+		<flow>640</flow>
+		<speed>44</speed>
+	</station>
+	<station id="65" status="ok">
+		<volume>5.0</volume>
+		<occupancy>5.5</occupancy>
+		<flow>600</flow>
+		<speed>53</speed>
+	</station>
+	<station id="66" status="fail"/>
+	<station id="67" status="ok">
+		<volume>12.5</volume>
+		<occupancy>32.666668</occupancy>
+		<flow>1500</flow>
+		<speed>20</speed>
+	</station>
+	<station id="68" status="fail"/>
+	<station id="69" status="fail"/>
+	<station id="70" status="fail"/>
+	<station id="71" status="ok">
+		<volume>9.5</volume>
+		<occupancy>5.7777777</occupancy>
+		<flow>1140</flow>
+		<speed>89</speed>
+	</station>
+	<station id="72" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.5277777</occupancy>
+		<flow>720</flow>
+		<speed>66</speed>
+	</station>
+	<station id="73" status="fail"/>
+	<station id="74" status="ok">
+		<volume>8.0</volume>
+		<occupancy>7.4444447</occupancy>
+		<flow>960</flow>
+		<speed>54</speed>
+	</station>
+	<station id="75" status="fail"/>
+	<station id="76" status="ok">
+		<volume>10.5</volume>
+		<occupancy>45.97222</occupancy>
+		<flow>1260</flow>
+		<speed>15</speed>
+	</station>
+	<station id="77" status="ok">
+		<volume>10.0</volume>
+		<occupancy>15.527779</occupancy>
+		<flow>1200</flow>
+		<speed>52</speed>
+	</station>
+	<station id="78" status="ok">
+		<volume>15.0</volume>
+		<occupancy>25.61111</occupancy>
+		<flow>1800</flow>
+		<speed>43</speed>
+	</station>
+	<station id="79" status="ok">
+		<volume>17.0</volume>
+		<occupancy>20.833332</occupancy>
+		<flow>2040</flow>
+		<speed>51</speed>
+	</station>
+	<station id="80" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>8.148149</occupancy>
+		<flow>1240</flow>
+		<speed>60</speed>
+	</station>
+	<station id="81" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.37037</occupancy>
+		<flow>1200</flow>
+		<speed>82</speed>
+	</station>
+	<station id="82" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>5.5185184</occupancy>
+		<flow>880</flow>
+		<speed>80</speed>
+	</station>
+	<station id="83" status="fail"/>
+	<station id="84" status="fail"/>
+	<station id="85" status="fail"/>
+	<station id="86" status="ok">
+		<volume>11.0</volume>
+		<occupancy>43.055557</occupancy>
+		<flow>1320</flow>
+		<speed>15</speed>
+	</station>
+	<station id="87" status="fail"/>
+	<station id="88" status="fail"/>
+	<station id="89" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>18.25926</occupancy>
+		<flow>1840</flow>
+		<speed>58</speed>
+	</station>
+	<station id="90" status="fail"/>
+	<station id="91" status="ok">
+		<volume>16.666666</volume>
+		<occupancy>16.592592</occupancy>
+		<flow>2000</flow>
+		<speed>61</speed>
+	</station>
+	<station id="92" status="fail"/>
+	<station id="93" status="ok">
+		<volume>16.666666</volume>
+		<occupancy>16.38889</occupancy>
+		<flow>2000</flow>
+		<speed>52</speed>
+	</station>
+	<station id="94" status="fail"/>
+	<station id="95" status="fail"/>
+	<station id="96" status="fail"/>
+	<station id="97" status="ok">
+		<volume>11.333333</volume>
+		<occupancy>13.407407</occupancy>
+		<flow>1360</flow>
+		<speed>57</speed>
+	</station>
+	<station id="98" status="fail"/>
+	<station id="99" status="fail"/>
+	<station id="100" status="fail"/>
+	<station id="101" status="fail"/>
+	<station id="102" status="fail"/>
+	<station id="103" status="ok">
+		<volume>15.0</volume>
+		<occupancy>18.666666</occupancy>
+		<flow>1800</flow>
+		<speed>47</speed>
+	</station>
+	<station id="104" status="fail"/>
+	<station id="105" status="ok">
+		<volume>17.333334</volume>
+		<occupancy>20.5</occupancy>
+		<flow>2080</flow>
+		<speed>45</speed>
+	</station>
+	<station id="106" status="fail"/>
+	<station id="107" status="fail"/>
+	<station id="108" status="ok">
+		<volume>13.0</volume>
+		<occupancy>14.740741</occupancy>
+		<flow>1560</flow>
+		<speed>49</speed>
+	</station>
+	<station id="109" status="ok">
+		<volume>14.0</volume>
+		<occupancy>13.018519</occupancy>
+		<flow>1680</flow>
+		<speed>56</speed>
+	</station>
+	<station id="110" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>7.425926</occupancy>
+		<flow>1160</flow>
+		<speed>56</speed>
+	</station>
+	<station id="111" status="fail"/>
+	<station id="112" status="fail"/>
+	<station id="113" status="fail"/>
+	<station id="114" status="fail"/>
+	<station id="115" status="ok">
+		<volume>13.0</volume>
+		<occupancy>10.1851845</occupancy>
+		<flow>1560</flow>
+		<speed>72</speed>
+	</station>
+	<station id="116" status="ok">
+		<volume>16.5</volume>
+		<occupancy>14.805555</occupancy>
+		<flow>1980</flow>
+		<speed>57</speed>
+	</station>
+	<station id="117" status="fail"/>
+	<station id="118" status="fail"/>
+	<station id="119" status="ok">
+		<volume>11.333333</volume>
+		<occupancy>26.814814</occupancy>
+		<flow>1360</flow>
+		<speed>26</speed>
+	</station>
+	<station id="120" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>13.833333</occupancy>
+		<flow>1840</flow>
+		<speed>55</speed>
+	</station>
+	<station id="121" status="fail"/>
+	<station id="122" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.388889</occupancy>
+		<flow>960</flow>
+		<speed>58</speed>
+	</station>
+	<station id="123" status="ok">
+		<volume>11.25</volume>
+		<occupancy>8.986112</occupancy>
+		<flow>1350</flow>
+		<speed>57</speed>
+	</station>
+	<station id="124" status="ok">
+		<volume>7.75</volume>
+		<occupancy>5.7777777</occupancy>
+		<flow>930</flow>
+		<speed>61</speed>
+	</station>
+	<station id="125" status="ok">
+		<volume>8.5</volume>
+		<occupancy>5.861111</occupancy>
+		<flow>1020</flow>
+		<speed>70</speed>
+	</station>
+	<station id="126" status="ok">
+		<volume>17.25</volume>
+		<occupancy>12.319445</occupancy>
+		<flow>2070</flow>
+		<speed>80</speed>
+	</station>
+	<station id="127" status="fail"/>
+	<station id="128" status="ok">
+		<volume>11.5</volume>
+		<occupancy>10.875</occupancy>
+		<flow>1380</flow>
+		<speed>63</speed>
+	</station>
+	<station id="129" status="fail"/>
+	<station id="130" status="fail"/>
+	<station id="131" status="ok">
+		<volume>12.0</volume>
+		<occupancy>10.75</occupancy>
+		<flow>1440</flow>
+		<speed>71</speed>
+	</station>
+	<station id="132" status="fail"/>
+	<station id="133" status="fail"/>
+	<station id="134" status="ok">
+		<volume>12.5</volume>
+		<occupancy>10.916667</occupancy>
+		<flow>1500</flow>
+		<speed>58</speed>
+	</station>
+	<station id="135" status="ok">
+		<volume>4.0</volume>
+		<occupancy>3.0694447</occupancy>
+		<flow>480</flow>
+		<speed>71</speed>
+	</station>
+	<station id="136" status="ok">
+		<volume>6.0</volume>
+		<occupancy>7.4305563</occupancy>
+		<flow>720</flow>
+		<speed>60</speed>
+	</station>
+	<station id="137" status="ok">
+		<volume>3.5</volume>
+		<occupancy>3.3055558</occupancy>
+		<flow>420</flow>
+		<speed>65</speed>
+	</station>
+	<station id="138" status="ok">
+		<volume>2.0</volume>
+		<occupancy>1.5370369</occupancy>
+		<flow>240</flow>
+		<speed>52</speed>
+	</station>
+	<station id="139" status="fail"/>
+	<station id="140" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.138889</occupancy>
+		<flow>1320</flow>
+		<speed>62</speed>
+	</station>
+	<station id="141" status="ok">
+		<volume>12.5</volume>
+		<occupancy>13.138889</occupancy>
+		<flow>1500</flow>
+		<speed>55</speed>
+	</station>
+	<station id="142" status="ok">
+		<volume>13.0</volume>
+		<occupancy>10.291666</occupancy>
+		<flow>1560</flow>
+		<speed>69</speed>
+	</station>
+	<station id="143" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>6.5185184</occupancy>
+		<flow>920</flow>
+		<speed>81</speed>
+	</station>
+	<station id="144" status="ok">
+		<volume>6.3333335</volume>
+		<occupancy>5.425926</occupancy>
+		<flow>760</flow>
+		<speed>79</speed>
+	</station>
+	<station id="145" status="ok">
+		<volume>12.25</volume>
+		<occupancy>11.430555</occupancy>
+		<flow>1470</flow>
+		<speed>60</speed>
+	</station>
+	<station id="146" status="ok">
+		<volume>4.6666665</volume>
+		<occupancy>3.4444444</occupancy>
+		<flow>560</flow>
+		<speed>73</speed>
+	</station>
+	<station id="147" status="ok">
+		<volume>12.0</volume>
+		<occupancy>10.861111</occupancy>
+		<flow>1440</flow>
+		<speed>68</speed>
+	</station>
+	<station id="148" status="ok">
+		<volume>11.333333</volume>
+		<occupancy>10.851852</occupancy>
+		<flow>1360</flow>
+		<speed>68</speed>
+	</station>
+	<station id="149" status="ok">
+		<volume>12.25</volume>
+		<occupancy>13.625</occupancy>
+		<flow>1470</flow>
+		<speed>55</speed>
+	</station>
+	<station id="150" status="fail"/>
+	<station id="151" status="ok">
+		<volume>8.0</volume>
+		<occupancy>5.944444</occupancy>
+		<flow>960</flow>
+		<speed>84</speed>
+	</station>
+	<station id="152" status="fail"/>
+	<station id="153" status="ok">
+		<volume>7.0</volume>
+		<occupancy>7.7407403</occupancy>
+		<flow>840</flow>
+		<speed>62</speed>
+	</station>
+	<station id="154" status="ok">
+		<volume>8.0</volume>
+		<occupancy>7.8703704</occupancy>
+		<flow>960</flow>
+		<speed>69</speed>
+	</station>
+	<station id="155" status="fail"/>
+	<station id="156" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>12.944446</occupancy>
+		<flow>1400</flow>
+		<speed>63</speed>
+	</station>
+	<station id="157" status="fail"/>
+	<station id="158" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.481482</occupancy>
+		<flow>1080</flow>
+		<speed>74</speed>
+	</station>
+	<station id="159" status="ok">
+		<volume>10.5</volume>
+		<occupancy>7.4722223</occupancy>
+		<flow>1260</flow>
+		<speed>65</speed>
+	</station>
+	<station id="160" status="fail"/>
+	<station id="161" status="fail"/>
+	<station id="162" status="fail"/>
+	<station id="163" status="ok">
+		<volume>13.0</volume>
+		<occupancy>12.018519</occupancy>
+		<flow>1560</flow>
+		<speed>70</speed>
+	</station>
+	<station id="164" status="fail"/>
+	<station id="165" status="ok">
+		<volume>12.5</volume>
+		<occupancy>10.555555</occupancy>
+		<flow>1500</flow>
+		<speed>78</speed>
+	</station>
+	<station id="166" status="ok">
+		<volume>18.0</volume>
+		<occupancy>20.555555</occupancy>
+		<flow>2160</flow>
+		<speed>63</speed>
+	</station>
+	<station id="167" status="fail"/>
+	<station id="168" status="ok">
+		<volume>10.666667</volume>
+		<occupancy>10.851851</occupancy>
+		<flow>1280</flow>
+		<speed>63</speed>
+	</station>
+	<station id="169" status="fail"/>
+	<station id="170" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.0555553</occupancy>
+		<flow>720</flow>
+		<speed>54</speed>
+	</station>
+	<station id="171" status="ok">
+		<volume>13.666667</volume>
+		<occupancy>12.222222</occupancy>
+		<flow>1640</flow>
+		<speed>68</speed>
+	</station>
+	<station id="172" status="ok">
+		<volume>15.0</volume>
+		<occupancy>16.055555</occupancy>
+		<flow>1800</flow>
+		<speed>62</speed>
+	</station>
+	<station id="173" status="ok">
+		<volume>11.0</volume>
+		<occupancy>10.462963</occupancy>
+		<flow>1320</flow>
+		<speed>69</speed>
+	</station>
+	<station id="174" status="ok">
+		<volume>8.0</volume>
+		<occupancy>8.759259</occupancy>
+		<flow>960</flow>
+		<speed>62</speed>
+	</station>
+	<station id="175" status="ok">
+		<volume>13.333333</volume>
+		<occupancy>17.296297</occupancy>
+		<flow>1600</flow>
+		<speed>49</speed>
+	</station>
+	<station id="176" status="ok">
+		<volume>10.5</volume>
+		<occupancy>8.75</occupancy>
+		<flow>1260</flow>
+		<speed>77</speed>
+	</station>
+	<station id="177" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>35.25926</occupancy>
+		<flow>1160</flow>
+		<speed>26</speed>
+	</station>
+	<station id="178" status="ok">
+		<volume>8.666667</volume>
+		<occupancy>7.3703704</occupancy>
+		<flow>1040</flow>
+		<speed>76</speed>
+	</station>
+	<station id="179" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>45.870373</occupancy>
+		<flow>1240</flow>
+		<speed>16</speed>
+	</station>
+	<station id="180" status="ok">
+		<volume>9.0</volume>
+		<occupancy>7.0925927</occupancy>
+		<flow>1080</flow>
+		<speed>83</speed>
+	</station>
+	<station id="181" status="ok">
+		<volume>14.0</volume>
+		<occupancy>10.444444</occupancy>
+		<flow>1680</flow>
+		<speed>67</speed>
+	</station>
+	<station id="182" status="ok">
+		<volume>8.666667</volume>
+		<occupancy>7.574074</occupancy>
+		<flow>1040</flow>
+		<speed>69</speed>
+	</station>
+	<station id="183" status="ok">
+		<volume>9.5</volume>
+		<occupancy>8.861111</occupancy>
+		<flow>1140</flow>
+		<speed>68</speed>
+	</station>
+	<station id="184" status="ok">
+		<volume>12.0</volume>
+		<occupancy>23.777779</occupancy>
+		<flow>1440</flow>
+		<speed>35</speed>
+	</station>
+	<station id="185" status="ok">
+		<volume>9.0</volume>
+		<occupancy>47.574078</occupancy>
+		<flow>1080</flow>
+		<speed>10</speed>
+	</station>
+	<station id="186" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>26.907408</occupancy>
+		<flow>1160</flow>
+		<speed>19</speed>
+	</station>
+	<station id="187" status="ok">
+		<volume>10.5</volume>
+		<occupancy>23.833332</occupancy>
+		<flow>1260</flow>
+		<speed>25</speed>
+	</station>
+	<station id="188" status="fail"/>
+	<station id="189" status="fail"/>
+	<station id="190" status="fail"/>
+	<station id="191" status="fail"/>
+	<station id="192" status="fail"/>
+	<station id="193" status="fail"/>
+	<station id="194" status="fail"/>
+	<station id="195" status="fail"/>
+	<station id="196" status="ok">
+		<volume>16.0</volume>
+		<occupancy>15.592593</occupancy>
+		<flow>1920</flow>
+		<speed>58</speed>
+	</station>
+	<station id="197" status="ok">
+		<volume>19.5</volume>
+		<occupancy>18.75</occupancy>
+		<flow>2340</flow>
+		<speed>61</speed>
+	</station>
+	<station id="198" status="ok">
+		<volume>15.666667</volume>
+		<occupancy>18.481482</occupancy>
+		<flow>1880</flow>
+		<speed>48</speed>
+	</station>
+	<station id="199" status="ok">
+		<volume>5.5</volume>
+		<occupancy>6.111111</occupancy>
+		<flow>660</flow>
+		<speed>60</speed>
+	</station>
+	<station id="200" status="ok">
+		<volume>21.333334</volume>
+		<occupancy>19.61111</occupancy>
+		<flow>2560</flow>
+		<speed>53</speed>
+	</station>
+	<station id="201" status="ok">
+		<volume>19.666666</volume>
+		<occupancy>17.537037</occupancy>
+		<flow>2360</flow>
+		<speed>60</speed>
+	</station>
+	<station id="202" status="ok">
+		<volume>15.666667</volume>
+		<occupancy>11.814815</occupancy>
+		<flow>1880</flow>
+		<speed>58</speed>
+	</station>
+	<station id="203" status="ok">
+		<volume>13.0</volume>
+		<occupancy>15.638889</occupancy>
+		<flow>1560</flow>
+		<speed>62</speed>
+	</station>
+	<station id="204" status="ok">
+		<volume>14.0</volume>
+		<occupancy>14.805555</occupancy>
+		<flow>1680</flow>
+		<speed>69</speed>
+	</station>
+	<station id="205" status="ok">
+		<volume>5.6666665</volume>
+		<occupancy>5.0740743</occupancy>
+		<flow>680</flow>
+		<speed>83</speed>
+	</station>
+	<station id="206" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>8.37037</occupancy>
+		<flow>1120</flow>
+		<speed>74</speed>
+	</station>
+	<station id="207" status="ok">
+		<volume>6.6666665</volume>
+		<occupancy>5.925926</occupancy>
+		<flow>800</flow>
+		<speed>77</speed>
+	</station>
+	<station id="208" status="ok">
+		<volume>14.0</volume>
+		<occupancy>15.833333</occupancy>
+		<flow>1680</flow>
+		<speed>58</speed>
+	</station>
+	<station id="209" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.5833335</occupancy>
+		<flow>900</flow>
+		<speed>79</speed>
+	</station>
+	<station id="210" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.138889</occupancy>
+		<flow>900</flow>
+		<speed>65</speed>
+	</station>
+	<station id="211" status="ok">
+		<volume>8.0</volume>
+		<occupancy>4.8055553</occupancy>
+		<flow>960</flow>
+		<speed>72</speed>
+	</station>
+	<station id="212" status="ok">
+		<volume>5.0</volume>
+		<occupancy>3.3055556</occupancy>
+		<flow>600</flow>
+		<speed>80</speed>
+	</station>
+	<station id="213" status="ok">
+		<volume>14.0</volume>
+		<occupancy>10.805555</occupancy>
+		<flow>1680</flow>
+		<speed>62</speed>
+	</station>
+	<station id="214" status="ok">
+		<volume>2.0</volume>
+		<occupancy>2.3888888</occupancy>
+		<flow>240</flow>
+		<speed>45</speed>
+	</station>
+	<station id="215" status="fail"/>
+	<station id="216" status="fail"/>
+	<station id="217" status="ok">
+		<volume>12.5</volume>
+		<occupancy>26.222221</occupancy>
+		<flow>1500</flow>
+		<speed>37</speed>
+	</station>
+	<station id="218" status="fail"/>
+	<station id="219" status="fail"/>
+	<station id="220" status="fail"/>
+	<station id="221" status="fail"/>
+	<station id="222" status="fail"/>
+	<station id="223" status="fail"/>
+	<station id="224" status="fail"/>
+	<station id="225" status="fail"/>
+	<station id="226" status="fail"/>
+	<station id="227" status="fail"/>
+	<station id="228" status="fail"/>
+	<station id="229" status="fail"/>
+	<station id="230" status="fail"/>
+	<station id="231" status="fail"/>
+	<station id="232" status="fail"/>
+	<station id="233" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.722223</occupancy>
+		<flow>960</flow>
+		<speed>66</speed>
+	</station>
+	<station id="234" status="ok">
+		<volume>6.0</volume>
+		<occupancy>6.361111</occupancy>
+		<flow>720</flow>
+		<speed>61</speed>
+	</station>
+	<station id="235" status="ok">
+		<volume>4.0</volume>
+		<occupancy>3.6296299</occupancy>
+		<flow>480</flow>
+		<speed>56</speed>
+	</station>
+	<station id="236" status="ok">
+		<volume>5.5</volume>
+		<occupancy>3.9444442</occupancy>
+		<flow>660</flow>
+		<speed>61</speed>
+	</station>
+	<station id="237" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.3055553</occupancy>
+		<flow>900</flow>
+		<speed>73</speed>
+	</station>
+	<station id="238" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.416667</occupancy>
+		<flow>1200</flow>
+		<speed>74</speed>
+	</station>
+	<station id="239" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.722222</occupancy>
+		<flow>1320</flow>
+		<speed>57</speed>
+	</station>
+	<station id="240" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.3055553</occupancy>
+		<flow>720</flow>
+		<speed>76</speed>
+	</station>
+	<station id="241" status="ok">
+		<volume>14.0</volume>
+		<occupancy>15.930555</occupancy>
+		<flow>1680</flow>
+		<speed>56</speed>
+	</station>
+	<station id="242" status="ok">
+		<volume>3.5</volume>
+		<occupancy>2.3333333</occupancy>
+		<flow>420</flow>
+		<speed>71</speed>
+	</station>
+	<station id="243" status="ok">
+		<volume>15.0</volume>
+		<occupancy>15.958334</occupancy>
+		<flow>1800</flow>
+		<speed>49</speed>
+	</station>
+	<station id="244" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.314814</occupancy>
+		<flow>840</flow>
+		<speed>57</speed>
+	</station>
+	<station id="245" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.472222</occupancy>
+		<flow>1200</flow>
+		<speed>66</speed>
+	</station>
+	<station id="246" status="ok">
+		<volume>3.25</volume>
+		<occupancy>2.2361112</occupancy>
+		<flow>390</flow>
+		<speed>76</speed>
+	</station>
+	<station id="247" status="ok">
+		<volume>17.75</volume>
+		<occupancy>11.694445</occupancy>
+		<flow>2130</flow>
+		<speed>83</speed>
+	</station>
+	<station id="248" status="ok">
+		<volume>6.75</volume>
+		<occupancy>5.166667</occupancy>
+		<flow>810</flow>
+		<speed>70</speed>
+	</station>
+	<station id="249" status="ok">
+		<volume>12.5</volume>
+		<occupancy>9.986112</occupancy>
+		<flow>1500</flow>
+		<speed>74</speed>
+	</station>
+	<station id="250" status="ok">
+		<volume>7.75</volume>
+		<occupancy>6.9166665</occupancy>
+		<flow>930</flow>
+		<speed>60</speed>
+	</station>
+	<station id="251" status="ok">
+		<volume>10.5</volume>
+		<occupancy>7.75</occupancy>
+		<flow>1260</flow>
+		<speed>79</speed>
+	</station>
+	<station id="252" status="ok">
+		<volume>13.25</volume>
+		<occupancy>12.166667</occupancy>
+		<flow>1590</flow>
+		<speed>74</speed>
+	</station>
+	<station id="253" status="ok">
+		<volume>8.25</volume>
+		<occupancy>6.263889</occupancy>
+		<flow>990</flow>
+		<speed>70</speed>
+	</station>
+	<station id="254" status="ok">
+		<volume>13.333333</volume>
+		<occupancy>12.537037</occupancy>
+		<flow>1600</flow>
+		<speed>54</speed>
+	</station>
+	<station id="255" status="ok">
+		<volume>4.75</volume>
+		<occupancy>6.2916665</occupancy>
+		<flow>570</flow>
+		<speed>60</speed>
+	</station>
+	<station id="256" status="ok">
+		<volume>11.25</volume>
+		<occupancy>8.569444</occupancy>
+		<flow>1350</flow>
+		<speed>66</speed>
+	</station>
+	<station id="257" status="ok">
+		<volume>5.5</volume>
+		<occupancy>5.2638893</occupancy>
+		<flow>660</flow>
+		<speed>65</speed>
+	</station>
+	<station id="258" status="ok">
+		<volume>12.75</volume>
+		<occupancy>13.402778</occupancy>
+		<flow>1530</flow>
+		<speed>61</speed>
+	</station>
+	<station id="259" status="ok">
+		<volume>8.75</volume>
+		<occupancy>6.6527777</occupancy>
+		<flow>1050</flow>
+		<speed>62</speed>
+	</station>
+	<station id="260" status="ok">
+		<volume>3.25</volume>
+		<occupancy>2.8472223</occupancy>
+		<flow>390</flow>
+		<speed>51</speed>
+	</station>
+	<station id="261" status="ok">
+		<volume>4.0</volume>
+		<occupancy>4.361111</occupancy>
+		<flow>480</flow>
+		<speed>50</speed>
+	</station>
+	<station id="262" status="ok">
+		<volume>4.0</volume>
+		<occupancy>3.8055553</occupancy>
+		<flow>480</flow>
+		<speed>50</speed>
+	</station>
+	<station id="263" status="fail"/>
+	<station id="264" status="ok">
+		<volume>8.0</volume>
+		<occupancy>8.444445</occupancy>
+		<flow>960</flow>
+		<speed>61</speed>
+	</station>
+	<station id="265" status="ok">
+		<volume>12.0</volume>
+		<occupancy>10.805555</occupancy>
+		<flow>1440</flow>
+		<speed>76</speed>
+	</station>
+	<station id="266" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.1944444</occupancy>
+		<flow>360</flow>
+		<speed>79</speed>
+	</station>
+	<station id="267" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.3055553</occupancy>
+		<flow>600</flow>
+		<speed>67</speed>
+	</station>
+	<station id="268" status="ok">
+		<volume>4.5</volume>
+		<occupancy>3.5277777</occupancy>
+		<flow>540</flow>
+		<speed>74</speed>
+	</station>
+	<station id="269" status="ok">
+		<volume>3.5</volume>
+		<occupancy>3.8888888</occupancy>
+		<flow>420</flow>
+		<speed>54</speed>
+	</station>
+	<station id="270" status="ok">
+		<volume>12.0</volume>
+		<occupancy>8.888889</occupancy>
+		<flow>1440</flow>
+		<speed>80</speed>
+	</station>
+	<station id="271" status="ok">
+		<volume>9.0</volume>
+		<occupancy>9.5</occupancy>
+		<flow>1080</flow>
+		<speed>56</speed>
+	</station>
+	<station id="272" status="ok">
+		<volume>8.5</volume>
+		<occupancy>8.055555</occupancy>
+		<flow>1020</flow>
+		<speed>67</speed>
+	</station>
+	<station id="273" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.111111</occupancy>
+		<flow>720</flow>
+		<speed>75</speed>
+	</station>
+	<station id="274" status="ok">
+		<volume>12.5</volume>
+		<occupancy>9.222222</occupancy>
+		<flow>1500</flow>
+		<speed>74</speed>
+	</station>
+	<station id="275" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.333334</occupancy>
+		<flow>1200</flow>
+		<speed>74</speed>
+	</station>
+	<station id="276" status="ok">
+		<volume>10.5</volume>
+		<occupancy>10.361111</occupancy>
+		<flow>1260</flow>
+		<speed>69</speed>
+	</station>
+	<station id="277" status="ok">
+		<volume>14.0</volume>
+		<occupancy>9.777779</occupancy>
+		<flow>1680</flow>
+		<speed>63</speed>
+	</station>
+	<station id="278" status="ok">
+		<volume>10.5</volume>
+		<occupancy>7.5</occupancy>
+		<flow>1260</flow>
+		<speed>62</speed>
+	</station>
+	<station id="279" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.7777777</occupancy>
+		<flow>660</flow>
+		<speed>58</speed>
+	</station>
+	<station id="280" status="ok">
+		<volume>12.0</volume>
+		<occupancy>36.75</occupancy>
+		<flow>1440</flow>
+		<speed>26</speed>
+	</station>
+	<station id="281" status="ok">
+		<volume>14.5</volume>
+		<occupancy>15.25</occupancy>
+		<flow>1740</flow>
+		<speed>45</speed>
+	</station>
+	<station id="282" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>16.0</occupancy>
+		<flow>1720</flow>
+		<speed>51</speed>
+	</station>
+	<station id="283" status="ok">
+		<volume>15.0</volume>
+		<occupancy>11.722222</occupancy>
+		<flow>1800</flow>
+		<speed>66</speed>
+	</station>
+	<station id="284" status="ok">
+		<volume>14.666667</volume>
+		<occupancy>14.296296</occupancy>
+		<flow>1760</flow>
+		<speed>53</speed>
+	</station>
+	<station id="285" status="ok">
+		<volume>15.0</volume>
+		<occupancy>10.62963</occupancy>
+		<flow>1800</flow>
+		<speed>66</speed>
+	</station>
+	<station id="286" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>27.166666</occupancy>
+		<flow>1720</flow>
+		<speed>32</speed>
+	</station>
+	<station id="287" status="ok">
+		<volume>16.0</volume>
+		<occupancy>12.166667</occupancy>
+		<flow>1920</flow>
+		<speed>60</speed>
+	</station>
+	<station id="288" status="ok">
+		<volume>8.666667</volume>
+		<occupancy>22.537039</occupancy>
+		<flow>1040</flow>
+		<speed>32</speed>
+	</station>
+	<station id="289" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.611111</occupancy>
+		<flow>720</flow>
+		<speed>56</speed>
+	</station>
+	<station id="290" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.388889</occupancy>
+		<flow>720</flow>
+		<speed>51</speed>
+	</station>
+	<station id="291" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.8518517</occupancy>
+		<flow>360</flow>
+		<speed>59</speed>
+	</station>
+	<station id="292" status="ok">
+		<volume>8.5</volume>
+		<occupancy>8.055555</occupancy>
+		<flow>1020</flow>
+		<speed>65</speed>
+	</station>
+	<station id="293" status="ok">
+		<volume>9.5</volume>
+		<occupancy>8.388889</occupancy>
+		<flow>1140</flow>
+		<speed>71</speed>
+	</station>
+	<station id="294" status="ok">
+		<volume>19.5</volume>
+		<occupancy>17.916666</occupancy>
+		<flow>2340</flow>
+		<speed>58</speed>
+	</station>
+	<station id="295" status="ok">
+		<volume>16.5</volume>
+		<occupancy>13.972222</occupancy>
+		<flow>1980</flow>
+		<speed>67</speed>
+	</station>
+	<station id="296" status="ok">
+		<volume>13.5</volume>
+		<occupancy>11.027778</occupancy>
+		<flow>1620</flow>
+		<speed>71</speed>
+	</station>
+	<station id="297" status="ok">
+		<volume>11.5</volume>
+		<occupancy>8.333334</occupancy>
+		<flow>1380</flow>
+		<speed>77</speed>
+	</station>
+	<station id="298" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.7777777</occupancy>
+		<flow>960</flow>
+		<speed>75</speed>
+	</station>
+	<station id="299" status="ok">
+		<volume>7.0</volume>
+		<occupancy>7.388889</occupancy>
+		<flow>840</flow>
+		<speed>58</speed>
+	</station>
+	<station id="300" status="fail"/>
+	<station id="301" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.8055553</occupancy>
+		<flow>600</flow>
+		<speed>57</speed>
+	</station>
+	<station id="302" status="ok">
+		<volume>2.5</volume>
+		<occupancy>2.1666667</occupancy>
+		<flow>300</flow>
+		<speed>60</speed>
+	</station>
+	<station id="303" status="ok">
+		<volume>8.0</volume>
+		<occupancy>5.7777777</occupancy>
+		<flow>960</flow>
+		<speed>57</speed>
+	</station>
+	<station id="304" status="ok">
+		<volume>8.5</volume>
+		<occupancy>7.3611107</occupancy>
+		<flow>1020</flow>
+		<speed>67</speed>
+	</station>
+	<station id="305" status="fail"/>
+	<station id="306" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.388889</occupancy>
+		<flow>600</flow>
+		<speed>63</speed>
+	</station>
+	<station id="307" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.138889</occupancy>
+		<flow>900</flow>
+		<speed>70</speed>
+	</station>
+	<station id="308" status="ok">
+		<volume>9.5</volume>
+		<occupancy>9.277778</occupancy>
+		<flow>1140</flow>
+		<speed>58</speed>
+	</station>
+	<station id="309" status="fail"/>
+	<station id="310" status="ok">
+		<volume>3.5</volume>
+		<occupancy>1.8333334</occupancy>
+		<flow>420</flow>
+		<speed>85</speed>
+	</station>
+	<station id="311" status="ok">
+		<volume>6.5</volume>
+		<occupancy>6.0</occupancy>
+		<flow>780</flow>
+		<speed>61</speed>
+	</station>
+	<station id="312" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.7777777</occupancy>
+		<flow>840</flow>
+		<speed>63</speed>
+	</station>
+	<station id="313" status="ok">
+		<volume>18.5</volume>
+		<occupancy>15.0</occupancy>
+		<flow>2220</flow>
+		<speed>58</speed>
+	</station>
+	<station id="314" status="ok">
+		<volume>13.0</volume>
+		<occupancy>10.611111</occupancy>
+		<flow>1560</flow>
+		<speed>57</speed>
+	</station>
+	<station id="315" status="ok">
+		<volume>14.5</volume>
+		<occupancy>13.722221</occupancy>
+		<flow>1740</flow>
+		<speed>55</speed>
+	</station>
+	<station id="316" status="ok">
+		<volume>14.0</volume>
+		<occupancy>29.38889</occupancy>
+		<flow>1680</flow>
+		<speed>20</speed>
+	</station>
+	<station id="317" status="ok">
+		<volume>10.5</volume>
+		<occupancy>40.52778</occupancy>
+		<flow>1260</flow>
+		<speed>13</speed>
+	</station>
+	<station id="318" status="ok">
+		<volume>16.0</volume>
+		<occupancy>13.333333</occupancy>
+		<flow>1920</flow>
+		<speed>63</speed>
+	</station>
+	<station id="319" status="ok">
+		<volume>9.0</volume>
+		<occupancy>33.25</occupancy>
+		<flow>1080</flow>
+		<speed>12</speed>
+	</station>
+	<station id="320" status="ok">
+		<volume>13.0</volume>
+		<occupancy>34.75</occupancy>
+		<flow>1560</flow>
+		<speed>26</speed>
+	</station>
+	<station id="321" status="ok">
+		<volume>12.5</volume>
+		<occupancy>22.25</occupancy>
+		<flow>1500</flow>
+		<speed>31</speed>
+	</station>
+	<station id="322" status="ok">
+		<volume>12.5</volume>
+		<occupancy>13.666667</occupancy>
+		<flow>1500</flow>
+		<speed>53</speed>
+	</station>
+	<station id="323" status="ok">
+		<volume>12.5</volume>
+		<occupancy>13.666667</occupancy>
+		<flow>1500</flow>
+		<speed>55</speed>
+	</station>
+	<station id="324" status="ok">
+		<volume>5.0</volume>
+		<occupancy>3.5833333</occupancy>
+		<flow>600</flow>
+		<speed>72</speed>
+	</station>
+	<station id="325" status="ok">
+		<volume>9.0</volume>
+		<occupancy>7.3888893</occupancy>
+		<flow>1080</flow>
+		<speed>58</speed>
+	</station>
+	<station id="326" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.138889</occupancy>
+		<flow>600</flow>
+		<speed>53</speed>
+	</station>
+	<station id="327" status="ok">
+		<volume>10.5</volume>
+		<occupancy>7.6666665</occupancy>
+		<flow>1260</flow>
+		<speed>57</speed>
+	</station>
+	<station id="328" status="fail"/>
+	<station id="329" status="fail"/>
+	<station id="330" status="ok">
+		<volume>12.5</volume>
+		<occupancy>9.444445</occupancy>
+		<flow>1500</flow>
+		<speed>57</speed>
+	</station>
+	<station id="331" status="ok">
+		<volume>13.0</volume>
+		<occupancy>8.638889</occupancy>
+		<flow>1560</flow>
+		<speed>62</speed>
+	</station>
+	<station id="332" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.2777777</occupancy>
+		<flow>720</flow>
+		<speed>63</speed>
+	</station>
+	<station id="333" status="ok">
+		<volume>12.5</volume>
+		<occupancy>11.305555</occupancy>
+		<flow>1500</flow>
+		<speed>64</speed>
+	</station>
+	<station id="334" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.7222223</occupancy>
+		<flow>840</flow>
+		<speed>72</speed>
+	</station>
+	<station id="335" status="fail"/>
+	<station id="336" status="ok">
+		<volume>12.333333</volume>
+		<occupancy>17.037037</occupancy>
+		<flow>1480</flow>
+		<speed>36</speed>
+	</station>
+	<station id="337" status="ok">
+		<volume>15.5</volume>
+		<occupancy>14.972222</occupancy>
+		<flow>1860</flow>
+		<speed>57</speed>
+	</station>
+	<station id="338" status="ok">
+		<volume>20.0</volume>
+		<occupancy>18.083334</occupancy>
+		<flow>2400</flow>
+		<speed>70</speed>
+	</station>
+	<station id="339" status="ok">
+		<volume>14.0</volume>
+		<occupancy>12.305555</occupancy>
+		<flow>1680</flow>
+		<speed>67</speed>
+	</station>
+	<station id="340" status="ok">
+		<volume>11.0</volume>
+		<occupancy>8.638889</occupancy>
+		<flow>1320</flow>
+		<speed>63</speed>
+	</station>
+	<station id="341" status="ok">
+		<volume>14.0</volume>
+		<occupancy>12.25</occupancy>
+		<flow>1680</flow>
+		<speed>65</speed>
+	</station>
+	<station id="342" status="ok">
+		<volume>20.0</volume>
+		<occupancy>21.194445</occupancy>
+		<flow>2400</flow>
+		<speed>56</speed>
+	</station>
+	<station id="343" status="ok">
+		<volume>18.0</volume>
+		<occupancy>15.916666</occupancy>
+		<flow>2160</flow>
+		<speed>65</speed>
+	</station>
+	<station id="344" status="ok">
+		<volume>19.5</volume>
+		<occupancy>17.583334</occupancy>
+		<flow>2340</flow>
+		<speed>63</speed>
+	</station>
+	<station id="345" status="ok">
+		<volume>9.5</volume>
+		<occupancy>8.805555</occupancy>
+		<flow>1140</flow>
+		<speed>61</speed>
+	</station>
+	<station id="346" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.4444447</occupancy>
+		<flow>600</flow>
+		<speed>63</speed>
+	</station>
+	<station id="347" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>7.7037034</occupancy>
+		<flow>1160</flow>
+		<speed>67</speed>
+	</station>
+	<station id="348" status="ok">
+		<volume>6.3333335</volume>
+		<occupancy>4.944444</occupancy>
+		<flow>760</flow>
+		<speed>63</speed>
+	</station>
+	<station id="349" status="ok">
+		<volume>6.6666665</volume>
+		<occupancy>5.0925927</occupancy>
+		<flow>800</flow>
+		<speed>72</speed>
+	</station>
+	<station id="350" status="fail"/>
+	<station id="351" status="ok">
+		<volume>12.0</volume>
+		<occupancy>22.38889</occupancy>
+		<flow>1440</flow>
+		<speed>27</speed>
+	</station>
+	<station id="352" status="ok">
+		<volume>14.5</volume>
+		<occupancy>29.916666</occupancy>
+		<flow>1740</flow>
+		<speed>22</speed>
+	</station>
+	<station id="353" status="ok">
+		<volume>15.0</volume>
+		<occupancy>15.416666</occupancy>
+		<flow>1800</flow>
+		<speed>40</speed>
+	</station>
+	<station id="354" status="ok">
+		<volume>21.0</volume>
+		<occupancy>20.694445</occupancy>
+		<flow>2520</flow>
+		<speed>50</speed>
+	</station>
+	<station id="355" status="ok">
+		<volume>15.5</volume>
+		<occupancy>13.638889</occupancy>
+		<flow>1860</flow>
+		<speed>56</speed>
+	</station>
+	<station id="356" status="ok">
+		<volume>9.5</volume>
+		<occupancy>7.8333335</occupancy>
+		<flow>1140</flow>
+		<speed>57</speed>
+	</station>
+	<station id="357" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.611111</occupancy>
+		<flow>840</flow>
+		<speed>62</speed>
+	</station>
+	<station id="358" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.0277777</occupancy>
+		<flow>660</flow>
+		<speed>61</speed>
+	</station>
+	<station id="359" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.4722223</occupancy>
+		<flow>660</flow>
+		<speed>69</speed>
+	</station>
+	<station id="360" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>6.851852</occupancy>
+		<flow>920</flow>
+		<speed>65</speed>
+	</station>
+	<station id="361" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.694444</occupancy>
+		<flow>840</flow>
+		<speed>69</speed>
+	</station>
+	<station id="362" status="ok">
+		<volume>14.5</volume>
+		<occupancy>13.833333</occupancy>
+		<flow>1740</flow>
+		<speed>60</speed>
+	</station>
+	<station id="363" status="ok">
+		<volume>9.0</volume>
+		<occupancy>7.4444447</occupancy>
+		<flow>1080</flow>
+		<speed>74</speed>
+	</station>
+	<station id="364" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.555556</occupancy>
+		<flow>960</flow>
+		<speed>69</speed>
+	</station>
+	<station id="365" status="ok">
+		<volume>17.0</volume>
+		<occupancy>16.722221</occupancy>
+		<flow>2040</flow>
+		<speed>50</speed>
+	</station>
+	<station id="366" status="ok">
+		<volume>8.0</volume>
+		<occupancy>5.4444447</occupancy>
+		<flow>960</flow>
+		<speed>88</speed>
+	</station>
+	<station id="367" status="ok">
+		<volume>11.0</volume>
+		<occupancy>6.3888893</occupancy>
+		<flow>1320</flow>
+		<speed>66</speed>
+	</station>
+	<station id="368" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.666666</occupancy>
+		<flow>1200</flow>
+		<speed>62</speed>
+	</station>
+	<station id="369" status="ok">
+		<volume>10.5</volume>
+		<occupancy>9.25</occupancy>
+		<flow>1260</flow>
+		<speed>61</speed>
+	</station>
+	<station id="370" status="fail"/>
+	<station id="371" status="ok">
+		<volume>10.0</volume>
+		<occupancy>9.777778</occupancy>
+		<flow>1200</flow>
+		<speed>51</speed>
+	</station>
+	<station id="372" status="fail"/>
+	<station id="373" status="fail"/>
+	<station id="374" status="fail"/>
+	<station id="375" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>8.703704</occupancy>
+		<flow>1160</flow>
+		<speed>66</speed>
+	</station>
+	<station id="376" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>5.4444447</occupancy>
+		<flow>880</flow>
+		<speed>67</speed>
+	</station>
+	<station id="377" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.4444447</occupancy>
+		<flow>840</flow>
+		<speed>65</speed>
+	</station>
+	<station id="378" status="ok">
+		<volume>12.0</volume>
+		<occupancy>7.555556</occupancy>
+		<flow>1440</flow>
+		<speed>88</speed>
+	</station>
+	<station id="379" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>10.407407</occupancy>
+		<flow>1720</flow>
+		<speed>68</speed>
+	</station>
+	<station id="380" status="ok">
+		<volume>13.333333</volume>
+		<occupancy>9.814815</occupancy>
+		<flow>1600</flow>
+		<speed>64</speed>
+	</station>
+	<station id="381" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>25.018518</occupancy>
+		<flow>920</flow>
+		<speed>24</speed>
+	</station>
+	<station id="382" status="ok">
+		<volume>10.0</volume>
+		<occupancy>42.25926</occupancy>
+		<flow>1200</flow>
+		<speed>14</speed>
+	</station>
+	<station id="383" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>44.685184</occupancy>
+		<flow>920</flow>
+		<speed>20</speed>
+	</station>
+	<station id="384" status="ok">
+		<volume>10.5</volume>
+		<occupancy>45.555557</occupancy>
+		<flow>1260</flow>
+		<speed>12</speed>
+	</station>
+	<station id="385" status="fail"/>
+	<station id="386" status="ok">
+		<volume>16.0</volume>
+		<occupancy>25.944445</occupancy>
+		<flow>1920</flow>
+		<speed>32</speed>
+	</station>
+	<station id="387" status="ok">
+		<volume>19.0</volume>
+		<occupancy>28.36111</occupancy>
+		<flow>2280</flow>
+		<speed>42</speed>
+	</station>
+	<station id="388" status="ok">
+		<volume>11.0</volume>
+		<occupancy>8.777778</occupancy>
+		<flow>1320</flow>
+		<speed>66</speed>
+	</station>
+	<station id="389" status="ok">
+		<volume>11.5</volume>
+		<occupancy>7.8333335</occupancy>
+		<flow>1380</flow>
+		<speed>60</speed>
+	</station>
+	<station id="390" status="fail"/>
+	<station id="391" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>10.018519</occupancy>
+		<flow>1240</flow>
+		<speed>59</speed>
+	</station>
+	<station id="392" status="fail"/>
+	<station id="393" status="fail"/>
+	<station id="394" status="fail"/>
+	<station id="395" status="fail"/>
+	<station id="396" status="fail"/>
+	<station id="397" status="fail"/>
+	<station id="398" status="fail"/>
+	<station id="399" status="fail"/>
+	<station id="400" status="fail"/>
+	<station id="401" status="fail"/>
+	<station id="402" status="fail"/>
+	<station id="403" status="fail"/>
+	<station id="404" status="fail"/>
+	<station id="405" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.4814816</occupancy>
+		<flow>360</flow>
+		<speed>67</speed>
+	</station>
+	<station id="406" status="fail"/>
+	<station id="407" status="ok">
+		<volume>3.6666667</volume>
+		<occupancy>3.074074</occupancy>
+		<flow>440</flow>
+		<speed>62</speed>
+	</station>
+	<station id="408" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>11.759259</occupancy>
+		<flow>1520</flow>
+		<speed>61</speed>
+	</station>
+	<station id="409" status="ok">
+		<volume>12.333333</volume>
+		<occupancy>12.462963</occupancy>
+		<flow>1480</flow>
+		<speed>60</speed>
+	</station>
+	<station id="410" status="ok">
+		<volume>17.0</volume>
+		<occupancy>17.36111</occupancy>
+		<flow>2040</flow>
+		<speed>54</speed>
+	</station>
+	<station id="411" status="fail"/>
+	<station id="412" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>7.4814816</occupancy>
+		<flow>1160</flow>
+		<speed>62</speed>
+	</station>
+	<station id="413" status="ok">
+		<volume>10.666667</volume>
+		<occupancy>8.703704</occupancy>
+		<flow>1280</flow>
+		<speed>61</speed>
+	</station>
+	<station id="414" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>8.962963</occupancy>
+		<flow>1520</flow>
+		<speed>61</speed>
+	</station>
+	<station id="415" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>5.4259257</occupancy>
+		<flow>920</flow>
+		<speed>62</speed>
+	</station>
+	<station id="416" status="ok">
+		<volume>13.333333</volume>
+		<occupancy>9.888889</occupancy>
+		<flow>1600</flow>
+		<speed>60</speed>
+	</station>
+	<station id="417" status="ok">
+		<volume>9.0</volume>
+		<occupancy>7.148148</occupancy>
+		<flow>1080</flow>
+		<speed>65</speed>
+	</station>
+	<station id="418" status="ok">
+		<volume>3.6666667</volume>
+		<occupancy>2.907407</occupancy>
+		<flow>440</flow>
+		<speed>67</speed>
+	</station>
+	<station id="419" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.5</occupancy>
+		<flow>1320</flow>
+		<speed>63</speed>
+	</station>
+	<station id="420" status="ok">
+		<volume>6.6666665</volume>
+		<occupancy>7.055556</occupancy>
+		<flow>800</flow>
+		<speed>62</speed>
+	</station>
+	<station id="421" status="ok">
+		<volume>12.0</volume>
+		<occupancy>43.47222</occupancy>
+		<flow>1440</flow>
+		<speed>20</speed>
+	</station>
+	<station id="422" status="fail"/>
+	<station id="423" status="ok">
+		<volume>3.3333333</volume>
+		<occupancy>2.4444444</occupancy>
+		<flow>400</flow>
+		<speed>82</speed>
+	</station>
+	<station id="424" status="ok">
+		<volume>4.3333335</volume>
+		<occupancy>3.2407408</occupancy>
+		<flow>520</flow>
+		<speed>76</speed>
+	</station>
+	<station id="425" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>7.9074073</occupancy>
+		<flow>1160</flow>
+		<speed>72</speed>
+	</station>
+	<station id="426" status="ok">
+		<volume>1.0</volume>
+		<occupancy>0.9166667</occupancy>
+		<flow>120</flow>
+		<speed>84</speed>
+	</station>
+	<station id="427" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.7777777</occupancy>
+		<flow>840</flow>
+		<speed>78</speed>
+	</station>
+	<station id="428" status="ok">
+		<volume>15.0</volume>
+		<occupancy>12.972222</occupancy>
+		<flow>1800</flow>
+		<speed>74</speed>
+	</station>
+	<station id="429" status="ok">
+		<volume>6.5</volume>
+		<occupancy>4.111111</occupancy>
+		<flow>780</flow>
+		<speed>80</speed>
+	</station>
+	<station id="430" status="ok">
+		<volume>12.5</volume>
+		<occupancy>12.138889</occupancy>
+		<flow>1500</flow>
+		<speed>67</speed>
+	</station>
+	<station id="431" status="ok">
+		<volume>12.5</volume>
+		<occupancy>10.444445</occupancy>
+		<flow>1500</flow>
+		<speed>69</speed>
+	</station>
+	<station id="432" status="ok">
+		<volume>11.0</volume>
+		<occupancy>17.61111</occupancy>
+		<flow>1320</flow>
+		<speed>40</speed>
+	</station>
+	<station id="433" status="ok">
+		<volume>17.0</volume>
+		<occupancy>40.5</occupancy>
+		<flow>2040</flow>
+		<speed>25</speed>
+	</station>
+	<station id="434" status="ok">
+		<volume>12.5</volume>
+		<occupancy>38.97222</occupancy>
+		<flow>1500</flow>
+		<speed>22</speed>
+	</station>
+	<station id="435" status="ok">
+		<volume>16.5</volume>
+		<occupancy>28.916666</occupancy>
+		<flow>1980</flow>
+		<speed>34</speed>
+	</station>
+	<station id="436" status="fail"/>
+	<station id="437" status="ok">
+		<volume>13.0</volume>
+		<occupancy>32.805557</occupancy>
+		<flow>1560</flow>
+		<speed>25</speed>
+	</station>
+	<station id="438" status="ok">
+		<volume>17.0</volume>
+		<occupancy>28.722221</occupancy>
+		<flow>2040</flow>
+		<speed>35</speed>
+	</station>
+	<station id="439" status="ok">
+		<volume>13.0</volume>
+		<occupancy>26.194445</occupancy>
+		<flow>1560</flow>
+		<speed>24</speed>
+	</station>
+	<station id="440" status="ok">
+		<volume>13.0</volume>
+		<occupancy>22.86111</occupancy>
+		<flow>1560</flow>
+		<speed>33</speed>
+	</station>
+	<station id="441" status="ok">
+		<volume>12.5</volume>
+		<occupancy>42.13889</occupancy>
+		<flow>1500</flow>
+		<speed>20</speed>
+	</station>
+	<station id="442" status="ok">
+		<volume>14.5</volume>
+		<occupancy>26.61111</occupancy>
+		<flow>1740</flow>
+		<speed>38</speed>
+	</station>
+	<station id="443" status="ok">
+		<volume>15.0</volume>
+		<occupancy>34.97222</occupancy>
+		<flow>1800</flow>
+		<speed>23</speed>
+	</station>
+	<station id="444" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>7.648148</occupancy>
+		<flow>1240</flow>
+		<speed>76</speed>
+	</station>
+	<station id="445" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.037038</occupancy>
+		<flow>1200</flow>
+		<speed>72</speed>
+	</station>
+	<station id="446" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.583333</occupancy>
+		<flow>660</flow>
+		<speed>65</speed>
+	</station>
+	<station id="447" status="ok">
+		<volume>14.5</volume>
+		<occupancy>15.194445</occupancy>
+		<flow>1740</flow>
+		<speed>62</speed>
+	</station>
+	<station id="448" status="ok">
+		<volume>16.0</volume>
+		<occupancy>16.833332</occupancy>
+		<flow>1920</flow>
+		<speed>66</speed>
+	</station>
+	<station id="449" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.4305553</occupancy>
+		<flow>900</flow>
+		<speed>66</speed>
+	</station>
+	<station id="450" status="ok">
+		<volume>14.0</volume>
+		<occupancy>16.61111</occupancy>
+		<flow>1680</flow>
+		<speed>57</speed>
+	</station>
+	<station id="451" status="ok">
+		<volume>14.0</volume>
+		<occupancy>12.805555</occupancy>
+		<flow>1680</flow>
+		<speed>65</speed>
+	</station>
+	<station id="452" status="ok">
+		<volume>18.5</volume>
+		<occupancy>17.694445</occupancy>
+		<flow>2220</flow>
+		<speed>65</speed>
+	</station>
+	<station id="453" status="ok">
+		<volume>12.0</volume>
+		<occupancy>9.388889</occupancy>
+		<flow>1440</flow>
+		<speed>68</speed>
+	</station>
+	<station id="454" status="fail"/>
+	<station id="455" status="ok">
+		<volume>11.0</volume>
+		<occupancy>10.916666</occupancy>
+		<flow>1320</flow>
+		<speed>62</speed>
+	</station>
+	<station id="456" status="ok">
+		<volume>14.5</volume>
+		<occupancy>13.805555</occupancy>
+		<flow>1740</flow>
+		<speed>62</speed>
+	</station>
+	<station id="457" status="ok">
+		<volume>14.0</volume>
+		<occupancy>11.25</occupancy>
+		<flow>1680</flow>
+		<speed>77</speed>
+	</station>
+	<station id="458" status="ok">
+		<volume>11.0</volume>
+		<occupancy>8.222222</occupancy>
+		<flow>1320</flow>
+		<speed>71</speed>
+	</station>
+	<station id="459" status="ok">
+		<volume>8.5</volume>
+		<occupancy>7.25</occupancy>
+		<flow>1020</flow>
+		<speed>75</speed>
+	</station>
+	<station id="460" status="ok">
+		<volume>9.0</volume>
+		<occupancy>7.0277777</occupancy>
+		<flow>1080</flow>
+		<speed>79</speed>
+	</station>
+	<station id="461" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.083333</occupancy>
+		<flow>1080</flow>
+		<speed>68</speed>
+	</station>
+	<station id="462" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.916667</occupancy>
+		<flow>840</flow>
+		<speed>76</speed>
+	</station>
+	<station id="463" status="ok">
+		<volume>8.5</volume>
+		<occupancy>8.722222</occupancy>
+		<flow>1020</flow>
+		<speed>69</speed>
+	</station>
+	<station id="464" status="fail"/>
+	<station id="465" status="ok">
+		<volume>10.0</volume>
+		<occupancy>38.5</occupancy>
+		<flow>1200</flow>
+		<speed>16</speed>
+	</station>
+	<station id="466" status="ok">
+		<volume>13.0</volume>
+		<occupancy>36.277782</occupancy>
+		<flow>1560</flow>
+		<speed>18</speed>
+	</station>
+	<station id="467" status="ok">
+		<volume>18.333334</volume>
+		<occupancy>30.611113</occupancy>
+		<flow>2200</flow>
+		<speed>36</speed>
+	</station>
+	<station id="468" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>15.666667</occupancy>
+		<flow>1840</flow>
+		<speed>65</speed>
+	</station>
+	<station id="469" status="ok">
+		<volume>13.75</volume>
+		<occupancy>9.888889</occupancy>
+		<flow>1650</flow>
+		<speed>57</speed>
+	</station>
+	<station id="470" status="ok">
+		<volume>13.0</volume>
+		<occupancy>14.277778</occupancy>
+		<flow>1560</flow>
+		<speed>61</speed>
+	</station>
+	<station id="471" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.611111</occupancy>
+		<flow>1080</flow>
+		<speed>70</speed>
+	</station>
+	<station id="472" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.444445</occupancy>
+		<flow>1200</flow>
+		<speed>77</speed>
+	</station>
+	<station id="473" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.1666667</occupancy>
+		<flow>360</flow>
+		<speed>89</speed>
+	</station>
+	<station id="474" status="fail"/>
+	<station id="475" status="fail"/>
+	<station id="476" status="fail"/>
+	<station id="477" status="fail"/>
+	<station id="478" status="fail"/>
+	<station id="479" status="ok">
+		<volume>13.666667</volume>
+		<occupancy>10.703704</occupancy>
+		<flow>1640</flow>
+		<speed>65</speed>
+	</station>
+	<station id="480" status="fail"/>
+	<station id="481" status="fail"/>
+	<station id="482" status="ok">
+		<volume>5.0</volume>
+		<occupancy>2.0555556</occupancy>
+		<flow>600</flow>
+		<speed>124</speed>
+	</station>
+	<station id="483" status="fail"/>
+	<station id="484" status="ok">
+		<volume>5.0</volume>
+		<occupancy>5.638889</occupancy>
+		<flow>600</flow>
+		<speed>56</speed>
+	</station>
+	<station id="485" status="ok">
+		<volume>6.5</volume>
+		<occupancy>6.0555553</occupancy>
+		<flow>780</flow>
+		<speed>67</speed>
+	</station>
+	<station id="486" status="ok">
+		<volume>14.5</volume>
+		<occupancy>12.527779</occupancy>
+		<flow>1740</flow>
+		<speed>73</speed>
+	</station>
+	<station id="487" status="ok">
+		<volume>7.5</volume>
+		<occupancy>32.61111</occupancy>
+		<flow>900</flow>
+		<speed>15</speed>
+	</station>
+	<station id="488" status="ok">
+		<volume>15.5</volume>
+		<occupancy>15.611111</occupancy>
+		<flow>1860</flow>
+		<speed>59</speed>
+	</station>
+	<station id="489" status="ok">
+		<volume>12.0</volume>
+		<occupancy>11.018519</occupancy>
+		<flow>1440</flow>
+		<speed>68</speed>
+	</station>
+	<station id="490" status="ok">
+		<volume>11.25</volume>
+		<occupancy>17.75</occupancy>
+		<flow>1350</flow>
+		<speed>40</speed>
+	</station>
+	<station id="491" status="ok">
+		<volume>11.0</volume>
+		<occupancy>39.722225</occupancy>
+		<flow>1320</flow>
+		<speed>19</speed>
+	</station>
+	<station id="492" status="ok">
+		<volume>17.0</volume>
+		<occupancy>13.055556</occupancy>
+		<flow>2040</flow>
+		<speed>73</speed>
+	</station>
+	<station id="493" status="ok">
+		<volume>12.0</volume>
+		<occupancy>9.888889</occupancy>
+		<flow>1440</flow>
+		<speed>69</speed>
+	</station>
+	<station id="494" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>7.4444447</occupancy>
+		<flow>1120</flow>
+		<speed>77</speed>
+	</station>
+	<station id="495" status="ok">
+		<volume>12.0</volume>
+		<occupancy>8.722222</occupancy>
+		<flow>1440</flow>
+		<speed>58</speed>
+	</station>
+	<station id="496" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.4444444</occupancy>
+		<flow>360</flow>
+		<speed>58</speed>
+	</station>
+	<station id="497" status="ok">
+		<volume>8.0</volume>
+		<occupancy>5.8333335</occupancy>
+		<flow>960</flow>
+		<speed>61</speed>
+	</station>
+	<station id="498" status="ok">
+		<volume>11.0</volume>
+		<occupancy>7.638889</occupancy>
+		<flow>1320</flow>
+		<speed>63</speed>
+	</station>
+	<station id="499" status="ok">
+		<volume>8.333333</volume>
+		<occupancy>61.037037</occupancy>
+		<flow>1000</flow>
+		<speed>12</speed>
+	</station>
+	<station id="500" status="ok">
+		<volume>7.0</volume>
+		<occupancy>25.129631</occupancy>
+		<flow>840</flow>
+		<speed>42</speed>
+	</station>
+	<station id="501" status="ok">
+		<volume>4.5</volume>
+		<occupancy>2.9722223</occupancy>
+		<flow>540</flow>
+		<speed>74</speed>
+	</station>
+	<station id="502" status="ok">
+		<volume>4.5</volume>
+		<occupancy>3.3888888</occupancy>
+		<flow>540</flow>
+		<speed>61</speed>
+	</station>
+	<station id="503" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.6111107</occupancy>
+		<flow>1080</flow>
+		<speed>64</speed>
+	</station>
+	<station id="504" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>8.722222</occupancy>
+		<flow>1400</flow>
+		<speed>64</speed>
+	</station>
+	<station id="505" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.907407</occupancy>
+		<flow>1200</flow>
+		<speed>70</speed>
+	</station>
+	<station id="506" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.388889</occupancy>
+		<flow>720</flow>
+		<speed>80</speed>
+	</station>
+	<station id="507" status="ok">
+		<volume>13.666667</volume>
+		<occupancy>11.203704</occupancy>
+		<flow>1640</flow>
+		<speed>70</speed>
+	</station>
+	<station id="508" status="ok">
+		<volume>13.5</volume>
+		<occupancy>10.972222</occupancy>
+		<flow>1620</flow>
+		<speed>70</speed>
+	</station>
+	<station id="509" status="ok">
+		<volume>9.0</volume>
+		<occupancy>62.38889</occupancy>
+		<flow>1080</flow>
+		<speed>9</speed>
+	</station>
+	<station id="510" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.8055553</occupancy>
+		<flow>840</flow>
+		<speed>57</speed>
+	</station>
+	<station id="511" status="ok">
+		<volume>12.0</volume>
+		<occupancy>22.11111</occupancy>
+		<flow>1440</flow>
+		<speed>33</speed>
+	</station>
+	<station id="512" status="ok">
+		<volume>11.0</volume>
+		<occupancy>29.38889</occupancy>
+		<flow>1320</flow>
+		<speed>23</speed>
+	</station>
+	<station id="513" status="ok">
+		<volume>14.5</volume>
+		<occupancy>32.805557</occupancy>
+		<flow>1740</flow>
+		<speed>25</speed>
+	</station>
+	<station id="514" status="ok">
+		<volume>15.5</volume>
+		<occupancy>17.305555</occupancy>
+		<flow>1860</flow>
+		<speed>57</speed>
+	</station>
+	<station id="515" status="ok">
+		<volume>13.5</volume>
+		<occupancy>27.63889</occupancy>
+		<flow>1620</flow>
+		<speed>32</speed>
+	</station>
+	<station id="516" status="ok">
+		<volume>14.5</volume>
+		<occupancy>16.86111</occupancy>
+		<flow>1740</flow>
+		<speed>47</speed>
+	</station>
+	<station id="517" status="ok">
+		<volume>16.5</volume>
+		<occupancy>20.61111</occupancy>
+		<flow>1980</flow>
+		<speed>51</speed>
+	</station>
+	<station id="518" status="ok">
+		<volume>9.0</volume>
+		<occupancy>37.305557</occupancy>
+		<flow>1080</flow>
+		<speed>13</speed>
+	</station>
+	<station id="519" status="ok">
+		<volume>2.0</volume>
+		<occupancy>2.0277777</occupancy>
+		<flow>240</flow>
+		<speed>59</speed>
+	</station>
+	<station id="520" status="fail"/>
+	<station id="521" status="fail"/>
+	<station id="522" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.351852</occupancy>
+		<flow>840</flow>
+		<speed>69</speed>
+	</station>
+	<station id="523" status="ok">
+		<volume>3.25</volume>
+		<occupancy>2.4583335</occupancy>
+		<flow>390</flow>
+		<speed>69</speed>
+	</station>
+	<station id="524" status="ok">
+		<volume>3.75</volume>
+		<occupancy>3.3888888</occupancy>
+		<flow>450</flow>
+		<speed>64</speed>
+	</station>
+	<station id="525" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.388889</occupancy>
+		<flow>840</flow>
+		<speed>62</speed>
+	</station>
+	<station id="526" status="ok">
+		<volume>9.5</volume>
+		<occupancy>7.611111</occupancy>
+		<flow>1140</flow>
+		<speed>63</speed>
+	</station>
+	<station id="527" status="ok">
+		<volume>15.0</volume>
+		<occupancy>14.944445</occupancy>
+		<flow>1800</flow>
+		<speed>53</speed>
+	</station>
+	<station id="528" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.361111</occupancy>
+		<flow>1080</flow>
+		<speed>59</speed>
+	</station>
+	<station id="529" status="ok">
+		<volume>10.5</volume>
+		<occupancy>7.2222223</occupancy>
+		<flow>1260</flow>
+		<speed>68</speed>
+	</station>
+	<station id="530" status="fail"/>
+	<station id="531" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.25</occupancy>
+		<flow>1320</flow>
+		<speed>65</speed>
+	</station>
+	<station id="532" status="fail"/>
+	<station id="533" status="fail"/>
+	<station id="534" status="ok">
+		<volume>8.5</volume>
+		<occupancy>8.0</occupancy>
+		<flow>1020</flow>
+		<speed>64</speed>
+	</station>
+	<station id="535" status="fail"/>
+	<station id="536" status="ok">
+		<volume>11.0</volume>
+		<occupancy>6.888889</occupancy>
+		<flow>1320</flow>
+		<speed>71</speed>
+	</station>
+	<station id="537" status="ok">
+		<volume>15.0</volume>
+		<occupancy>15.361111</occupancy>
+		<flow>1800</flow>
+		<speed>59</speed>
+	</station>
+	<station id="538" status="ok">
+		<volume>8.5</volume>
+		<occupancy>8.222222</occupancy>
+		<flow>1020</flow>
+		<speed>53</speed>
+	</station>
+	<station id="539" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.6944447</occupancy>
+		<flow>840</flow>
+		<speed>69</speed>
+	</station>
+	<station id="540" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.888889</occupancy>
+		<flow>840</flow>
+		<speed>69</speed>
+	</station>
+	<station id="541" status="ok">
+		<volume>9.5</volume>
+		<occupancy>8.166666</occupancy>
+		<flow>1140</flow>
+		<speed>68</speed>
+	</station>
+	<station id="542" status="ok">
+		<volume>11.0</volume>
+		<occupancy>8.277778</occupancy>
+		<flow>1320</flow>
+		<speed>71</speed>
+	</station>
+	<station id="543" status="ok">
+		<volume>16.666666</volume>
+		<occupancy>12.925926</occupancy>
+		<flow>2000</flow>
+		<speed>66</speed>
+	</station>
+	<station id="544" status="fail"/>
+	<station id="545" status="fail"/>
+	<station id="546" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>9.62963</occupancy>
+		<flow>1240</flow>
+		<speed>67</speed>
+	</station>
+	<station id="547" status="fail"/>
+	<station id="548" status="ok">
+		<volume>14.0</volume>
+		<occupancy>13.361111</occupancy>
+		<flow>1680</flow>
+		<speed>67</speed>
+	</station>
+	<station id="549" status="ok">
+		<volume>16.333334</volume>
+		<occupancy>17.11111</occupancy>
+		<flow>1960</flow>
+		<speed>61</speed>
+	</station>
+	<station id="550" status="ok">
+		<volume>8.333333</volume>
+		<occupancy>7.981482</occupancy>
+		<flow>1000</flow>
+		<speed>68</speed>
+	</station>
+	<station id="551" status="ok">
+		<volume>13.0</volume>
+		<occupancy>11.888888</occupancy>
+		<flow>1560</flow>
+		<speed>66</speed>
+	</station>
+	<station id="552" status="ok">
+		<volume>16.333334</volume>
+		<occupancy>21.962961</occupancy>
+		<flow>1960</flow>
+		<speed>59</speed>
+	</station>
+	<station id="553" status="ok">
+		<volume>12.333333</volume>
+		<occupancy>33.77778</occupancy>
+		<flow>1480</flow>
+		<speed>21</speed>
+	</station>
+	<station id="554" status="ok">
+		<volume>15.666667</volume>
+		<occupancy>26.777777</occupancy>
+		<flow>1880</flow>
+		<speed>37</speed>
+	</station>
+	<station id="555" status="ok">
+		<volume>14.0</volume>
+		<occupancy>18.203703</occupancy>
+		<flow>1680</flow>
+		<speed>36</speed>
+	</station>
+	<station id="556" status="ok">
+		<volume>10.666667</volume>
+		<occupancy>8.314815</occupancy>
+		<flow>1280</flow>
+		<speed>54</speed>
+	</station>
+	<station id="557" status="ok">
+		<volume>8.666667</volume>
+		<occupancy>14.962963</occupancy>
+		<flow>1040</flow>
+		<speed>34</speed>
+	</station>
+	<station id="558" status="fail"/>
+	<station id="559" status="ok">
+		<volume>13.333333</volume>
+		<occupancy>31.148148</occupancy>
+		<flow>1600</flow>
+		<speed>26</speed>
+	</station>
+	<station id="560" status="ok">
+		<volume>13.333333</volume>
+		<occupancy>31.425924</occupancy>
+		<flow>1600</flow>
+		<speed>20</speed>
+	</station>
+	<station id="561" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>27.111109</occupancy>
+		<flow>1520</flow>
+		<speed>28</speed>
+	</station>
+	<station id="562" status="fail"/>
+	<station id="563" status="fail"/>
+	<station id="564" status="fail"/>
+	<station id="565" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.583333</occupancy>
+		<flow>900</flow>
+		<speed>57</speed>
+	</station>
+	<station id="566" status="ok">
+		<volume>11.0</volume>
+		<occupancy>12.666667</occupancy>
+		<flow>1320</flow>
+		<speed>60</speed>
+	</station>
+	<station id="567" status="ok">
+		<volume>9.25</volume>
+		<occupancy>7.875</occupancy>
+		<flow>1110</flow>
+		<speed>58</speed>
+	</station>
+	<station id="568" status="ok">
+		<volume>12.0</volume>
+		<occupancy>40.47222</occupancy>
+		<flow>1440</flow>
+		<speed>17</speed>
+	</station>
+	<station id="569" status="fail"/>
+	<station id="570" status="ok">
+		<volume>8.0</volume>
+		<occupancy>41.0</occupancy>
+		<flow>960</flow>
+		<speed>10</speed>
+	</station>
+	<station id="571" status="ok">
+		<volume>12.5</volume>
+		<occupancy>26.5</occupancy>
+		<flow>1500</flow>
+		<speed>27</speed>
+	</station>
+	<station id="572" status="fail"/>
+	<station id="573" status="ok">
+		<volume>15.5</volume>
+		<occupancy>22.916668</occupancy>
+		<flow>1860</flow>
+		<speed>38</speed>
+	</station>
+	<station id="574" status="fail"/>
+	<station id="575" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>5.9814816</occupancy>
+		<flow>880</flow>
+		<speed>60</speed>
+	</station>
+	<station id="576" status="ok">
+		<volume>13.0</volume>
+		<occupancy>10.222222</occupancy>
+		<flow>1560</flow>
+		<speed>55</speed>
+	</station>
+	<station id="577" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.055555</occupancy>
+		<flow>1320</flow>
+		<speed>59</speed>
+	</station>
+	<station id="578" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.555555</occupancy>
+		<flow>1200</flow>
+		<speed>61</speed>
+	</station>
+	<station id="579" status="ok">
+		<volume>15.0</volume>
+		<occupancy>13.277778</occupancy>
+		<flow>1800</flow>
+		<speed>60</speed>
+	</station>
+	<station id="580" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.9444447</occupancy>
+		<flow>1080</flow>
+		<speed>60</speed>
+	</station>
+	<station id="581" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.055556</occupancy>
+		<flow>840</flow>
+		<speed>52</speed>
+	</station>
+	<station id="582" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.0555553</occupancy>
+		<flow>600</flow>
+		<speed>64</speed>
+	</station>
+	<station id="583" status="ok">
+		<volume>6.6666665</volume>
+		<occupancy>6.3333335</occupancy>
+		<flow>800</flow>
+		<speed>62</speed>
+	</station>
+	<station id="584" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.685185</occupancy>
+		<flow>960</flow>
+		<speed>67</speed>
+	</station>
+	<station id="585" status="ok">
+		<volume>10.0</volume>
+		<occupancy>12.666666</occupancy>
+		<flow>1200</flow>
+		<speed>59</speed>
+	</station>
+	<station id="586" status="ok">
+		<volume>13.5</volume>
+		<occupancy>12.805555</occupancy>
+		<flow>1620</flow>
+		<speed>51</speed>
+	</station>
+	<station id="587" status="ok">
+		<volume>16.5</volume>
+		<occupancy>16.944445</occupancy>
+		<flow>1980</flow>
+		<speed>47</speed>
+	</station>
+	<station id="588" status="fail"/>
+	<station id="589" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.0</occupancy>
+		<flow>1320</flow>
+		<speed>68</speed>
+	</station>
+	<station id="590" status="ok">
+		<volume>18.5</volume>
+		<occupancy>16.027779</occupancy>
+		<flow>2220</flow>
+		<speed>58</speed>
+	</station>
+	<station id="591" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.888889</occupancy>
+		<flow>1080</flow>
+		<speed>55</speed>
+	</station>
+	<station id="592" status="ok">
+		<volume>9.5</volume>
+		<occupancy>9.027778</occupancy>
+		<flow>1140</flow>
+		<speed>56</speed>
+	</station>
+	<station id="593" status="ok">
+		<volume>15.0</volume>
+		<occupancy>14.5</occupancy>
+		<flow>1800</flow>
+		<speed>60</speed>
+	</station>
+	<station id="594" status="ok">
+		<volume>13.0</volume>
+		<occupancy>11.027778</occupancy>
+		<flow>1560</flow>
+		<speed>65</speed>
+	</station>
+	<station id="595" status="ok">
+		<volume>19.0</volume>
+		<occupancy>16.63889</occupancy>
+		<flow>2280</flow>
+		<speed>67</speed>
+	</station>
+	<station id="596" status="ok">
+		<volume>11.5</volume>
+		<occupancy>11.444445</occupancy>
+		<flow>1380</flow>
+		<speed>57</speed>
+	</station>
+	<station id="597" status="ok">
+		<volume>14.0</volume>
+		<occupancy>12.472221</occupancy>
+		<flow>1680</flow>
+		<speed>66</speed>
+	</station>
+	<station id="598" status="ok">
+		<volume>17.0</volume>
+		<occupancy>14.583333</occupancy>
+		<flow>2040</flow>
+		<speed>69</speed>
+	</station>
+	<station id="599" status="ok">
+		<volume>17.0</volume>
+		<occupancy>16.11111</occupancy>
+		<flow>2040</flow>
+		<speed>55</speed>
+	</station>
+	<station id="600" status="ok">
+		<volume>10.5</volume>
+		<occupancy>10.305555</occupancy>
+		<flow>1260</flow>
+		<speed>47</speed>
+	</station>
+	<station id="601" status="ok">
+		<volume>17.5</volume>
+		<occupancy>17.666668</occupancy>
+		<flow>2100</flow>
+		<speed>60</speed>
+	</station>
+	<station id="602" status="ok">
+		<volume>14.0</volume>
+		<occupancy>13.138889</occupancy>
+		<flow>1680</flow>
+		<speed>54</speed>
+	</station>
+	<station id="603" status="ok">
+		<volume>11.5</volume>
+		<occupancy>12.055555</occupancy>
+		<flow>1380</flow>
+		<speed>54</speed>
+	</station>
+	<station id="604" status="ok">
+		<volume>14.5</volume>
+		<occupancy>12.472221</occupancy>
+		<flow>1740</flow>
+		<speed>57</speed>
+	</station>
+	<station id="605" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.722222</occupancy>
+		<flow>1080</flow>
+		<speed>58</speed>
+	</station>
+	<station id="606" status="ok">
+		<volume>14.5</volume>
+		<occupancy>14.388889</occupancy>
+		<flow>1740</flow>
+		<speed>55</speed>
+	</station>
+	<station id="607" status="ok">
+		<volume>4.5</volume>
+		<occupancy>3.6388888</occupancy>
+		<flow>540</flow>
+		<speed>71</speed>
+	</station>
+	<station id="608" status="ok">
+		<volume>5.5</volume>
+		<occupancy>6.638889</occupancy>
+		<flow>660</flow>
+		<speed>45</speed>
+	</station>
+	<station id="609" status="ok">
+		<volume>11.5</volume>
+		<occupancy>11.25</occupancy>
+		<flow>1380</flow>
+		<speed>60</speed>
+	</station>
+	<station id="610" status="ok">
+		<volume>13.5</volume>
+		<occupancy>10.361111</occupancy>
+		<flow>1620</flow>
+		<speed>71</speed>
+	</station>
+	<station id="611" status="ok">
+		<volume>15.0</volume>
+		<occupancy>13.083334</occupancy>
+		<flow>1800</flow>
+		<speed>70</speed>
+	</station>
+	<station id="612" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.0277777</occupancy>
+		<flow>720</flow>
+		<speed>66</speed>
+	</station>
+	<station id="613" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.583333</occupancy>
+		<flow>720</flow>
+		<speed>75</speed>
+	</station>
+	<station id="614" status="ok">
+		<volume>10.5</volume>
+		<occupancy>9.472222</occupancy>
+		<flow>1260</flow>
+		<speed>61</speed>
+	</station>
+	<station id="615" status="ok">
+		<volume>9.0</volume>
+		<occupancy>7.3333335</occupancy>
+		<flow>1080</flow>
+		<speed>62</speed>
+	</station>
+	<station id="616" status="ok">
+		<volume>9.5</volume>
+		<occupancy>6.833333</occupancy>
+		<flow>1140</flow>
+		<speed>69</speed>
+	</station>
+	<station id="617" status="ok">
+		<volume>9.5</volume>
+		<occupancy>6.3611107</occupancy>
+		<flow>1140</flow>
+		<speed>62</speed>
+	</station>
+	<station id="618" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.361111</occupancy>
+		<flow>960</flow>
+		<speed>58</speed>
+	</station>
+	<station id="619" status="ok">
+		<volume>9.0</volume>
+		<occupancy>10.777778</occupancy>
+		<flow>1080</flow>
+		<speed>47</speed>
+	</station>
+	<station id="620" status="ok">
+		<volume>7.0</volume>
+		<occupancy>8.111111</occupancy>
+		<flow>840</flow>
+		<speed>52</speed>
+	</station>
+	<station id="621" status="ok">
+		<volume>16.0</volume>
+		<occupancy>18.981482</occupancy>
+		<flow>1920</flow>
+		<speed>49</speed>
+	</station>
+	<station id="622" status="ok">
+		<volume>15.666667</volume>
+		<occupancy>15.425926</occupancy>
+		<flow>1880</flow>
+		<speed>55</speed>
+	</station>
+	<station id="623" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>13.240741</occupancy>
+		<flow>1840</flow>
+		<speed>64</speed>
+	</station>
+	<station id="624" status="ok">
+		<volume>19.0</volume>
+		<occupancy>19.055555</occupancy>
+		<flow>2280</flow>
+		<speed>55</speed>
+	</station>
+	<station id="625" status="ok">
+		<volume>16.333334</volume>
+		<occupancy>20.055555</occupancy>
+		<flow>1960</flow>
+		<speed>50</speed>
+	</station>
+	<station id="626" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>13.0185175</occupancy>
+		<flow>1520</flow>
+		<speed>58</speed>
+	</station>
+	<station id="627" status="ok">
+		<volume>16.5</volume>
+		<occupancy>15.888889</occupancy>
+		<flow>1980</flow>
+		<speed>61</speed>
+	</station>
+	<station id="628" status="ok">
+		<volume>18.666666</volume>
+		<occupancy>16.75926</occupancy>
+		<flow>2240</flow>
+		<speed>61</speed>
+	</station>
+	<station id="629" status="ok">
+		<volume>18.333334</volume>
+		<occupancy>12.518519</occupancy>
+		<flow>2200</flow>
+		<speed>61</speed>
+	</station>
+	<station id="630" status="ok">
+		<volume>17.333334</volume>
+		<occupancy>13.685185</occupancy>
+		<flow>2080</flow>
+		<speed>59</speed>
+	</station>
+	<station id="631" status="fail"/>
+	<station id="632" status="fail"/>
+	<station id="633" status="ok">
+		<volume>10.0</volume>
+		<occupancy>6.9444447</occupancy>
+		<flow>1200</flow>
+		<speed>55</speed>
+	</station>
+	<station id="634" status="ok">
+		<volume>8.0</volume>
+		<occupancy>4.888889</occupancy>
+		<flow>960</flow>
+		<speed>67</speed>
+	</station>
+	<station id="635" status="ok">
+		<volume>16.666666</volume>
+		<occupancy>12.9814825</occupancy>
+		<flow>2000</flow>
+		<speed>63</speed>
+	</station>
+	<station id="636" status="ok">
+		<volume>14.0</volume>
+		<occupancy>9.111112</occupancy>
+		<flow>1680</flow>
+		<speed>61</speed>
+	</station>
+	<station id="637" status="ok">
+		<volume>14.666667</volume>
+		<occupancy>12.462963</occupancy>
+		<flow>1760</flow>
+		<speed>63</speed>
+	</station>
+	<station id="638" status="ok">
+		<volume>10.666667</volume>
+		<occupancy>9.62963</occupancy>
+		<flow>1280</flow>
+		<speed>57</speed>
+	</station>
+	<station id="639" status="ok">
+		<volume>14.0</volume>
+		<occupancy>12.592593</occupancy>
+		<flow>1680</flow>
+		<speed>62</speed>
+	</station>
+	<station id="640" status="ok">
+		<volume>11.333333</volume>
+		<occupancy>8.518518</occupancy>
+		<flow>1360</flow>
+		<speed>75</speed>
+	</station>
+	<station id="641" status="ok">
+		<volume>13.666667</volume>
+		<occupancy>12.722221</occupancy>
+		<flow>1640</flow>
+		<speed>64</speed>
+	</station>
+	<station id="642" status="ok">
+		<volume>8.0</volume>
+		<occupancy>7.638889</occupancy>
+		<flow>960</flow>
+		<speed>59</speed>
+	</station>
+	<station id="643" status="ok">
+		<volume>7.5</volume>
+		<occupancy>8.666666</occupancy>
+		<flow>900</flow>
+		<speed>52</speed>
+	</station>
+	<station id="644" status="ok">
+		<volume>8.5</volume>
+		<occupancy>9.305555</occupancy>
+		<flow>1020</flow>
+		<speed>53</speed>
+	</station>
+	<station id="645" status="fail"/>
+	<station id="646" status="fail"/>
+	<station id="647" status="fail"/>
+	<station id="648" status="fail"/>
+	<station id="649" status="fail"/>
+	<station id="650" status="fail"/>
+	<station id="651" status="fail"/>
+	<station id="652" status="ok">
+		<volume>10.5</volume>
+		<occupancy>9.486112</occupancy>
+		<flow>1260</flow>
+		<speed>64</speed>
+	</station>
+	<station id="653" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>8.888889</occupancy>
+		<flow>1240</flow>
+		<speed>68</speed>
+	</station>
+	<station id="654" status="ok">
+		<volume>10.0</volume>
+		<occupancy>10.240741</occupancy>
+		<flow>1200</flow>
+		<speed>59</speed>
+	</station>
+	<station id="655" status="ok">
+		<volume>10.0</volume>
+		<occupancy>6.888889</occupancy>
+		<flow>1200</flow>
+		<speed>73</speed>
+	</station>
+	<station id="656" status="ok">
+		<volume>13.666667</volume>
+		<occupancy>9.5</occupancy>
+		<flow>1640</flow>
+		<speed>75</speed>
+	</station>
+	<station id="657" status="ok">
+		<volume>14.666667</volume>
+		<occupancy>12.462963</occupancy>
+		<flow>1760</flow>
+		<speed>64</speed>
+	</station>
+	<station id="658" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>11.055554</occupancy>
+		<flow>1520</flow>
+		<speed>73</speed>
+	</station>
+	<station id="659" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>15.648148</occupancy>
+		<flow>1720</flow>
+		<speed>66</speed>
+	</station>
+	<station id="660" status="fail"/>
+	<station id="661" status="fail"/>
+	<station id="662" status="fail"/>
+	<station id="663" status="fail"/>
+	<station id="664" status="ok">
+		<volume>18.333334</volume>
+		<occupancy>19.24074</occupancy>
+		<flow>2200</flow>
+		<speed>64</speed>
+	</station>
+	<station id="665" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>11.092593</occupancy>
+		<flow>1840</flow>
+		<speed>79</speed>
+	</station>
+	<station id="666" status="ok">
+		<volume>21.333334</volume>
+		<occupancy>14.888888</occupancy>
+		<flow>2560</flow>
+		<speed>91</speed>
+	</station>
+	<station id="667" status="ok">
+		<volume>17.75</volume>
+		<occupancy>16.569445</occupancy>
+		<flow>2130</flow>
+		<speed>65</speed>
+	</station>
+	<station id="668" status="ok">
+		<volume>15.0</volume>
+		<occupancy>16.180555</occupancy>
+		<flow>1800</flow>
+		<speed>65</speed>
+	</station>
+	<station id="669" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>13.092593</occupancy>
+		<flow>1400</flow>
+		<speed>64</speed>
+	</station>
+	<station id="670" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.7222223</occupancy>
+		<flow>960</flow>
+		<speed>81</speed>
+	</station>
+	<station id="671" status="ok">
+		<volume>13.5</volume>
+		<occupancy>12.694445</occupancy>
+		<flow>1620</flow>
+		<speed>61</speed>
+	</station>
+	<station id="672" status="ok">
+		<volume>12.5</volume>
+		<occupancy>10.111111</occupancy>
+		<flow>1500</flow>
+		<speed>30</speed>
+	</station>
+	<station id="673" status="fail"/>
+	<station id="674" status="fail"/>
+	<station id="675" status="fail"/>
+	<station id="676" status="fail"/>
+	<station id="677" status="ok">
+		<volume>6.0</volume>
+		<occupancy>7.305556</occupancy>
+		<flow>720</flow>
+		<speed>49</speed>
+	</station>
+	<station id="678" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.9722223</occupancy>
+		<flow>720</flow>
+		<speed>66</speed>
+	</station>
+	<station id="679" status="ok">
+		<volume>9.5</volume>
+		<occupancy>7.8055553</occupancy>
+		<flow>1140</flow>
+		<speed>85</speed>
+	</station>
+	<station id="680" status="ok">
+		<volume>6.5</volume>
+		<occupancy>5.722222</occupancy>
+		<flow>780</flow>
+		<speed>83</speed>
+	</station>
+	<station id="681" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.407408</occupancy>
+		<flow>1320</flow>
+		<speed>79</speed>
+	</station>
+	<station id="682" status="ok">
+		<volume>8.0</volume>
+		<occupancy>7.333334</occupancy>
+		<flow>960</flow>
+		<speed>62</speed>
+	</station>
+	<station id="683" status="ok">
+		<volume>6.0</volume>
+		<occupancy>5.537037</occupancy>
+		<flow>720</flow>
+		<speed>66</speed>
+	</station>
+	<station id="684" status="ok">
+		<volume>4.6666665</volume>
+		<occupancy>3.7592592</occupancy>
+		<flow>560</flow>
+		<speed>78</speed>
+	</station>
+	<station id="685" status="ok">
+		<volume>8.0</volume>
+		<occupancy>7.4629626</occupancy>
+		<flow>960</flow>
+		<speed>74</speed>
+	</station>
+	<station id="686" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>7.7407413</occupancy>
+		<flow>880</flow>
+		<speed>65</speed>
+	</station>
+	<station id="687" status="fail"/>
+	<station id="688" status="fail"/>
+	<station id="689" status="fail"/>
+	<station id="690" status="fail"/>
+	<station id="691" status="ok">
+		<volume>8.0</volume>
+		<occupancy>7.537037</occupancy>
+		<flow>960</flow>
+		<speed>72</speed>
+	</station>
+	<station id="692" status="ok">
+		<volume>9.666667</volume>
+		<occupancy>8.814815</occupancy>
+		<flow>1160</flow>
+		<speed>74</speed>
+	</station>
+	<station id="693" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>4.888889</occupancy>
+		<flow>920</flow>
+		<speed>74</speed>
+	</station>
+	<station id="694" status="ok">
+		<volume>5.3333335</volume>
+		<occupancy>4.9074073</occupancy>
+		<flow>640</flow>
+		<speed>68</speed>
+	</station>
+	<station id="695" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>8.148149</occupancy>
+		<flow>1120</flow>
+		<speed>68</speed>
+	</station>
+	<station id="696" status="ok">
+		<volume>4.6666665</volume>
+		<occupancy>4.351852</occupancy>
+		<flow>560</flow>
+		<speed>67</speed>
+	</station>
+	<station id="697" status="ok">
+		<volume>8.5</volume>
+		<occupancy>7.5972223</occupancy>
+		<flow>1020</flow>
+		<speed>65</speed>
+	</station>
+	<station id="698" status="fail"/>
+	<station id="699" status="fail"/>
+	<station id="700" status="ok">
+		<volume>15.5</volume>
+		<occupancy>11.416666</occupancy>
+		<flow>1860</flow>
+		<speed>66</speed>
+	</station>
+	<station id="701" status="ok">
+		<volume>12.0</volume>
+		<occupancy>11.416667</occupancy>
+		<flow>1440</flow>
+		<speed>70</speed>
+	</station>
+	<station id="702" status="ok">
+		<volume>9.5</volume>
+		<occupancy>7.75</occupancy>
+		<flow>1140</flow>
+		<speed>68</speed>
+	</station>
+	<station id="703" status="ok">
+		<volume>5.5</volume>
+		<occupancy>6.138889</occupancy>
+		<flow>660</flow>
+		<speed>49</speed>
+	</station>
+	<station id="704" status="ok">
+		<volume>15.0</volume>
+		<occupancy>16.527779</occupancy>
+		<flow>1800</flow>
+		<speed>64</speed>
+	</station>
+	<station id="705" status="ok">
+		<volume>4.5</volume>
+		<occupancy>4.388889</occupancy>
+		<flow>540</flow>
+		<speed>66</speed>
+	</station>
+	<station id="706" status="ok">
+		<volume>16.5</volume>
+		<occupancy>14.861111</occupancy>
+		<flow>1980</flow>
+		<speed>75</speed>
+	</station>
+	<station id="707" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.972222</occupancy>
+		<flow>1320</flow>
+		<speed>57</speed>
+	</station>
+	<station id="708" status="ok">
+		<volume>7.5</volume>
+		<occupancy>9.916667</occupancy>
+		<flow>900</flow>
+		<speed>57</speed>
+	</station>
+	<station id="709" status="ok">
+		<volume>12.0</volume>
+		<occupancy>10.75</occupancy>
+		<flow>1440</flow>
+		<speed>74</speed>
+	</station>
+	<station id="710" status="ok">
+		<volume>13.5</volume>
+		<occupancy>11.0</occupancy>
+		<flow>1620</flow>
+		<speed>67</speed>
+	</station>
+	<station id="711" status="ok">
+		<volume>5.6666665</volume>
+		<occupancy>5.351852</occupancy>
+		<flow>680</flow>
+		<speed>67</speed>
+	</station>
+	<station id="712" status="ok">
+		<volume>6.5</volume>
+		<occupancy>5.8333335</occupancy>
+		<flow>780</flow>
+		<speed>61</speed>
+	</station>
+	<station id="713" status="ok">
+		<volume>23.0</volume>
+		<occupancy>20.13889</occupancy>
+		<flow>2760</flow>
+		<speed>60</speed>
+	</station>
+	<station id="714" status="ok">
+		<volume>20.0</volume>
+		<occupancy>20.055555</occupancy>
+		<flow>2400</flow>
+		<speed>49</speed>
+	</station>
+	<station id="715" status="fail"/>
+	<station id="716" status="fail"/>
+	<station id="717" status="fail"/>
+	<station id="718" status="ok">
+		<volume>18.0</volume>
+		<occupancy>17.833334</occupancy>
+		<flow>2160</flow>
+		<speed>58</speed>
+	</station>
+	<station id="719" status="ok">
+		<volume>16.0</volume>
+		<occupancy>22.805555</occupancy>
+		<flow>1920</flow>
+		<speed>43</speed>
+	</station>
+	<station id="720" status="ok">
+		<volume>14.0</volume>
+		<occupancy>17.037037</occupancy>
+		<flow>1680</flow>
+		<speed>53</speed>
+	</station>
+	<station id="721" status="fail"/>
+	<station id="722" status="fail"/>
+	<station id="723" status="ok">
+		<volume>13.5</volume>
+		<occupancy>32.055557</occupancy>
+		<flow>1620</flow>
+		<speed>30</speed>
+	</station>
+	<station id="724" status="ok">
+		<volume>13.5</volume>
+		<occupancy>18.694443</occupancy>
+		<flow>1620</flow>
+		<speed>50</speed>
+	</station>
+	<station id="725" status="ok">
+		<volume>16.0</volume>
+		<occupancy>25.166668</occupancy>
+		<flow>1920</flow>
+		<speed>37</speed>
+	</station>
+	<station id="726" status="ok">
+		<volume>16.0</volume>
+		<occupancy>14.472222</occupancy>
+		<flow>1920</flow>
+		<speed>72</speed>
+	</station>
+	<station id="727" status="ok">
+		<volume>15.0</volume>
+		<occupancy>25.083332</occupancy>
+		<flow>1800</flow>
+		<speed>41</speed>
+	</station>
+	<station id="728" status="ok">
+		<volume>14.5</volume>
+		<occupancy>20.972221</occupancy>
+		<flow>1740</flow>
+		<speed>51</speed>
+	</station>
+	<station id="729" status="ok">
+		<volume>14.5</volume>
+		<occupancy>20.88889</occupancy>
+		<flow>1740</flow>
+		<speed>54</speed>
+	</station>
+	<station id="730" status="ok">
+		<volume>13.5</volume>
+		<occupancy>26.333332</occupancy>
+		<flow>1620</flow>
+		<speed>39</speed>
+	</station>
+	<station id="731" status="ok">
+		<volume>7.0</volume>
+		<occupancy>4.9074078</occupancy>
+		<flow>840</flow>
+		<speed>75</speed>
+	</station>
+	<station id="732" status="fail"/>
+	<station id="733" status="fail"/>
+	<station id="734" status="ok">
+		<volume>6.0</volume>
+		<occupancy>8.555555</occupancy>
+		<flow>720</flow>
+		<speed>35</speed>
+	</station>
+	<station id="735" status="ok">
+		<volume>1.0</volume>
+		<occupancy>127.25</occupancy>
+		<flow>120</flow>
+		<speed>0</speed>
+	</station>
+	<station id="736" status="ok">
+		<volume>13.5</volume>
+		<occupancy>12.527778</occupancy>
+		<flow>1620</flow>
+		<speed>73</speed>
+	</station>
+	<station id="737" status="ok">
+		<volume>13.5</volume>
+		<occupancy>17.666668</occupancy>
+		<flow>1620</flow>
+		<speed>53</speed>
+	</station>
+	<station id="738" status="ok">
+		<volume>13.5</volume>
+		<occupancy>16.083334</occupancy>
+		<flow>1620</flow>
+		<speed>51</speed>
+	</station>
+	<station id="739" status="ok">
+		<volume>12.0</volume>
+		<occupancy>7.9722223</occupancy>
+		<flow>1440</flow>
+		<speed>64</speed>
+	</station>
+	<station id="740" status="ok">
+		<volume>15.5</volume>
+		<occupancy>14.611111</occupancy>
+		<flow>1860</flow>
+		<speed>63</speed>
+	</station>
+	<station id="741" status="ok">
+		<volume>14.0</volume>
+		<occupancy>13.694445</occupancy>
+		<flow>1680</flow>
+		<speed>63</speed>
+	</station>
+	<station id="742" status="ok">
+		<volume>17.5</volume>
+		<occupancy>11.555555</occupancy>
+		<flow>2100</flow>
+		<speed>80</speed>
+	</station>
+	<station id="743" status="ok">
+		<volume>11.5</volume>
+		<occupancy>10.916667</occupancy>
+		<flow>1380</flow>
+		<speed>71</speed>
+	</station>
+	<station id="744" status="ok">
+		<volume>12.5</volume>
+		<occupancy>13.666666</occupancy>
+		<flow>1500</flow>
+		<speed>58</speed>
+	</station>
+	<station id="745" status="ok">
+		<volume>16.0</volume>
+		<occupancy>12.972221</occupancy>
+		<flow>1920</flow>
+		<speed>84</speed>
+	</station>
+	<station id="746" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.4722223</occupancy>
+		<flow>660</flow>
+		<speed>66</speed>
+	</station>
+	<station id="747" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.111111</occupancy>
+		<flow>600</flow>
+		<speed>74</speed>
+	</station>
+	<station id="748" status="ok">
+		<volume>6.5</volume>
+		<occupancy>5.9166665</occupancy>
+		<flow>780</flow>
+		<speed>68</speed>
+	</station>
+	<station id="749" status="fail"/>
+	<station id="750" status="fail"/>
+	<station id="751" status="fail"/>
+	<station id="752" status="fail"/>
+	<station id="753" status="fail"/>
+	<station id="754" status="fail"/>
+	<station id="755" status="ok">
+		<volume>15.0</volume>
+		<occupancy>11.75</occupancy>
+		<flow>1800</flow>
+		<speed>49</speed>
+	</station>
+	<station id="756" status="fail"/>
+	<station id="757" status="fail"/>
+	<station id="758" status="fail"/>
+	<station id="759" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>10.703704</occupancy>
+		<flow>1400</flow>
+		<speed>73</speed>
+	</station>
+	<station id="760" status="ok">
+		<volume>12.5</volume>
+		<occupancy>13.388889</occupancy>
+		<flow>1500</flow>
+		<speed>62</speed>
+	</station>
+	<station id="761" status="ok">
+		<volume>10.5</volume>
+		<occupancy>9.666666</occupancy>
+		<flow>1260</flow>
+		<speed>64</speed>
+	</station>
+	<station id="762" status="ok">
+		<volume>14.0</volume>
+		<occupancy>13.277779</occupancy>
+		<flow>1680</flow>
+		<speed>68</speed>
+	</station>
+	<station id="763" status="ok">
+		<volume>15.0</volume>
+		<occupancy>13.888889</occupancy>
+		<flow>1800</flow>
+		<speed>70</speed>
+	</station>
+	<station id="764" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.972222</occupancy>
+		<flow>1320</flow>
+		<speed>64</speed>
+	</station>
+	<station id="765" status="ok">
+		<volume>15.5</volume>
+		<occupancy>13.75</occupancy>
+		<flow>1860</flow>
+		<speed>73</speed>
+	</station>
+	<station id="766" status="ok">
+		<volume>13.5</volume>
+		<occupancy>13.361111</occupancy>
+		<flow>1620</flow>
+		<speed>62</speed>
+	</station>
+	<station id="767" status="ok">
+		<volume>13.5</volume>
+		<occupancy>14.916666</occupancy>
+		<flow>1620</flow>
+		<speed>57</speed>
+	</station>
+	<station id="768" status="ok">
+		<volume>15.0</volume>
+		<occupancy>15.555555</occupancy>
+		<flow>1800</flow>
+		<speed>62</speed>
+	</station>
+	<station id="769" status="ok">
+		<volume>13.0</volume>
+		<occupancy>18.722221</occupancy>
+		<flow>1560</flow>
+		<speed>44</speed>
+	</station>
+	<station id="770" status="ok">
+		<volume>14.0</volume>
+		<occupancy>16.61111</occupancy>
+		<flow>1680</flow>
+		<speed>53</speed>
+	</station>
+	<station id="771" status="fail"/>
+	<station id="772" status="fail"/>
+	<station id="773" status="fail"/>
+	<station id="774" status="fail"/>
+	<station id="775" status="fail"/>
+	<station id="776" status="ok">
+		<volume>14.666667</volume>
+		<occupancy>10.111112</occupancy>
+		<flow>1760</flow>
+		<speed>64</speed>
+	</station>
+	<station id="777" status="ok">
+		<volume>11.75</volume>
+		<occupancy>9.958333</occupancy>
+		<flow>1410</flow>
+		<speed>56</speed>
+	</station>
+	<station id="778" status="ok">
+		<volume>15.25</volume>
+		<occupancy>12.888888</occupancy>
+		<flow>1830</flow>
+		<speed>64</speed>
+	</station>
+	<station id="779" status="ok">
+		<volume>15.0</volume>
+		<occupancy>38.611115</occupancy>
+		<flow>1800</flow>
+		<speed>25</speed>
+	</station>
+	<station id="780" status="ok">
+		<volume>15.666667</volume>
+		<occupancy>29.74074</occupancy>
+		<flow>1880</flow>
+		<speed>28</speed>
+	</station>
+	<station id="781" status="ok">
+		<volume>15.333333</volume>
+		<occupancy>26.555555</occupancy>
+		<flow>1840</flow>
+		<speed>34</speed>
+	</station>
+	<station id="782" status="fail"/>
+	<station id="783" status="fail"/>
+	<station id="784" status="fail"/>
+	<station id="785" status="fail"/>
+	<station id="786" status="ok">
+		<volume>11.5</volume>
+		<occupancy>7.8472223</occupancy>
+		<flow>1380</flow>
+		<speed>79</speed>
+	</station>
+	<station id="787" status="ok">
+		<volume>10.75</volume>
+		<occupancy>11.027778</occupancy>
+		<flow>1290</flow>
+		<speed>60</speed>
+	</station>
+	<station id="788" status="ok">
+		<volume>13.25</volume>
+		<occupancy>12.236111</occupancy>
+		<flow>1590</flow>
+		<speed>72</speed>
+	</station>
+	<station id="789" status="ok">
+		<volume>14.25</volume>
+		<occupancy>12.375</occupancy>
+		<flow>1710</flow>
+		<speed>50</speed>
+	</station>
+	<station id="790" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>15.666667</occupancy>
+		<flow>1240</flow>
+		<speed>46</speed>
+	</station>
+	<station id="791" status="ok">
+		<volume>6.6666665</volume>
+		<occupancy>6.2407403</occupancy>
+		<flow>800</flow>
+		<speed>51</speed>
+	</station>
+	<station id="792" status="ok">
+		<volume>10.333333</volume>
+		<occupancy>7.1111107</occupancy>
+		<flow>1240</flow>
+		<speed>73</speed>
+	</station>
+	<station id="793" status="fail"/>
+	<station id="794" status="fail"/>
+	<station id="795" status="fail"/>
+	<station id="796" status="ok">
+		<volume>0.5</volume>
+		<occupancy>0.30555555</occupancy>
+		<flow>60</flow>
+		<speed>73</speed>
+	</station>
+	<station id="797" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.3055553</occupancy>
+		<flow>720</flow>
+		<speed>70</speed>
+	</station>
+	<station id="798" status="ok">
+		<volume>4.3333335</volume>
+		<occupancy>3.7037036</occupancy>
+		<flow>520</flow>
+		<speed>60</speed>
+	</station>
+	<station id="799" status="ok">
+		<volume>0.33333334</volume>
+		<occupancy>0.22222222</occupancy>
+		<flow>40</flow>
+		<speed>69</speed>
+	</station>
+	<station id="800" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.2222223</occupancy>
+		<flow>600</flow>
+		<speed>55</speed>
+	</station>
+	<station id="801" status="ok">
+		<volume>4.0</volume>
+		<occupancy>1.3148148</occupancy>
+		<flow>480</flow>
+		<speed>135</speed>
+	</station>
+	<station id="802" status="ok">
+		<volume>6.6666665</volume>
+		<occupancy>4.5925927</occupancy>
+		<flow>800</flow>
+		<speed>71</speed>
+	</station>
+	<station id="803" status="ok">
+		<volume>7.0</volume>
+		<occupancy>4.8333335</occupancy>
+		<flow>840</flow>
+		<speed>72</speed>
+	</station>
+	<station id="804" status="fail"/>
+	<station id="805" status="fail"/>
+	<station id="806" status="fail"/>
+	<station id="807" status="ok">
+		<volume>18.333334</volume>
+		<occupancy>13.240741</occupancy>
+		<flow>2200</flow>
+		<speed>67</speed>
+	</station>
+	<station id="808" status="ok">
+		<volume>14.666667</volume>
+		<occupancy>9.851851</occupancy>
+		<flow>1760</flow>
+		<speed>71</speed>
+	</station>
+	<station id="809" status="ok">
+		<volume>12.0</volume>
+		<occupancy>6.5</occupancy>
+		<flow>1440</flow>
+		<speed>67</speed>
+	</station>
+	<station id="810" status="ok">
+		<volume>13.0</volume>
+		<occupancy>8.666667</occupancy>
+		<flow>1560</flow>
+		<speed>85</speed>
+	</station>
+	<station id="811" status="ok">
+		<volume>11.333333</volume>
+		<occupancy>10.777779</occupancy>
+		<flow>1360</flow>
+		<speed>52</speed>
+	</station>
+	<station id="812" status="ok">
+		<volume>12.0</volume>
+		<occupancy>9.444444</occupancy>
+		<flow>1440</flow>
+		<speed>63</speed>
+	</station>
+	<station id="813" status="ok">
+		<volume>8.666667</volume>
+		<occupancy>6.0925922</occupancy>
+		<flow>1040</flow>
+		<speed>67</speed>
+	</station>
+	<station id="814" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>5.4074073</occupancy>
+		<flow>880</flow>
+		<speed>67</speed>
+	</station>
+	<station id="815" status="fail"/>
+	<station id="816" status="fail"/>
+	<station id="817" status="fail"/>
+	<station id="818" status="ok">
+		<volume>5.5</volume>
+		<occupancy>6.6111107</occupancy>
+		<flow>660</flow>
+		<speed>44</speed>
+	</station>
+	<station id="819" status="ok">
+		<volume>5.5</volume>
+		<occupancy>5.7222223</occupancy>
+		<flow>660</flow>
+		<speed>48</speed>
+	</station>
+	<station id="820" status="fail"/>
+	<station id="821" status="fail"/>
+	<station id="822" status="fail"/>
+	<station id="823" status="fail"/>
+	<station id="824" status="fail"/>
+	<station id="825" status="ok">
+		<volume>3.5</volume>
+		<occupancy>2.5</occupancy>
+		<flow>420</flow>
+		<speed>89</speed>
+	</station>
+	<station id="826" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.925926</occupancy>
+		<flow>360</flow>
+		<speed>70</speed>
+	</station>
+	<station id="827" status="ok">
+		<volume>8.0</volume>
+		<occupancy>5.2222223</occupancy>
+		<flow>960</flow>
+		<speed>86</speed>
+	</station>
+	<station id="828" status="ok">
+		<volume>16.666666</volume>
+		<occupancy>14.574074</occupancy>
+		<flow>2000</flow>
+		<speed>73</speed>
+	</station>
+	<station id="829" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.944445</occupancy>
+		<flow>1320</flow>
+		<speed>65</speed>
+	</station>
+	<station id="830" status="ok">
+		<volume>8.5</volume>
+		<occupancy>7.8888884</occupancy>
+		<flow>1020</flow>
+		<speed>65</speed>
+	</station>
+	<station id="831" status="fail"/>
+	<station id="832" status="fail"/>
+	<station id="833" status="ok">
+		<volume>11.0</volume>
+		<occupancy>14.583334</occupancy>
+		<flow>1320</flow>
+		<speed>38</speed>
+	</station>
+	<station id="834" status="ok">
+		<volume>11.5</volume>
+		<occupancy>33.13889</occupancy>
+		<flow>1380</flow>
+		<speed>18</speed>
+	</station>
+	<station id="835" status="ok">
+		<volume>13.0</volume>
+		<occupancy>39.27778</occupancy>
+		<flow>1560</flow>
+		<speed>18</speed>
+	</station>
+	<station id="836" status="ok">
+		<volume>13.0</volume>
+		<occupancy>34.833336</occupancy>
+		<flow>1560</flow>
+		<speed>20</speed>
+	</station>
+	<station id="837" status="ok">
+		<volume>12.0</volume>
+		<occupancy>23.972221</occupancy>
+		<flow>1440</flow>
+		<speed>32</speed>
+	</station>
+	<station id="838" status="ok">
+		<volume>13.0</volume>
+		<occupancy>51.694443</occupancy>
+		<flow>1560</flow>
+		<speed>15</speed>
+	</station>
+	<station id="839" status="ok">
+		<volume>10.5</volume>
+		<occupancy>12.111111</occupancy>
+		<flow>1260</flow>
+		<speed>53</speed>
+	</station>
+	<station id="840" status="fail"/>
+	<station id="841" status="fail"/>
+	<station id="842" status="fail"/>
+	<station id="843" status="fail"/>
+	<station id="844" status="fail"/>
+	<station id="845" status="ok">
+		<volume>4.5</volume>
+		<occupancy>4.916667</occupancy>
+		<flow>540</flow>
+		<speed>47</speed>
+	</station>
+	<station id="846" status="ok">
+		<volume>16.5</volume>
+		<occupancy>28.305555</occupancy>
+		<flow>1980</flow>
+		<speed>38</speed>
+	</station>
+	<station id="847" status="ok">
+		<volume>14.0</volume>
+		<occupancy>16.944445</occupancy>
+		<flow>1680</flow>
+		<speed>55</speed>
+	</station>
+	<station id="848" status="ok">
+		<volume>5.0</volume>
+		<occupancy>6.4166665</occupancy>
+		<flow>600</flow>
+		<speed>50</speed>
+	</station>
+	<station id="849" status="ok">
+		<volume>18.0</volume>
+		<occupancy>18.805557</occupancy>
+		<flow>2160</flow>
+		<speed>53</speed>
+	</station>
+	<station id="850" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>15.777779</occupancy>
+		<flow>1400</flow>
+		<speed>46</speed>
+	</station>
+	<station id="851" status="ok">
+		<volume>14.0</volume>
+		<occupancy>45.944443</occupancy>
+		<flow>1680</flow>
+		<speed>14</speed>
+	</station>
+	<station id="852" status="fail"/>
+	<station id="853" status="fail"/>
+	<station id="854" status="ok">
+		<volume>10.5</volume>
+		<occupancy>8.944445</occupancy>
+		<flow>1260</flow>
+		<speed>74</speed>
+	</station>
+	<station id="855" status="ok">
+		<volume>16.5</volume>
+		<occupancy>15.277778</occupancy>
+		<flow>1980</flow>
+		<speed>58</speed>
+	</station>
+	<station id="856" status="ok">
+		<volume>13.5</volume>
+		<occupancy>12.638889</occupancy>
+		<flow>1620</flow>
+		<speed>60</speed>
+	</station>
+	<station id="857" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>7.944444</occupancy>
+		<flow>1120</flow>
+		<speed>80</speed>
+	</station>
+	<station id="858" status="ok">
+		<volume>6.3333335</volume>
+		<occupancy>5.5925927</occupancy>
+		<flow>760</flow>
+		<speed>69</speed>
+	</station>
+	<station id="859" status="ok">
+		<volume>9.75</volume>
+		<occupancy>8.666667</occupancy>
+		<flow>1170</flow>
+		<speed>66</speed>
+	</station>
+	<station id="860" status="fail"/>
+	<station id="861" status="fail"/>
+	<station id="862" status="fail"/>
+	<station id="863" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.8333335</occupancy>
+		<flow>1080</flow>
+		<speed>83</speed>
+	</station>
+	<station id="864" status="ok">
+		<volume>8.333333</volume>
+		<occupancy>7.851852</occupancy>
+		<flow>1000</flow>
+		<speed>69</speed>
+	</station>
+	<station id="865" status="fail"/>
+	<station id="866" status="fail"/>
+	<station id="867" status="fail"/>
+	<station id="868" status="fail"/>
+	<station id="869" status="fail"/>
+	<station id="870" status="ok">
+		<volume>5.0</volume>
+		<occupancy>4.0555553</occupancy>
+		<flow>600</flow>
+		<speed>74</speed>
+	</station>
+	<station id="871" status="ok">
+		<volume>7.0</volume>
+		<occupancy>7.5</occupancy>
+		<flow>840</flow>
+		<speed>56</speed>
+	</station>
+	<station id="872" status="ok">
+		<volume>9.0</volume>
+		<occupancy>5.7222223</occupancy>
+		<flow>1080</flow>
+		<speed>83</speed>
+	</station>
+	<station id="873" status="ok">
+		<volume>9.5</volume>
+		<occupancy>7.4166665</occupancy>
+		<flow>1140</flow>
+		<speed>72</speed>
+	</station>
+	<station id="874" status="ok">
+		<volume>10.5</volume>
+		<occupancy>7.25</occupancy>
+		<flow>1260</flow>
+		<speed>82</speed>
+	</station>
+	<station id="875" status="ok">
+		<volume>7.0</volume>
+		<occupancy>4.5555553</occupancy>
+		<flow>840</flow>
+		<speed>87</speed>
+	</station>
+	<station id="876" status="ok">
+		<volume>5.5</volume>
+		<occupancy>3.8611112</occupancy>
+		<flow>660</flow>
+		<speed>83</speed>
+	</station>
+	<station id="877" status="ok">
+		<volume>4.0</volume>
+		<occupancy>3.0</occupancy>
+		<flow>480</flow>
+		<speed>81</speed>
+	</station>
+	<station id="878" status="ok">
+		<volume>6.3333335</volume>
+		<occupancy>4.6666665</occupancy>
+		<flow>760</flow>
+		<speed>79</speed>
+	</station>
+	<station id="879" status="ok">
+		<volume>4.3333335</volume>
+		<occupancy>3.2962964</occupancy>
+		<flow>520</flow>
+		<speed>80</speed>
+	</station>
+	<station id="880" status="ok">
+		<volume>6.3333335</volume>
+		<occupancy>4.148148</occupancy>
+		<flow>760</flow>
+		<speed>88</speed>
+	</station>
+	<station id="881" status="ok">
+		<volume>7.0</volume>
+		<occupancy>5.722223</occupancy>
+		<flow>840</flow>
+		<speed>73</speed>
+	</station>
+	<station id="882" status="ok">
+		<volume>8.666667</volume>
+		<occupancy>6.7037034</occupancy>
+		<flow>1040</flow>
+		<speed>77</speed>
+	</station>
+	<station id="883" status="ok">
+		<volume>10.0</volume>
+		<occupancy>7.2962966</occupancy>
+		<flow>1200</flow>
+		<speed>78</speed>
+	</station>
+	<station id="884" status="ok">
+		<volume>4.6666665</volume>
+		<occupancy>3.2777777</occupancy>
+		<flow>560</flow>
+		<speed>81</speed>
+	</station>
+	<station id="885" status="ok">
+		<volume>6.5</volume>
+		<occupancy>4.7222223</occupancy>
+		<flow>780</flow>
+		<speed>89</speed>
+	</station>
+	<station id="886" status="ok">
+		<volume>4.0</volume>
+		<occupancy>2.7407408</occupancy>
+		<flow>480</flow>
+		<speed>85</speed>
+	</station>
+	<station id="887" status="ok">
+		<volume>3.5</volume>
+		<occupancy>2.5277777</occupancy>
+		<flow>420</flow>
+		<speed>77</speed>
+	</station>
+	<station id="888" status="ok">
+		<volume>10.5</volume>
+		<occupancy>8.333333</occupancy>
+		<flow>1260</flow>
+		<speed>72</speed>
+	</station>
+	<station id="889" status="ok">
+		<volume>10.5</volume>
+		<occupancy>8.013888</occupancy>
+		<flow>1260</flow>
+		<speed>70</speed>
+	</station>
+	<station id="890" status="ok">
+		<volume>7.6666665</volume>
+		<occupancy>5.722222</occupancy>
+		<flow>920</flow>
+		<speed>108</speed>
+	</station>
+	<station id="891" status="ok">
+		<volume>3.6666667</volume>
+		<occupancy>2.5370371</occupancy>
+		<flow>440</flow>
+		<speed>77</speed>
+	</station>
+	<station id="892" status="ok">
+		<volume>11.666667</volume>
+		<occupancy>9.703704</occupancy>
+		<flow>1400</flow>
+		<speed>69</speed>
+	</station>
+	<station id="893" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>11.259259</occupancy>
+		<flow>1720</flow>
+		<speed>73</speed>
+	</station>
+	<station id="894" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>4.4074073</occupancy>
+		<flow>880</flow>
+		<speed>87</speed>
+	</station>
+	<station id="895" status="ok">
+		<volume>12.666667</volume>
+		<occupancy>10.314815</occupancy>
+		<flow>1520</flow>
+		<speed>69</speed>
+	</station>
+	<station id="896" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>7.925926</occupancy>
+		<flow>1120</flow>
+		<speed>67</speed>
+	</station>
+	<station id="897" status="ok">
+		<volume>13.0</volume>
+		<occupancy>11.055556</occupancy>
+		<flow>1560</flow>
+		<speed>69</speed>
+	</station>
+	<station id="898" status="ok">
+		<volume>12.0</volume>
+		<occupancy>8.277778</occupancy>
+		<flow>1440</flow>
+		<speed>76</speed>
+	</station>
+	<station id="899" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.5</occupancy>
+		<flow>1080</flow>
+		<speed>76</speed>
+	</station>
+	<station id="900" status="ok">
+		<volume>15.5</volume>
+		<occupancy>12.944445</occupancy>
+		<flow>1860</flow>
+		<speed>73</speed>
+	</station>
+	<station id="901" status="ok">
+		<volume>8.5</volume>
+		<occupancy>7.5</occupancy>
+		<flow>1020</flow>
+		<speed>70</speed>
+	</station>
+	<station id="902" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.1388888</occupancy>
+		<flow>360</flow>
+		<speed>85</speed>
+	</station>
+	<station id="903" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.25</occupancy>
+		<flow>720</flow>
+		<speed>84</speed>
+	</station>
+	<station id="904" status="ok">
+		<volume>6.5</volume>
+		<occupancy>4.861111</occupancy>
+		<flow>780</flow>
+		<speed>92</speed>
+	</station>
+	<station id="905" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.2222223</occupancy>
+		<flow>660</flow>
+		<speed>88</speed>
+	</station>
+	<station id="906" status="fail"/>
+	<station id="907" status="fail"/>
+	<station id="908" status="fail"/>
+	<station id="909" status="fail"/>
+	<station id="910" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>8.018518</occupancy>
+		<flow>1120</flow>
+		<speed>76</speed>
+	</station>
+	<station id="911" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.361111</occupancy>
+		<flow>1200</flow>
+		<speed>76</speed>
+	</station>
+	<station id="912" status="fail"/>
+	<station id="913" status="fail"/>
+	<station id="914" status="fail"/>
+	<station id="915" status="ok">
+		<volume>9.5</volume>
+		<occupancy>6.6944447</occupancy>
+		<flow>1140</flow>
+		<speed>90</speed>
+	</station>
+	<station id="916" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>12.111111</occupancy>
+		<flow>1720</flow>
+		<speed>76</speed>
+	</station>
+	<station id="917" status="fail"/>
+	<station id="918" status="fail"/>
+	<station id="919" status="fail"/>
+	<station id="920" status="ok">
+		<volume>12.5</volume>
+		<occupancy>11.083334</occupancy>
+		<flow>1500</flow>
+		<speed>64</speed>
+	</station>
+	<station id="921" status="ok">
+		<volume>13.5</volume>
+		<occupancy>10.0</occupancy>
+		<flow>1620</flow>
+		<speed>73</speed>
+	</station>
+	<station id="922" status="ok">
+		<volume>4.5</volume>
+		<occupancy>3.2222223</occupancy>
+		<flow>540</flow>
+		<speed>72</speed>
+	</station>
+	<station id="923" status="fail"/>
+	<station id="924" status="fail"/>
+	<station id="925" status="fail"/>
+	<station id="926" status="fail"/>
+	<station id="927" status="ok">
+		<volume>9.333333</volume>
+		<occupancy>7.4074073</occupancy>
+		<flow>1120</flow>
+		<speed>67</speed>
+	</station>
+	<station id="928" status="ok">
+		<volume>12.333333</volume>
+		<occupancy>8.833333</occupancy>
+		<flow>1480</flow>
+		<speed>73</speed>
+	</station>
+	<station id="929" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.814815</occupancy>
+		<flow>960</flow>
+		<speed>63</speed>
+	</station>
+	<station id="930" status="fail"/>
+	<station id="931" status="fail"/>
+	<station id="932" status="fail"/>
+	<station id="933" status="fail"/>
+	<station id="934" status="fail"/>
+	<station id="935" status="fail"/>
+	<station id="936" status="fail"/>
+	<station id="937" status="fail"/>
+	<station id="938" status="fail"/>
+	<station id="939" status="fail"/>
+	<station id="940" status="fail"/>
+	<station id="941" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.611111</occupancy>
+		<flow>900</flow>
+		<speed>77</speed>
+	</station>
+	<station id="942" status="ok">
+		<volume>11.0</volume>
+		<occupancy>10.277778</occupancy>
+		<flow>1320</flow>
+		<speed>73</speed>
+	</station>
+	<station id="943" status="ok">
+		<volume>5.0</volume>
+		<occupancy>5.5</occupancy>
+		<flow>600</flow>
+		<speed>56</speed>
+	</station>
+	<station id="944" status="ok">
+		<volume>7.5</volume>
+		<occupancy>7.7777777</occupancy>
+		<flow>900</flow>
+		<speed>63</speed>
+	</station>
+	<station id="945" status="ok">
+		<volume>12.0</volume>
+		<occupancy>11.444445</occupancy>
+		<flow>1440</flow>
+		<speed>65</speed>
+	</station>
+	<station id="946" status="ok">
+		<volume>12.5</volume>
+		<occupancy>10.25</occupancy>
+		<flow>1500</flow>
+		<speed>76</speed>
+	</station>
+	<station id="947" status="ok">
+		<volume>10.0</volume>
+		<occupancy>8.972222</occupancy>
+		<flow>1200</flow>
+		<speed>69</speed>
+	</station>
+	<station id="948" status="ok">
+		<volume>12.5</volume>
+		<occupancy>10.75</occupancy>
+		<flow>1500</flow>
+		<speed>71</speed>
+	</station>
+	<station id="949" status="ok">
+		<volume>11.5</volume>
+		<occupancy>13.694445</occupancy>
+		<flow>1380</flow>
+		<speed>54</speed>
+	</station>
+	<station id="950" status="ok">
+		<volume>12.5</volume>
+		<occupancy>11.833334</occupancy>
+		<flow>1500</flow>
+		<speed>67</speed>
+	</station>
+	<station id="951" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.833333</occupancy>
+		<flow>1080</flow>
+		<speed>83</speed>
+	</station>
+	<station id="952" status="ok">
+		<volume>10.25</volume>
+		<occupancy>8.236111</occupancy>
+		<flow>1230</flow>
+		<speed>66</speed>
+	</station>
+	<station id="953" status="ok">
+		<volume>2.5</volume>
+		<occupancy>1.8888888</occupancy>
+		<flow>300</flow>
+		<speed>78</speed>
+	</station>
+	<station id="954" status="ok">
+		<volume>6.0</volume>
+		<occupancy>4.7222223</occupancy>
+		<flow>720</flow>
+		<speed>78</speed>
+	</station>
+	<station id="955" status="ok">
+		<volume>7.5</volume>
+		<occupancy>6.4444447</occupancy>
+		<flow>900</flow>
+		<speed>64</speed>
+	</station>
+	<station id="956" status="ok">
+		<volume>7.0</volume>
+		<occupancy>6.013889</occupancy>
+		<flow>840</flow>
+		<speed>69</speed>
+	</station>
+	<station id="957" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>5.4074078</occupancy>
+		<flow>880</flow>
+		<speed>81</speed>
+	</station>
+	<station id="958" status="ok">
+		<volume>4.75</volume>
+		<occupancy>3.7222223</occupancy>
+		<flow>570</flow>
+		<speed>75</speed>
+	</station>
+	<station id="959" status="ok">
+		<volume>5.5</volume>
+		<occupancy>5.25</occupancy>
+		<flow>660</flow>
+		<speed>66</speed>
+	</station>
+	<station id="960" status="ok">
+		<volume>8.0</volume>
+		<occupancy>6.9814816</occupancy>
+		<flow>960</flow>
+		<speed>73</speed>
+	</station>
+	<station id="961" status="ok">
+		<volume>10.666667</volume>
+		<occupancy>10.259259</occupancy>
+		<flow>1280</flow>
+		<speed>71</speed>
+	</station>
+	<station id="962" status="ok">
+		<volume>5.5</volume>
+		<occupancy>4.5277777</occupancy>
+		<flow>660</flow>
+		<speed>78</speed>
+	</station>
+	<station id="963" status="ok">
+		<volume>4.0</volume>
+		<occupancy>4.2777777</occupancy>
+		<flow>480</flow>
+		<speed>47</speed>
+	</station>
+	<station id="964" status="fail"/>
+	<station id="965" status="ok">
+		<volume>9.0</volume>
+		<occupancy>6.7592597</occupancy>
+		<flow>1080</flow>
+		<speed>69</speed>
+	</station>
+	<station id="966" status="ok">
+		<volume>3.0</volume>
+		<occupancy>2.6666665</occupancy>
+		<flow>360</flow>
+		<speed>66</speed>
+	</station>
+	<station id="967" status="fail"/>
+	<station id="968" status="fail"/>
+	<station id="969" status="fail"/>
+	<station id="970" status="ok">
+		<volume>19.0</volume>
+		<occupancy>20.88889</occupancy>
+		<flow>2280</flow>
+		<speed>64</speed>
+	</station>
+	<station id="971" status="ok">
+		<volume>14.0</volume>
+		<occupancy>12.222222</occupancy>
+		<flow>1680</flow>
+		<speed>76</speed>
+	</station>
+	<station id="972" status="ok">
+		<volume>11.0</volume>
+		<occupancy>9.518518</occupancy>
+		<flow>1320</flow>
+		<speed>78</speed>
+	</station>
+	<station id="973" status="ok">
+		<volume>7.3333335</volume>
+		<occupancy>5.7592597</occupancy>
+		<flow>880</flow>
+		<speed>82</speed>
+	</station>
+	<station id="974" status="ok">
+		<volume>12.333333</volume>
+		<occupancy>9.277778</occupancy>
+		<flow>1480</flow>
+		<speed>84</speed>
+	</station>
+	<station id="975" status="ok">
+		<volume>10.0</volume>
+		<occupancy>7.222222</occupancy>
+		<flow>1200</flow>
+		<speed>85</speed>
+	</station>
+	<station id="976" status="ok">
+		<volume>8.75</volume>
+		<occupancy>7.5972223</occupancy>
+		<flow>1050</flow>
+		<speed>69</speed>
+	</station>
+	<station id="977" status="ok">
+		<volume>11.0</volume>
+		<occupancy>10.0</occupancy>
+		<flow>1320</flow>
+		<speed>65</speed>
+	</station>
+	<station id="978" status="ok">
+		<volume>7.5</volume>
+		<occupancy>5.3888893</occupancy>
+		<flow>900</flow>
+		<speed>81</speed>
+	</station>
+	<station id="979" status="ok">
+		<volume>10.666667</volume>
+		<occupancy>7.518519</occupancy>
+		<flow>1280</flow>
+		<speed>82</speed>
+	</station>
+	<station id="980" status="ok">
+		<volume>18.0</volume>
+		<occupancy>15.027779</occupancy>
+		<flow>2160</flow>
+		<speed>72</speed>
+	</station>
+	<station id="981" status="ok">
+		<volume>19.0</volume>
+		<occupancy>18.083332</occupancy>
+		<flow>2280</flow>
+		<speed>70</speed>
+	</station>
+	<station id="982" status="ok">
+		<volume>18.0</volume>
+		<occupancy>14.861111</occupancy>
+		<flow>2160</flow>
+		<speed>76</speed>
+	</station>
+	<station id="983" status="ok">
+		<volume>21.0</volume>
+		<occupancy>18.777779</occupancy>
+		<flow>2520</flow>
+		<speed>71</speed>
+	</station>
+	<station id="984" status="ok">
+		<volume>14.5</volume>
+		<occupancy>12.055555</occupancy>
+		<flow>1740</flow>
+		<speed>78</speed>
+	</station>
+	<station id="985" status="ok">
+		<volume>16.5</volume>
+		<occupancy>18.11111</occupancy>
+		<flow>1980</flow>
+		<speed>54</speed>
+	</station>
+	<station id="986" status="ok">
+		<volume>14.5</volume>
+		<occupancy>16.583334</occupancy>
+		<flow>1740</flow>
+		<speed>58</speed>
+	</station>
+	<station id="987" status="ok">
+		<volume>11.5</volume>
+		<occupancy>10.888889</occupancy>
+		<flow>1380</flow>
+		<speed>70</speed>
+	</station>
+	<station id="988" status="ok">
+		<volume>8.5</volume>
+		<occupancy>30.944443</occupancy>
+		<flow>1020</flow>
+		<speed>28</speed>
+	</station>
+	<station id="989" status="ok">
+		<volume>3.5</volume>
+		<occupancy>75.05556</occupancy>
+		<flow>420</flow>
+		<speed>3</speed>
+	</station>
+	<station id="990" status="ok">
+		<volume>12.0</volume>
+		<occupancy>22.666666</occupancy>
+		<flow>1440</flow>
+		<speed>38</speed>
+	</station>
+	<station id="991" status="ok">
+		<volume>10.0</volume>
+		<occupancy>43.61111</occupancy>
+		<flow>1200</flow>
+		<speed>17</speed>
+	</station>
+	<station id="992" status="ok">
+		<volume>0.0</volume>
+		<occupancy>0.0</occupancy>
+		<flow>0</flow>
+		<speed>-1</speed>
+	</station>
+	<station id="993" status="fail"/>
+	<station id="994" status="fail"/>
+	<station id="995" status="ok">
+		<volume>4.0</volume>
+		<occupancy>3.0555556</occupancy>
+		<flow>480</flow>
+		<speed>88</speed>
+	</station>
+	<station id="996" status="ok">
+		<volume>4.6666665</volume>
+		<occupancy>3.7962964</occupancy>
+		<flow>560</flow>
+		<speed>76</speed>
+	</station>
+	<station id="997" status="fail"/>
+	<station id="998" status="ok">
+		<volume>2.0</volume>
+		<occupancy>1.5277777</occupancy>
+		<flow>240</flow>
+		<speed>77</speed>
+	</station>
+	<station id="999" status="ok">
+		<volume>4.5</volume>
+		<occupancy>3.1666667</occupancy>
+		<flow>540</flow>
+		<speed>84</speed>
+	</station>
+	<station id="1000" status="fail"/>
+	<station id="1001" status="fail"/>
+	<station id="1002" status="fail"/>
+	<station id="1003" status="fail"/>
+	<station id="1004" status="fail"/>
+	<station id="1005" status="fail"/>
+	<station id="1006" status="fail"/>
+	<station id="1007" status="fail"/>
+	<station id="1008" status="fail"/>
+	<station id="1009" status="fail"/>
+	<station id="1010" status="fail"/>
+	<station id="1011" status="fail"/>
+	<station id="1012" status="fail"/>
+	<station id="1013" status="fail"/>
+	<station id="1014" status="fail"/>
+	<station id="1015" status="fail"/>
+	<station id="1016" status="fail"/>
+	<station id="1017" status="fail"/>
+	<station id="1018" status="fail"/>
+	<station id="1019" status="fail"/>
+	<station id="1020" status="fail"/>
+	<station id="1021" status="fail"/>
+	<station id="1022" status="fail"/>
+	<station id="1023" status="fail"/>
+	<station id="1024" status="fail"/>
+	<station id="1025" status="fail"/>
+	<station id="1026" status="fail"/>
+	<station id="1027" status="fail"/>
+	<station id="1028" status="fail"/>
+	<station id="1029" status="fail"/>
+	<station id="1030" status="fail"/>
+	<station id="1031" status="fail"/>
+	<station id="1032" status="fail"/>
+	<station id="1033" status="fail"/>
+	<station id="1034" status="fail"/>
+	<station id="1035" status="fail"/>
+	<station id="1036" status="fail"/>
+	<station id="1037" status="fail"/>
+	<station id="1038" status="fail"/>
+	<station id="1039" status="fail"/>
+	<station id="1040" status="fail"/>
+	<station id="1041" status="fail"/>
+	<station id="1042" status="fail"/>
+	<station id="1043" status="fail"/>
+	<station id="1044" status="fail"/>
+	<station id="1045" status="fail"/>
+	<station id="1046" status="fail"/>
+	<station id="1047" status="fail"/>
+	<station id="1048" status="fail"/>
+	<station id="1049" status="fail"/>
+	<station id="1050" status="fail"/>
+	<station id="1051" status="fail"/>
+	<station id="1052" status="fail"/>
+	<station id="1053" status="fail"/>
+	<station id="1054" status="fail"/>
+	<station id="1055" status="fail"/>
+	<station id="1056" status="fail"/>
+	<station id="1057" status="fail"/>
+	<station id="1058" status="fail"/>
+	<station id="1059" status="fail"/>
+	<station id="1060" status="fail"/>
+	<station id="1061" status="fail"/>
+	<station id="1062" status="fail"/>
+	<station id="1063" status="fail"/>
+	<station id="1064" status="fail"/>
+	<station id="1065" status="fail"/>
+	<station id="1066" status="fail"/>
+	<station id="1067" status="fail"/>
+	<station id="1068" status="fail"/>
+	<station id="1069" status="fail"/>
+	<station id="1070" status="fail"/>
+	<station id="1071" status="fail"/>
+	<station id="1072" status="fail"/>
+	<station id="1073" status="fail"/>
+	<station id="1074" status="fail"/>
+	<station id="1075" status="ok">
+		<volume>9.0</volume>
+		<occupancy>8.8148155</occupancy>
+		<flow>1080</flow>
+		<speed>58</speed>
+	</station>
+	<station id="1076" status="ok">
+		<volume>15.5</volume>
+		<occupancy>20.75</occupancy>
+		<flow>1860</flow>
+		<speed>39</speed>
+	</station>
+	<station id="1077" status="ok">
+		<volume>12.5</volume>
+		<occupancy>31.944443</occupancy>
+		<flow>1500</flow>
+		<speed>20</speed>
+	</station>
+	<station id="1078" status="ok">
+		<volume>16.5</volume>
+		<occupancy>22.88889</occupancy>
+		<flow>1980</flow>
+		<speed>36</speed>
+	</station>
+	<station id="1079" status="ok">
+		<volume>14.0</volume>
+		<occupancy>16.25</occupancy>
+		<flow>1680</flow>
+		<speed>43</speed>
+	</station>
+	<station id="1080" status="ok">
+		<volume>15.5</volume>
+		<occupancy>16.555555</occupancy>
+		<flow>1860</flow>
+		<speed>47</speed>
+	</station>
+	<station id="1081" status="fail"/>
+	<station id="1082" status="fail"/>
+	<station id="1083" status="ok">
+		<volume>13.0</volume>
+		<occupancy>36.805557</occupancy>
+		<flow>1560</flow>
+		<speed>18</speed>
+	</station>
+	<station id="1084" status="ok">
+		<volume>14.5</volume>
+		<occupancy>34.25</occupancy>
+		<flow>1740</flow>
+		<speed>22</speed>
+	</station>
+	<station id="1085" status="ok">
+		<volume>14.0</volume>
+		<occupancy>28.666666</occupancy>
+		<flow>1680</flow>
+		<speed>25</speed>
+	</station>
+	<station id="1086" status="ok">
+		<volume>9.0</volume>
+		<occupancy>45.833336</occupancy>
+		<flow>1080</flow>
+		<speed>10</speed>
+	</station>
+	<station id="1087" status="ok">
+		<volume>8.5</volume>
+		<occupancy>14.0</occupancy>
+		<flow>1020</flow>
+		<speed>36</speed>
+	</station>
+	<station id="1088" status="ok">
+		<volume>14.333333</volume>
+		<occupancy>13.981481</occupancy>
+		<flow>1720</flow>
+		<speed>51</speed>
+	</station>
+	<station id="1089" status="fail"/>
+	<station id="1090" status="fail"/>
+	<station id="1091" status="ok">
+		<volume>2.5</volume>
+		<occupancy>2.1944444</occupancy>
+		<flow>300</flow>
+		<speed>55</speed>
+	</station>
+	<station id="1092" status="fail"/>
+	<station id="1093" status="fail"/>
+	<station id="1094" status="fail"/>
+	<station id="1095" status="fail"/>
+	<station id="1096" status="fail"/>
+	<station id="1097" status="fail"/>
+	<station id="1098" status="fail"/>
+	<station id="1099" status="fail"/>
+	<station id="1100" status="ok">
+		<volume>5.5</volume>
+		<occupancy>5.2222223</occupancy>
+		<flow>660</flow>
+		<speed>53</speed>
+	</station>
+	<station id="1101" status="ok">
+		<volume>6.5</volume>
+		<occupancy>5.583333</occupancy>
+		<flow>780</flow>
+		<speed>75</speed>
+	</station>
+	<station id="1102" status="fail"/>
+	<station id="1103" status="ok">
+		<volume>6.0</volume>
+		<occupancy>2.3888888</occupancy>
+		<flow>720</flow>
+		<speed>127</speed>
+	</station>
+	<station id="1104" status="ok">
+		<volume>9.5</volume>
+		<occupancy>12.444445</occupancy>
+		<flow>1140</flow>
+		<speed>38</speed>
+	</station>
+	<station id="1105" status="fail"/>
+	<station id="1106" status="fail"/>
+	<station id="1107" status="fail"/>
+	<station id="1108" status="fail"/>
+	<station id="1109" status="fail"/>
+	<station id="1110" status="fail"/>
+	<station id="1111" status="fail"/>
+	<station id="1112" status="fail"/>
+	<station id="1113" status="fail"/>
+	<station id="1114" status="fail"/>
+	<station id="1115" status="fail"/>
+	<station id="1116" status="fail"/>
+	<station id="1117" status="fail"/>
+	<station id="1118" status="fail"/>
+	<station id="1119" status="fail"/>
+	<station id="1120" status="fail"/>
+	<station id="1121" status="fail"/>
+</station_data>
