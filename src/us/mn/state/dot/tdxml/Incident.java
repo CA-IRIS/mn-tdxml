@@ -11,8 +11,32 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+package us.mn.state.dot.tdxml;
+
+/**
+ * The <code>Incident</code> class represents a traffic incident.
+ *
+ * @author Douglas Lau
+ * @author Erik Engstrom
+ */
+public interface Incident extends Comparable {
+
+	/** Get the message ID */
+	String getMessageId();
+
+	/** Get the event time */
+	EventTime getTime();
+
+	/** Check if an incident is valid */
+	boolean isValid();
+
+	/** Get the start location */
+	Location getStartLocation();
+
+	/** Get the start location */
+	Location getEndLocation();
+
+	/** Get the description */
+	IncidentDescription getDescription();
+}

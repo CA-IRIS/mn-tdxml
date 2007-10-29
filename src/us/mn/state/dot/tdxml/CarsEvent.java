@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2007  Minnesota Department of Transportation
+ * Copyright (C) 2003-2007  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,8 +11,29 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+package us.mn.state.dot.tdxml;
+
+import org.w3c.dom.Element;
+
+/**
+ * @author Erik Engstrom
+ */
+public class CarsEvent {
+
+	private final String type;
+	private final String message;
+
+	public CarsEvent(Element element) {
+		type = element.getNodeName();
+		message = element.getTextContent();
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public String getType() {
+		return type;
+	}
+}

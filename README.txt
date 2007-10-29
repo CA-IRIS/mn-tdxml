@@ -1,5 +1,5 @@
 
-                               DDS Client
+                               TDXML
 
                                Version @@VERSION@@
 

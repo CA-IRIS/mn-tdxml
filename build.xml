@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- ====================================================== -->
-<!-- DDS build file                                         -->
+<!-- tdxml build file                                       -->
 <!-- Authors: Erik Engstrom, Douglas Lau                    -->
 <!-- Legal: Copyright (c) 1999-2007 Minnesota Department of -->
 <!--            Transportation. All Rights Reserved.        -->
@@ -114,7 +114,7 @@
 				<include name="location_lookup.xml"/>
 			</fileset>
 			<fileset dir="${build.classes}">
-				<include name="us/mn/state/dot/dds/**"/>
+				<include name="us/mn/state/dot/tdxml/**"/>
 			</fileset>
 		</jar>
 	</target>
@@ -157,8 +157,8 @@
 			</fileset>
 		</copy>
 
-		<copy file="${etc.dir}/ddsClient.properties"
-			tofile="${dist.lib}/ddsClient.properties"/>
+		<copy file="${etc.dir}/tdxml.properties"
+			tofile="${dist.lib}/tdxml.properties"/>
 
 		<copy todir="${dist.etc}">
 			<fileset dir="${etc.dir}"/>

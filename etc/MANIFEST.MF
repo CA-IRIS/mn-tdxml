@@ -1,2 +1,2 @@
 Class-Path: tms-log-@@TMSLOG.VERSION@@.jar
-Main-Class: us.mn.state.dot.dds.client.Main
+Main-Class: us.mn.state.dot.tdxml.Main
