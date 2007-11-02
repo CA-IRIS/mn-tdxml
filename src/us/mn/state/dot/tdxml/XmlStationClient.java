@@ -78,7 +78,7 @@ public class XmlStationClient extends XmlClient {
 	public XmlStationClient(Properties props, Logger l)
 		throws DdsException
 	{
-		super(props.getProperty("dds.station.url"), l);
+		super(props.getProperty("tdxml.station.url"), l);
 		try {
 			SAXParserFactory factory =
 				SAXParserFactory.newInstance();
