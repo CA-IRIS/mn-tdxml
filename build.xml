@@ -115,6 +115,7 @@
 			</fileset>
 			<fileset dir="${build.classes}">
 				<include name="us/mn/state/dot/tdxml/**"/>
+				<include name="gov/ca/dot/d10/tdxml/**"/>
 			</fileset>
 		</jar>
 	</target>

@@ -248,13 +248,13 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 		return result;
 	}
 
-	abstract String lookupSign(CarsEvent keyPhrase)
+	protected abstract String lookupSign(CarsEvent keyPhrase)
 		throws IncidentException;
-	abstract String lookupName(String roadway, double linear,
+	protected abstract String lookupName(String roadway, double linear,
 		boolean extent) throws IncidentException;
-	abstract boolean lookupMetro(String roadway, double linear)
+	protected abstract boolean lookupMetro(String roadway, double linear)
 		throws IncidentException;
-	abstract char lookupDefaultDirection(String roadway, double linear,
+	protected abstract char lookupDefaultDirection(String roadway, double linear,
 		String link_dir) throws IncidentException;
 
 	/** Convert an XML LinkLocation to a CarsLocation */

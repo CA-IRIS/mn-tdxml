@@ -32,10 +32,11 @@ import org.xml.sax.SAXException;
  *
  * @author Erik Engstrom
  * @author Douglas Lau
+ * @author Michael Darter
  */
 public class XmlIncidentClient extends XmlClient {
 
-	protected final XmlIncidentFactory factory;
+	protected XmlIncidentFactory factory;
 
 	/**
 	 * Constructor for XmlIncidentClient that uses a Properties object to
@@ -46,8 +47,15 @@ public class XmlIncidentClient extends XmlClient {
 		throws DdsException
 	{
 		super(props.getProperty("tdxml.incident.url"), l);
+        this.createIncidentFactory(props,l);
+	}
+
+	/** create incident factory, called by constructor, may be overridden by each agency. */
+	protected void createIncidentFactory(Properties props, Logger logger) 
+		throws DdsException
+    {
 		try {
-			factory = new DOMXmlIncidentFactory(props, l);
+    	    factory = new DOMXmlIncidentFactory(props, logger);
 		}
 		catch(IOException e) {
 			throw new DdsException(e);
@@ -70,7 +78,7 @@ public class XmlIncidentClient extends XmlClient {
 		});
 	}
 
-	/** Parse the incidents in an XML document */
+	/** Parse the incidents in an XML document. May be overridden by each agency. */
 	protected void parseIncidents(Element root) throws IncidentException {
 		NodeList nodes = root.getChildNodes();
 		for(int i = 0; i < nodes.getLength(); i++) {
@@ -100,7 +108,7 @@ public class XmlIncidentClient extends XmlClient {
 		logger.info("Parse complete for " + location);
 	}
 
-	/** Parse the XML document and notify clients */
+	/** Parse the XML document and notify clients. May be overridden by each agency. */
 	protected void parse(Document doc) throws IncidentException {
 		logger.info("Parsing incident document");
 		notifyStart();
