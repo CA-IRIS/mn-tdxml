@@ -25,7 +25,13 @@ import java.util.Map;
 import org.w3c.dom.Element;
 
 /**
- * This class represents an EMF
+ * This class represents an EMF. This class is presently mn/dot Cars 
+ * specific. It is also used in non-agency specific interfaces such 
+ * as Incident. In the future, functionality in this class may be 
+ * moved into a Cars specific subclass. Also, perhaps a name change
+ * to IncidentTime is more appropriate--it is specific to the Incident,
+ * not Events within incidents. Also, some agencies may use a time stamp
+ * within each Event (e.g. CHP).
  *
  * @author Erik Engstrom
  */
@@ -89,6 +95,12 @@ public class EventTime {
 		CAL_TO_BYTE.put(Calendar.FRIDAY, FRIDAY.getByte());
 		CAL_TO_BYTE.put(Calendar.SATURDAY, SATURDAY.getByte());
 	}
+
+	/**
+	 * Constructor.
+	 */
+	public EventTime( ) {
+    }
 
 	/**
 	 * Constructor for Duration.
