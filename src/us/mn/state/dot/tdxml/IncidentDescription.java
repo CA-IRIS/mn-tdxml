@@ -22,7 +22,7 @@ package us.mn.state.dot.tdxml;
  */
 public class IncidentDescription implements Comparable {
 
-	/** Direction of incident ( NB, SB, EB, WB ) */
+	/** Direction of incident ( NB, SB, EB, WB )  ?? or Northbound, Southbound, Eastbound, Westbound??? */
 	private final String direction;
 
 	/** Roadway that incident is located on ( ie. 35W or 394 ) */
