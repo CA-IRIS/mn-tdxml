@@ -26,6 +26,8 @@ import us.mn.state.dot.tdxml.geo.UTM;
 import us.mn.state.dot.log.TmsLogFactory;
 
 /**
+ * This is an agency specific incident factory.
+ *
  * @author Erik Engstrom
  * @author <a href="mailto:timothy.a.johnson@dot.state.mn.us">Tim Johnson</a>
  * @author Douglas Lau
@@ -214,7 +216,7 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 		}
 		Element times = lookupChild(details, "event-element-times");
 		try {
-			incident.setTime(new EventTime(times));
+			incident.setTime(new CarsEventTime(times));
 		}
 		catch(ParseException pe) {
 			throw new IncidentException("Error parsing date", pe);
