@@ -12,7 +12,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-package us.mn.state.dot.tdxml;
+package us.mn.state.dot.tdxml.cars;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,8 +21,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.w3c.dom.Element;
+import us.mn.state.dot.tdxml.AbstractXmlFactory;
+import us.mn.state.dot.tdxml.EventTime;
 
 /**
  * This class represents an EMF.

@@ -21,6 +21,10 @@ import java.util.logging.Logger;
 
 import org.w3c.dom.Element;
 
+import us.mn.state.dot.tdxml.cars.CarsEvent;
+import us.mn.state.dot.tdxml.cars.CarsEventTime;
+import us.mn.state.dot.tdxml.cars.CarsIncident;
+import us.mn.state.dot.tdxml.cars.CarsLocation;
 import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
 import us.mn.state.dot.tdxml.geo.UTM;
 import us.mn.state.dot.log.TmsLogFactory;
