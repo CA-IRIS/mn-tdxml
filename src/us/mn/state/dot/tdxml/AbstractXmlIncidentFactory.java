@@ -16,9 +16,6 @@ package us.mn.state.dot.tdxml;
 
 import java.util.logging.Logger;
 import org.w3c.dom.Element;
-import us.mn.state.dot.tdxml.cars.CarsEvent;
-import us.mn.state.dot.tdxml.cars.CarsIncident;
-import us.mn.state.dot.tdxml.cars.CarsLocation;
 import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
 import us.mn.state.dot.tdxml.geo.UTM;
 import us.mn.state.dot.log.TmsLogFactory;
@@ -26,8 +23,6 @@ import us.mn.state.dot.log.TmsLogFactory;
 /**
  * An abstract incident factory which provides some commonly needed stuff.
  *
- * @author Erik Engstrom
- * @author <a href="mailto:timothy.a.johnson@dot.state.mn.us">Tim Johnson</a>
  * @author Douglas Lau
  */
 abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
@@ -99,15 +94,6 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 				"' element.");
 	}
 
-	/** Read any additional text */
-	static protected String readAdditionalText(Element elem) {
-		if(elem != null) {
-			Element c = lookupChild(elem, "eventAdditionalText");
-			return lookupChildText(c, "event-description");
-		}
-		return null;
-	}
-
 	/** Return the opposite direction */
 	static protected char oppositeDirection(char direction) {
 		char result = '?';
@@ -152,42 +138,13 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 	/** Logger to use for reporting */
 	protected final Logger logger;
 
-	/** Default constructor */
+	/** Create an XML incident factory */
 	protected AbstractXmlIncidentFactory() {
 		logger = createLogger();
 	}
 
+	/** Create an XML incident factory */
 	protected AbstractXmlIncidentFactory(Logger l) {
 		logger = l;
-	}
-
-
-	protected abstract String lookupSign(CarsEvent keyPhrase)
-		throws IncidentException;
-	protected abstract String lookupName(String roadway, double linear,
-		boolean extent) throws IncidentException;
-	protected abstract boolean lookupMetro(String roadway, double linear)
-		throws IncidentException;
-	protected abstract char lookupDefaultDirection(String roadway,
-		double linear, String link_dir) throws IncidentException;
-
-	/** Convert an XML LinkLocation to a CarsLocation */
-	protected CarsLocation readLocation(String roadway,
-		Element element, boolean extent, String link_dir)
-		throws IncidentException
-	{
-		double latitude = readDegrees(element,
-			"event-location-coordinates-latitude");
-		double longitude = readDegrees(element,
-			"event-location-coordinates-longitude");
-		UTM utm = latLongToUtm(latitude, longitude);
-		double linear = getLinearReference(element);
-		String name = lookupName(roadway, linear, extent);
-		boolean metro = lookupMetro(roadway, linear);
-		char defaultDirection = lookupDefaultDirection(roadway, linear,
-			link_dir);
-		char direction = calculateDirection(link_dir, defaultDirection);
-		return new CarsLocation(utm.getEasting(), utm.getNorthing(),
-			linear, name, direction, defaultDirection, metro);
 	}
 }

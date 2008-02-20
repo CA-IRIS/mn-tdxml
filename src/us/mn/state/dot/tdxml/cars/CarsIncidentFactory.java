@@ -39,10 +39,12 @@ import us.mn.state.dot.tdxml.AbstractXmlIncidentFactory;
 import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
+import us.mn.state.dot.tdxml.geo.UTM;
 
 /**
  * @author Erik Engstrom
  * @author Douglas Lau
+ * @author <a href="mailto:timothy.a.johnson@dot.state.mn.us">Tim Johnson</a>
  */
 public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 
@@ -118,6 +120,15 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		Element gc = lookupChild(c, "event-location-type");
 		Element ggc = lookupChild(gc, "event-location-type-link");
 		return ggc;
+	}
+
+	/** Read any additional text */
+	static protected String readAdditionalText(Element elem) {
+		if(elem != null) {
+			Element c = lookupChild(elem, "eventAdditionalText");
+			return lookupChildText(c, "event-description");
+		}
+		return null;
 	}
 
 	private final HashMap<String, Element> tables =
@@ -340,5 +351,25 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			incident.setEndLocation(readLocation(roadway, sec_loc,
 				true, link_dir));
 		}
+	}
+
+	/** Convert an XML LinkLocation to a CarsLocation */
+	protected CarsLocation readLocation(String roadway,
+		Element element, boolean extent, String link_dir)
+		throws IncidentException
+	{
+		double latitude = readDegrees(element,
+			"event-location-coordinates-latitude");
+		double longitude = readDegrees(element,
+			"event-location-coordinates-longitude");
+		UTM utm = latLongToUtm(latitude, longitude);
+		double linear = getLinearReference(element);
+		String name = lookupName(roadway, linear, extent);
+		boolean metro = lookupMetro(roadway, linear);
+		char defaultDirection = lookupDefaultDirection(roadway, linear,
+			link_dir);
+		char direction = calculateDirection(link_dir, defaultDirection);
+		return new CarsLocation(utm.getEasting(), utm.getNorthing(),
+			linear, name, direction, defaultDirection, metro);
 	}
 }
