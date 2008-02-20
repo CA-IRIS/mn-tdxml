@@ -16,6 +16,7 @@ package us.mn.state.dot.tdxml.cars;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Properties;
@@ -33,6 +34,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import us.mn.state.dot.tdxml.AbstractXmlIncidentFactory;
+import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
 
 /**
@@ -214,5 +216,37 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 				break;
 		}
 		return defaultDirection;
+	}
+
+	/* (non-Javadoc)
+	 * @see us.mn.state.dot.tdxml.XmlIncidentFactory#createIncident(org.jdom.Element)
+	 */
+	public Incident createIncident(Element erm) throws IncidentException {
+		CarsIncident incident = new CarsIncident();
+		incident.setMessageId(getMessageId(erm));
+		Element keyPhrase = getKeyPhrase(erm);
+		CarsEvent keyEvent = new CarsEvent(keyPhrase);
+		incident.setKeyPhrase(keyEvent);
+		Element details = getDetails(erm);
+		incident.setEvents(readEvents(details));
+		incident.setAdditionalText(readAdditionalText(
+			lookupChild(details, "event-additional-text")));
+		incident.setSign(lookupSign(keyEvent));
+
+		Element link = getLink(erm);
+		if(link != null)
+			setIncidentLocation(incident, link);
+		else {
+			incident.setLocation_type(
+				CarsIncident.LOCATION_TYPE_AREA);
+		}
+		Element times = lookupChild(details, "event-element-times");
+		try {
+			incident.setTime(new CarsEventTime(times));
+		}
+		catch(ParseException pe) {
+			throw new IncidentException("Error parsing date", pe);
+		}
+		return incident;
 	}
 }
