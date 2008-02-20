@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2007  Minnesota Department of Transportation
+ * Copyright (C) 2000-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,7 +52,8 @@ abstract public class XmlClient implements Runnable {
 	protected final DocumentBuilder builder;
 
 	/** List of listeners */
-	protected List<DdsListener> listeners = new LinkedList<DdsListener>();
+	protected List<TdxmlListener> listeners =
+		new LinkedList<TdxmlListener>();
 
 	/** Create a new XmlClient */
 	protected XmlClient(String loc, Logger l) throws DdsException {
@@ -194,40 +195,42 @@ abstract public class XmlClient implements Runnable {
 		this.sleepTime = sleepTime;
 	}
 
-	public void addDdsListener(DdsListener l) {
-		LinkedList<DdsListener> lsnr =
-			new LinkedList<DdsListener>(listeners);
+	/** Add a TDXML listener */
+	public void addTdxmlListener(TdxmlListener l) {
+		LinkedList<TdxmlListener> lsnr =
+			new LinkedList<TdxmlListener>(listeners);
 		lsnr.add(l);
 		listeners = lsnr;
 	}
 
-	public void removeDdsListener(DdsListener l) {
-		LinkedList<DdsListener> lsnr =
-			new LinkedList<DdsListener>(listeners);
+	/** Remove a TDXML listener */
+	public void removeTdxmlListener(TdxmlListener l) {
+		LinkedList<TdxmlListener> lsnr =
+			new LinkedList<TdxmlListener>(listeners);
 		lsnr.remove(l);
 		listeners = lsnr;
 	}
 
 	/** Remove all of the registered data listeners */
-	public void removeAllDdsListeners() {
-		listeners = new LinkedList<DdsListener>();
+	public void removeAllTdxmlListeners() {
+		listeners = new LinkedList<TdxmlListener>();
 	}
 
-	/** Notifier for DDS listeners */
+	/** Notifier for TDXML listeners */
 	abstract protected class Notifier {
-		abstract void notify(DdsListener l);
+		abstract void notify(TdxmlListener l);
 	}
 
 	/** Notify all listeners of an update */
 	protected void doNotify(Notifier n) {
-		for(DdsListener l: listeners)
+		for(TdxmlListener l: listeners)
 			n.notify(l);
 	}
 
 	/** Notify listeners of the start of new data */
 	protected void notifyStart() {
 		doNotify(new Notifier() {
-			void notify(DdsListener l) {
+			void notify(TdxmlListener l) {
 				l.update(false);
 			}
 		});
@@ -236,7 +239,7 @@ abstract public class XmlClient implements Runnable {
 	/** Notify listeners that new data is finished */
 	protected void notifyFinish() {
 		doNotify(new Notifier() {
-			void notify(DdsListener l) {
+			void notify(TdxmlListener l) {
 				l.update(true);
 			}
 		});

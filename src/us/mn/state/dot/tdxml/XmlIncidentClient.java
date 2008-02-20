@@ -74,7 +74,7 @@ public class XmlIncidentClient extends XmlClient {
 	/** Notify listeners of an incident */
 	protected void notifyIncident(final Incident i) {
 		doNotify(new Notifier() {
-			void notify(DdsListener l) {
+			void notify(TdxmlListener l) {
 				IncidentListener il = (IncidentListener)l;
 				il.update(i);
 			}
