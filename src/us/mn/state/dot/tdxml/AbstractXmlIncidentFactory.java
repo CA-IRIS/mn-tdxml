@@ -14,9 +14,6 @@
  */
 package us.mn.state.dot.tdxml;
 
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import org.w3c.dom.Element;
@@ -206,21 +203,6 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 		Element desc = lookupChild(details,
 			"event-element-description");
 		return lookupChild(desc, "event-phrase");
-	}
-
-	/**
-	 * Read the list of event-phrases into List of CarsEvents.
-	 */
-	static protected List<CarsEvent> readEvents(Element details) {
-		final List<CarsEvent> result = new ArrayList<CarsEvent>();
-		Element description = getDescription(details);
-		lookupChildren(description, "eventType", new ElementCallback() {
-			public void processElement(Element e) {
-				Element descPhrase = (Element)e.getFirstChild();
-				result.add(new CarsEvent(descPhrase));
-			}
-		});
-		return result;
 	}
 
 	protected abstract String lookupSign(CarsEvent keyPhrase)

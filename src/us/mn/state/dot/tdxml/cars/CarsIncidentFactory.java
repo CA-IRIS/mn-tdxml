@@ -17,8 +17,10 @@ package us.mn.state.dot.tdxml.cars;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -34,6 +36,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import us.mn.state.dot.tdxml.AbstractXmlIncidentFactory;
+import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
 
@@ -48,6 +51,29 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	static private final String TABLE_XML_EVENT = "xml_event";
 
 	static private final String TABLE_CARS = "cars";
+
+	/** Read the list of event-phrases into List of CarsEvents */
+	static protected List<CarsEvent> readEvents(Element details) {
+		final List<CarsEvent> result = new ArrayList<CarsEvent>();
+		Element description = getDescription(details);
+		lookupChildren(description, "eventType", new ElementCallback() {
+			public void processElement(Element e) {
+				Element descPhrase = (Element)e.getFirstChild();
+				result.add(new CarsEvent(descPhrase));
+			}
+		});
+		return result;
+	}
+
+	/** Lookup the bearing */
+	static protected char lookupBearing(Element rec) {
+		String bearing = rec.getAttribute("bearing");
+		if(bearing != null)
+			return bearing.charAt(0);
+		else
+			return '?';
+	}
+
 
 	private final HashMap<String, Element> tables =
 		new HashMap<String, Element>();
@@ -126,14 +152,6 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			}
 		}
 		return "info";
-	}
-
-	static protected char lookupBearing(Element rec) {
-		String bearing = rec.getAttribute("bearing");
-		if(bearing != null)
-			return bearing.charAt(0);
-		else
-			return '?';
 	}
 
 	protected String lookupName(String roadway, double linear,
