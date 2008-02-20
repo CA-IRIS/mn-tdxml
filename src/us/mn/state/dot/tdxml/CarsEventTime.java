@@ -65,15 +65,20 @@ public class CarsEventTime implements EventTime {
 	private static final DateFormat outDateFormat =
 		new SimpleDateFormat("h:mm a', 'MM/dd/yy");
 
-	private Date startTime;
+	/** Event start time */
+	private final Date startTime;
 
-	private Date endTime;
+	/** Event end time */
+	private final Date endTime;
 
-	private boolean recurrent = false;
+	/** Is the event recurrent? */
+	private final boolean recurrent;
 
-	private int duration;
+	/** Event duration (units?) */
+	private final int duration;
 
-	private byte days;
+	/** Weekdays for recurrent events */
+	private final byte bDays;
 
 	private String scheduleStart = null;
 
@@ -91,14 +96,26 @@ public class CarsEventTime implements EventTime {
 		CAL_TO_BYTE.put(Calendar.SATURDAY, SATURDAY.getByte());
 	}
 
-	/**
-	 * Create a new CARS event time.
-	 */
-	public CarsEventTime( ) {
+	static int parseDuration(Element validPeriod) {
+		String d = AbstractXmlFactory.lookupChildText(validPeriod,
+			"event-timeline-estimated-duration");
+		if(d != null)
+			return Integer.parseInt(d);
+		else
+			return 0;
+	}
+
+	static byte parseDaysOfWeek(Element eventPeriod) {
+		String b = AbstractXmlFactory.lookupChildText(eventPeriod,
+			"event-timeline-schedule-days-of-the-week");
+		if(b != null)
+			return Byte.parseByte(b);
+		else
+			return 0;
 	}
 
 	/**
-	 * Constructor for Duration.
+	 * Create a new CARS event time.
 	 */
 	public CarsEventTime( Element element ) throws ParseException {
 		super();
@@ -108,10 +125,7 @@ public class CarsEventTime implements EventTime {
 			"valid-period");
 		endTime = readDate(AbstractXmlFactory.lookupChild(validPeriod,
 			"expected-end-time"));
-		String temp = AbstractXmlFactory.lookupChildText(validPeriod,
-			"event-timeline-estimated-duration");
-		if(temp != null)
-			duration = Integer.parseInt(temp);
+		duration = parseDuration(validPeriod);
 		Element recurrentTimes = AbstractXmlFactory.lookupChild(element,
 			"recurrent-times");
 		if(recurrentTimes != null)
@@ -134,11 +148,9 @@ public class CarsEventTime implements EventTime {
 			if(effectiveQualifier != null)
 				effectiveQualifier =
 					effectiveQualifier.replace('-', ' ');
-			temp = AbstractXmlFactory.lookupChildText(eventPeriod,
-				"event-timeline-schedule-days-of-the-week");
-			if(temp != null)
-				days = Byte.parseByte(temp);
-		}
+			bDays = parseDaysOfWeek(eventPeriod);
+		} else
+			bDays = 0;
 	}
 
 	private StringBuffer getWeekdays(byte b, boolean start){
@@ -209,25 +221,24 @@ public class CarsEventTime implements EventTime {
 		}
 		if(recurrent) {
 			StringBuffer dayString = new StringBuffer(" on ");
-			if((days & WEEKDAYS) == WEEKDAYS) {
+			if((bDays & WEEKDAYS) == WEEKDAYS) {
 				dayString.append(WEEKDAYS_KEY);
-				byte weekends = (byte)(days & WEEKENDS);
+				byte weekends = (byte)(bDays & WEEKENDS);
 				if(weekends == WEEKENDS)
 					dayString = new StringBuffer( " daily");
 				else if(SATURDAY.contains(weekends))
 					dayString.append(" and ").append(SATURDAY.name);
 				else if (SUNDAY.contains(weekends))
 					dayString.append(" and ").append(SUNDAY.name);
-			} else if((days & WEEKENDS)==WEEKENDS){
+			} else if((bDays & WEEKENDS) == WEEKENDS) {
 				dayString.append(WEEKENDS_KEY);
-				dayString.append(getWeekdays(days, false));
+				dayString.append(getWeekdays(bDays, false));
 			} else {
-				dayString.append(getWeekdays(days, true));
-				if (SUNDAY.contains(days)){
+				dayString.append(getWeekdays(bDays, true));
+				if(SUNDAY.contains(bDays))
 					dayString.append(SUNDAY.name);
-				} else if (SATURDAY.contains(days)){
+				else if(SATURDAY.contains(bDays))
 					dayString.append(SATURDAY.name);
-				}
 			}
 			result.append(dayString);
 			if (effectiveQualifier != null){
@@ -265,7 +276,7 @@ public class CarsEventTime implements EventTime {
 			Calendar cal = Calendar.getInstance();
 			int day = cal.get(Calendar.DAY_OF_WEEK);
 			byte bValue = (CAL_TO_BYTE.get(day)).byteValue();
-			if ((days & bValue) == bValue) { //If true incident is active today.
+			if((bDays & bValue) == bValue) { //If true incident is active today.
 				if (null == scheduleStart){
 					return true; //There is no scheduled start and end time so
 					// just return true;
