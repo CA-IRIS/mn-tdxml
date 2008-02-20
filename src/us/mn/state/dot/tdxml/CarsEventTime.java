@@ -32,6 +32,9 @@ import org.w3c.dom.Element;
  */
 public class CarsEventTime implements EventTime {
 
+	/** Constant for the number of minutes per day */
+	static protected final int MINUTES_PER_DAY = 1440;
+
 	private static final String WEEKDAYS_KEY = "Weekdays";
 	private static final String WEEKENDS_KEY = "Weekends";
 
@@ -176,6 +179,7 @@ public class CarsEventTime implements EventTime {
 		return result;
 	}
 
+	/** Append a time interval to a string builder */
 	static protected boolean appendInterval(StringBuilder buf, String units,
 		long value, boolean comma)
 	{
@@ -192,12 +196,12 @@ public class CarsEventTime implements EventTime {
 		return comma || value > 0;
 	}
 
-	/** Format the remaining time for an event */
+	/** Format the remaining time for an event (minutes) */
 	static protected String formatRemaining(long remaining) {
 		boolean comma = false;
-		long days = remaining / 1440;
-		long hours = (remaining % 1440) / 60;
-		long minutes = (remaining % 1440) % 60;
+		long days = remaining / MINUTES_PER_DAY;
+		long hours = (remaining % MINUTES_PER_DAY) / 60;
+		long minutes = remaining % 60;
 		StringBuilder buf = new StringBuilder();
 
 		buf.append(" for the next ");
