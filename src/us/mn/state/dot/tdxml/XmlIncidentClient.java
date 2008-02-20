@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2007  Minnesota Department of Transportation
+ * Copyright (C) 2000-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,6 +36,7 @@ import org.xml.sax.SAXException;
  */
 public class XmlIncidentClient extends XmlClient {
 
+	/** Factory for creating incidents from an XML stream */
 	protected XmlIncidentFactory factory;
 
 	/**
@@ -47,15 +48,16 @@ public class XmlIncidentClient extends XmlClient {
 		throws DdsException
 	{
 		super(props.getProperty("tdxml.incident.url"), l);
-        this.createIncidentFactory(props,l);
+		createIncidentFactory(props, l);
 	}
 
-	/** create incident factory, called by constructor, may be overridden by each agency. */
-	protected void createIncidentFactory(Properties props, Logger logger) 
+	/** Create incident factory, called by constructor.
+	 * May be overridden by each agency. */
+	protected void createIncidentFactory(Properties props, Logger logger)
 		throws DdsException
-    {
+	{
 		try {
-    	    factory = new DOMXmlIncidentFactory(props, logger);
+			factory = DOMXmlIncidentFactory(props, logger);
 		}
 		catch(IOException e) {
 			throw new DdsException(e);
@@ -78,7 +80,8 @@ public class XmlIncidentClient extends XmlClient {
 		});
 	}
 
-	/** Parse the incidents in an XML document. May be overridden by each agency. */
+	/** Parse the incidents in an XML document.
+	 * May be overridden by each agency. */
 	protected void parseIncidents(Element root) throws IncidentException {
 		NodeList nodes = root.getChildNodes();
 		for(int i = 0; i < nodes.getLength(); i++) {
@@ -108,7 +111,8 @@ public class XmlIncidentClient extends XmlClient {
 		logger.info("Parse complete for " + location);
 	}
 
-	/** Parse the XML document and notify clients. May be overridden by each agency. */
+	/** Parse the XML document and notify clients.
+	 * May be overridden by each agency. */
 	protected void parse(Document doc) throws IncidentException {
 		logger.info("Parsing incident document");
 		notifyStart();

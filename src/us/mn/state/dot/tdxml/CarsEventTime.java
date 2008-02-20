@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2007  Minnesota Department of Transportation
+ * Copyright (C) 2003-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,13 +25,7 @@ import java.util.Map;
 import org.w3c.dom.Element;
 
 /**
- * This class represents an EMF. This class is presently mn/dot Cars 
- * specific. It is also used in non-agency specific interfaces such 
- * as Incident. In the future, functionality in this class may be 
- * moved into a Cars specific subclass. Also, perhaps a name change
- * to IncidentTime is more appropriate--it is specific to the Incident,
- * not Events within incidents. Also, some agencies may use a time stamp
- * within each Event (e.g. CHP).
+ * This class represents an EMF.
  *
  * @author Erik Engstrom
  * @author Michael Darter
@@ -98,10 +92,10 @@ public class CarsEventTime implements EventTime {
 	}
 
 	/**
-	 * Constructor.
+	 * Create a new CARS event time.
 	 */
 	public CarsEventTime( ) {
-    }
+	}
 
 	/**
 	 * Constructor for Duration.

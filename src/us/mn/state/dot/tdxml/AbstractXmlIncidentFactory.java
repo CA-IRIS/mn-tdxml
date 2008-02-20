@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2007  Minnesota Department of Transportation
+ * Copyright (C) 2003-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -256,8 +256,8 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 		boolean extent) throws IncidentException;
 	protected abstract boolean lookupMetro(String roadway, double linear)
 		throws IncidentException;
-	protected abstract char lookupDefaultDirection(String roadway, double linear,
-		String link_dir) throws IncidentException;
+	protected abstract char lookupDefaultDirection(String roadway,
+		double linear, String link_dir) throws IncidentException;
 
 	/** Convert an XML LinkLocation to a CarsLocation */
 	protected CarsLocation readLocation(String roadway,

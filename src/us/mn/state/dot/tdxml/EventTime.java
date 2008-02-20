@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2007  Minnesota Department of Transportation
+ * Copyright (C) 2000-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,10 @@ package us.mn.state.dot.tdxml;
  * Each agency should implement this interface, e.g. CarsEventTime,
  * CHPEventTime, etc.
  *
+ * Also, perhaps a name change to IncidentTime is more appropriate--it is
+ * specific to the Incident, not Events within incidents. Also, some agencies
+ * may use a time stamp within each Event (e.g. CHP).
+ *
  * @author Erik Engstrom
  * @author Michael Darter
  *
@@ -26,9 +30,9 @@ package us.mn.state.dot.tdxml;
  */
 public interface EventTime {
 
-    /** to string */
+	/** Get a string representation */
 	public String toString();
 
-    /** returns true if valid */
+	/** Check if the event time is valid */
 	public boolean isValid();
 }
