@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2007  Minnesota Department of Transportation
+ * Copyright (C) 2007-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,37 +19,29 @@ package us.mn.state.dot.tdxml;
  *
  * @author Erik Engstrom
  */
-public class DdsException extends Exception {
+public class TdxmlException extends Exception {
 
-	/**
-	 * Constructor for DdsException.
-	 */
-	public DdsException() {
+	/** Create a new TDXML exception. */
+	public TdxmlException() {
 		super();
 	}
 
-	/**
-	 * Constructor for DdsException.
-	 * @param message
-	 */
-	public DdsException(String message) {
+	/** Create a new TDXML exception.
+	 * @param message */
+	public TdxmlException(String message) {
 		super(message);
 	}
 
-	/**
-	 * Constructor for DdsException.
+	/** Create a new TDXML exception.
 	 * @param message
-	 * @param cause
-	 */
-	public DdsException(String message, Throwable cause) {
+	 * @param cause */
+	public TdxmlException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	/**
-	 * Constructor for DdsException.
-	 * @param cause
-	 */
-	public DdsException(Throwable cause) {
+	/** Create a new TDXML exception.
+	 * @param cause */
+	public TdxmlException(Throwable cause) {
 		super(cause);
 	}
 }

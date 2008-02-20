@@ -64,7 +64,7 @@ public class Main {
 	 * @return        XmlClient initialized with the provided properties.
 	 */
 	protected XmlClient createXmlIncidentClient(Properties props)
-		throws DdsException
+		throws TdxmlException
 	{
 		logger.info("Creating XmlIncidentClient");
 		XmlIncidentClient client = new XmlIncidentClient(props, logger);
@@ -93,7 +93,7 @@ public class Main {
 	 * @return        XmlClient initialized with the provided properties.
 	 */
 	protected XmlClient createXmlStationClient(Properties props)
-		throws DdsException
+		throws TdxmlException
 	{
 		logger.info("Creating XmlStationClient");
 		XmlStationClient client = new XmlStationClient(props, logger);
@@ -114,7 +114,7 @@ public class Main {
 
 	/** Create an XmlClient using the provided properties object */
 	public XmlClient createClient(Properties properties)
-		throws DdsException
+		throws TdxmlException
 	{
 		if(stream.equals("xincident"))
 			return createXmlIncidentClient(properties);

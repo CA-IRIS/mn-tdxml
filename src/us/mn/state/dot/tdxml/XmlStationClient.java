@@ -76,7 +76,7 @@ public class XmlStationClient extends XmlClient {
 
 	/** Create a new XmlStationClient */
 	public XmlStationClient(Properties props, Logger l)
-		throws DdsException
+		throws TdxmlException
 	{
 		super(props.getProperty("tdxml.station.url"), l);
 		try {
@@ -85,10 +85,10 @@ public class XmlStationClient extends XmlClient {
 			parser = factory.newSAXParser();
 		}
 		catch(ParserConfigurationException e) {
-			throw new DdsException(e);
+			throw new TdxmlException(e);
 		}
 		catch(SAXException e) {
-			throw new DdsException(e);
+			throw new TdxmlException(e);
 		}
 	}
 

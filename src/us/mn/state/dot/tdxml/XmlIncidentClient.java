@@ -46,7 +46,7 @@ public class XmlIncidentClient extends XmlClient {
 	 *  tdxml.incident.url which is the url of the incident stream.
 	 */
 	public XmlIncidentClient(Properties props, Logger l)
-		throws DdsException
+		throws TdxmlException
 	{
 		super(props.getProperty("tdxml.incident.url"), l);
 		factory = createIncidentFactory(props, l);
@@ -55,19 +55,19 @@ public class XmlIncidentClient extends XmlClient {
 	/** Create incident factory, called by constructor.
 	 * May be overridden by each agency. */
 	protected XmlIncidentFactory createIncidentFactory(Properties props,
-		Logger logger) throws DdsException
+		Logger logger) throws TdxmlException
 	{
 		try {
 			return new CarsIncidentFactory(props, logger);
 		}
 		catch(IOException e) {
-			throw new DdsException(e);
+			throw new TdxmlException(e);
 		}
 		catch(ParserConfigurationException e) {
-			throw new DdsException(e);
+			throw new TdxmlException(e);
 		}
 		catch(SAXException e) {
-			throw new DdsException(e);
+			throw new TdxmlException(e);
 		}
 	}
 

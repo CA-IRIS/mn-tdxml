@@ -56,7 +56,7 @@ abstract public class XmlClient implements Runnable {
 		new LinkedList<TdxmlListener>();
 
 	/** Create a new XmlClient */
-	protected XmlClient(String loc, Logger l) throws DdsException {
+	protected XmlClient(String loc, Logger l) throws TdxmlException {
 		super();
 		location = loc;
 		if(location == null)
@@ -68,7 +68,7 @@ abstract public class XmlClient implements Runnable {
 			builder = factory.newDocumentBuilder();
 		}
 		catch(ParserConfigurationException e) {
-			throw new DdsException(e);
+			throw new TdxmlException(e);
 		}
 	}
 
