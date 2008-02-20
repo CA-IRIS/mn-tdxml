@@ -234,16 +234,6 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 			linear, name, direction, defaultDirection, metro);
 	}
 
-	static public String getMessageId(Element erm) {
-		Element child = lookupChild(erm, "message-header");
-		return lookupChildText(child, "event-message-number");
-	}
-
-	static public Element getKeyPhrase(Element erm) {
-		Element child = lookupChild(erm, "key-phrase");
-		return (Element)child.getFirstChild();
-	}
-
 	/**
 	 * Get the Details element of the EventReportMessage.
 	 * @param erm The EventReportMessage element.
@@ -273,30 +263,5 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 	 */
 	static public Element getLinkLocation(Element erm, String s) {
 		return lookupChild(getLink(erm), s);
-	}
-
-	/**
-	 * Get the LinkDirection element of the EventReportMessage
-	 * @param erm The EventReportMessage element.
-	 */
-	static public String getLinkDirection(Element erm, String s) {
-		return lookupChildText(getLinkLocation(erm, s),
-			"link-direction");
-	}
-
-	/**
-	 * Get the Time element of the EventReportMessage.
-	 * @param erm The EventReportMessage element
-	 */
-	public Element getTimes(Element erm) {
-		return lookupChild(getDetails(erm), "event-element-times");
-	}
-
-	/**
-	 * Get the roadway for the EventReportMessage.
-	 * @param erm The EventReportMessage element
-	 */
-	public String getRoadway(Element erm) {
-		return lookupChildText(getLink(erm), "link-road-designator");
 	}
 }

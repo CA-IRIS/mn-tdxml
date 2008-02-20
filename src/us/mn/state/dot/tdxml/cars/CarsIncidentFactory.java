@@ -74,6 +74,26 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			return '?';
 	}
 
+	/**
+	 * Get the LinkDirection element of the EventReportMessage
+	 * @param erm The EventReportMessage element.
+	 */
+	static public String getLinkDirection(Element erm, String s) {
+		return lookupChildText(getLinkLocation(erm, s),
+			"link-direction");
+	}
+
+	/** Get the event message ID */
+	static public String getMessageId(Element erm) {
+		Element child = lookupChild(erm, "message-header");
+		return lookupChildText(child, "event-message-number");
+	}
+
+	/** Get an event key phrase */
+	static public Element getKeyPhrase(Element erm) {
+		Element child = lookupChild(erm, "key-phrase");
+		return (Element)child.getFirstChild();
+	}
 
 	private final HashMap<String, Element> tables =
 		new HashMap<String, Element>();
