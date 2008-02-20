@@ -28,7 +28,7 @@ import org.w3c.dom.Element;
  * This class represents an EMF.
  *
  * @author Erik Engstrom
- * @author Michael Darter
+ * @author Douglas Lau
  */
 public class CarsEventTime implements EventTime {
 
@@ -83,9 +83,11 @@ public class CarsEventTime implements EventTime {
 	/** Weekdays for recurrent events */
 	private final byte bDays;
 
-	private String scheduleStart = null;
+	/** Start of scheduled event time */
+	private final String scheduleStart;
 
-	private String scheduleEnd = null;
+	/** End of scheduled event time */
+	private final String scheduleEnd;
 
 	private String effectiveQualifier = null;
 
@@ -143,6 +145,9 @@ public class CarsEventTime implements EventTime {
 			if(null != scheduledTimes && !"".equals(scheduledTimes)){
 				scheduleStart = scheduledTimes.substring(0, 4);
 				scheduleEnd = scheduledTimes.substring(4, 8);
+			} else {
+				scheduleStart = null;
+				scheduleEnd = null;
 			}
 			effectiveQualifier = AbstractXmlFactory.lookupChildText(
 				eventPeriod, "event-effective-period-qualifier");
@@ -152,8 +157,11 @@ public class CarsEventTime implements EventTime {
 				effectiveQualifier =
 					effectiveQualifier.replace('-', ' ');
 			bDays = parseDaysOfWeek(eventPeriod);
-		} else
+		} else {
+			scheduleStart = null;
+			scheduleEnd = null;
 			bDays = 0;
+		}
 	}
 
 	private StringBuffer getWeekdays(byte b, boolean start){
@@ -248,9 +256,8 @@ public class CarsEventTime implements EventTime {
 					dayString.append(SATURDAY.name);
 			}
 			result.append(dayString);
-			if (effectiveQualifier != null){
+			if(effectiveQualifier != null)
 				result.append(" ").append(effectiveQualifier);
-			}
 			if ( null != scheduleStart){
 				result.append(" from ").append(scheduleStart.substring(0,2))
 					.append(':').append(scheduleStart.substring(2,4))
