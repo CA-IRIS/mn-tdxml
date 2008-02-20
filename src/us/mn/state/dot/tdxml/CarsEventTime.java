@@ -153,12 +153,12 @@ public class CarsEventTime implements EventTime {
 	}
 
 	private boolean checkDay(boolean comma, byte b, CarsDay day,
-			StringBuffer buffer){
+		StringBuffer buffer)
+	{
 		boolean result = day.contains(b);
-		if (result){
-			if (comma){
+		if(result) {
+			if(comma)
 				buffer.append(", ");
-			}
 			buffer.append(day.name);
 		}
 		return result;
@@ -181,44 +181,43 @@ public class CarsEventTime implements EventTime {
 			long hours = ( remaining % 1440 ) / 60;
 			long minutes = ( remaining % 1440 ) % 60;
 			result.append( " for the next " );
-			if ( days > 0 ) {
-				if ( hours == 1 ) {
-					result.append(  days ).append("day");
-				} else {
-					result.append( days ).append(" days");
-				}
+			if(days > 0) {
+				if(days > 1)
+					result.append(days).append(" ");
+				result.append("day");
+				if(days > 1)
+					result.append("s");
 				comma = true;
 			}
-			if ( hours > 0 ) {
-				if ( comma ) {
-					result.append( ", ");
-				}
-				if ( hours == 1 ) {
-					result.append( "hour" );
-				} else {
-					result.append( hours ).append(" hours");
-				}
-				comma = true;
-			}
-			if ( minutes > 0 ) {
-				if (comma){
+			if(hours > 0) {
+				if(comma)
 					result.append(", ");
-				}
-				result.append( minutes ).append(" minutes");
+				if(hours > 1)
+					result.append(hours).append(" ");
+				result.append("hour");
+				if(hours > 1)
+					result.append("s");
+				comma = true;
+			}
+			if(minutes > 0) {
+				if(comma)
+					result.append(", ");
+				result.append(minutes).append(" minute");
+				if(minutes > 1)
+					result.append("s");
 			}
 		}
-		if (recurrent){
+		if(recurrent) {
 			StringBuffer dayString = new StringBuffer(" on ");
-			if ((days & WEEKDAYS) == WEEKDAYS){
+			if((days & WEEKDAYS) == WEEKDAYS) {
 				dayString.append(WEEKDAYS_KEY);
 				byte weekends = (byte)(days & WEEKENDS);
-				if(weekends == WEEKENDS){
+				if(weekends == WEEKENDS)
 					dayString = new StringBuffer( " daily");
-				} else if (SATURDAY.contains(weekends)){
+				else if(SATURDAY.contains(weekends))
 					dayString.append(" and ").append(SATURDAY.name);
-				} else if (SUNDAY.contains(weekends)){
+				else if (SUNDAY.contains(weekends))
 					dayString.append(" and ").append(SUNDAY.name);
-				}
 			} else if((days & WEEKENDS)==WEEKENDS){
 				dayString.append(WEEKENDS_KEY);
 				dayString.append(getWeekdays(days, false));
@@ -245,9 +244,8 @@ public class CarsEventTime implements EventTime {
 	}
 
 	private Date readDate( Element element ) throws ParseException {
-		if ( element == null ) {
+		if(element == null)
 			return null;
-		}
 		String date = element.getTextContent();
 		return dateFormat.parse( date );
 	}
@@ -295,9 +293,8 @@ public class CarsEventTime implements EventTime {
 		if ( endTime != null ){
 			long diff = startTime.getTime() - endTime.getTime();
 			result = diff / 60000;
-		} else {
+		} else
 			result = duration;
-		}
 		return result;
 	}
 
