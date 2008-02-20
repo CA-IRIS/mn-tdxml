@@ -131,6 +131,76 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		return null;
 	}
 
+	/**
+	 * Determine the direction of an incident based on the default
+	 * direction for a link and the value from the link-direction tag in
+	 * the XML.
+	 */
+	static protected char calculateDirection(String link_dir,
+		char defaultDirection)
+	{
+		if(link_dir.equals("positive-direction-only"))
+			return defaultDirection;
+		else if(link_dir.equals("negative-direction-only"))
+			return oppositeDirection(defaultDirection);
+		else if(link_dir.equals("both-directions"))
+			return 'X';
+		else
+			return '?';
+	}
+
+	/** Element name for linear reference */
+	static protected final String LINEAR_REF =
+		"link-location-linear-reference";
+
+	/** Parse a linear reference */
+	static protected double parseLinearReference(String l)
+		throws IncidentException
+	{
+		try {
+			return Double.parseDouble(l);
+		}
+		catch(NumberFormatException e) {
+			throw new IncidentException("Invalid '" + LINEAR_REF +
+				"' element.");
+		}
+	}
+
+	/** Get the linear reference from an element */
+	static protected double getLinearReference(Element elem)
+		throws IncidentException
+	{
+		String l = lookupChildText(elem, LINEAR_REF);
+		if(l != null)
+			return parseLinearReference(l);
+		else
+			throw new IncidentException("No '" + LINEAR_REF +
+				"' element.");
+	}
+
+	/** Convert a string to degrees */
+	static protected double toDegrees(String d) {
+		return Double.parseDouble(d) / 1000000;
+	}
+
+	/** Read degrees from a child element */
+	static protected double readDegrees(Element elem, String name)
+		throws IncidentException
+	{
+		String d = lookupChildText(elem, name);
+		if(d != null) {
+			try {
+				return toDegrees(d);
+			}
+			catch(NumberFormatException e) {
+				throw new IncidentException("Invalid '" +
+					name + "' element.");
+			}
+		} else
+			return 0;
+	}
+
+
 	private final HashMap<String, Element> tables =
 		new HashMap<String, Element>();
 
