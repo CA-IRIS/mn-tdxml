@@ -37,7 +37,7 @@ import org.xml.sax.SAXException;
 public class XmlIncidentClient extends XmlClient {
 
 	/** Factory for creating incidents from an XML stream */
-	protected XmlIncidentFactory factory;
+	protected final XmlIncidentFactory factory;
 
 	/**
 	 * Constructor for XmlIncidentClient that uses a Properties object to
@@ -48,16 +48,16 @@ public class XmlIncidentClient extends XmlClient {
 		throws DdsException
 	{
 		super(props.getProperty("tdxml.incident.url"), l);
-		createIncidentFactory(props, l);
+		factory = createIncidentFactory(props, l);
 	}
 
 	/** Create incident factory, called by constructor.
 	 * May be overridden by each agency. */
-	protected void createIncidentFactory(Properties props, Logger logger)
-		throws DdsException
+	protected XmlIncidentFactory createIncidentFactory(Properties props,
+		Logger logger) throws DdsException
 	{
 		try {
-			factory = DOMXmlIncidentFactory(props, logger);
+			return new DOMXmlIncidentFactory(props, logger);
 		}
 		catch(IOException e) {
 			throw new DdsException(e);
