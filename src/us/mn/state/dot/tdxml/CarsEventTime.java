@@ -36,23 +36,23 @@ public class CarsEventTime implements EventTime {
 	private static final String WEEKENDS_KEY = "Weekends";
 
 	private static final CarsDay SUNDAY =
-		new CarsDay("Sundays",(byte)1, Calendar.SUNDAY);
+		new CarsDay("Sundays", (byte)1, Calendar.SUNDAY);
 	private static final CarsDay MONDAY =
-		new CarsDay("Mondays",(byte)2, Calendar.MONDAY);
+		new CarsDay("Mondays", (byte)2, Calendar.MONDAY);
 	private static final CarsDay TUESDAY =
-		new CarsDay("Tuesdays",(byte)4, Calendar.TUESDAY);
+		new CarsDay("Tuesdays", (byte)4, Calendar.TUESDAY);
 	private static final CarsDay WEDNESDAY =
-		new CarsDay("Wednesdays",(byte)8, Calendar.WEDNESDAY);
+		new CarsDay("Wednesdays", (byte)8, Calendar.WEDNESDAY);
 	private static final CarsDay THURSDAY =
-		new CarsDay("Thursdays",(byte)16, Calendar.THURSDAY);
+		new CarsDay("Thursdays", (byte)16, Calendar.THURSDAY);
 	private static final CarsDay FRIDAY =
-		new CarsDay("Fridays",(byte)32, Calendar.FRIDAY);
+		new CarsDay("Fridays", (byte)32, Calendar.FRIDAY);
 	private static final CarsDay SATURDAY =
-		new CarsDay("Saturdays",(byte)64, Calendar.SATURDAY);
+		new CarsDay("Saturdays", (byte)64, Calendar.SATURDAY);
 
 	private static final byte WEEKDAYS =
-		(byte)(MONDAY.byteValue | TUESDAY.byteValue | WEDNESDAY.byteValue |
-		THURSDAY.byteValue | FRIDAY.byteValue);
+		(byte)(MONDAY.byteValue | TUESDAY.byteValue |
+		WEDNESDAY.byteValue | THURSDAY.byteValue | FRIDAY.byteValue);
 
 	private static final byte WEEKENDS =
 		(byte)(SUNDAY.byteValue | SATURDAY.byteValue);
@@ -176,6 +176,38 @@ public class CarsEventTime implements EventTime {
 		return result;
 	}
 
+	static protected boolean appendInterval(StringBuilder buf, String units,
+		long value, boolean comma)
+	{
+		if(comma && value > 0)
+			buf.append(", ");
+		if(value > 1) {
+			buf.append(value);
+			buf.append(" ");
+		}
+		if(value > 0)
+			buf.append(units);
+		if(value > 1)
+			buf.append("s");
+		return comma || value > 0;
+	}
+
+	/** Format the remaining time for an event */
+	static protected String formatRemaining(long remaining) {
+		boolean comma = false;
+		long days = remaining / 1440;
+		long hours = (remaining % 1440) / 60;
+		long minutes = (remaining % 1440) % 60;
+		StringBuilder buf = new StringBuilder();
+
+		buf.append(" for the next ");
+		comma = appendInterval(buf, "day", days, comma);
+		comma = appendInterval(buf, "hour", hours, comma);
+		appendInterval(buf, "minute", minutes, comma);
+
+		return buf.toString();
+	}
+
 	public String toString() {
 		StringBuffer result = new StringBuffer( "since " );
 		result.append( outDateFormat.format(startTime));
@@ -188,36 +220,7 @@ public class CarsEventTime implements EventTime {
 			long diff = now.getTime() - startTime.getTime();
 			long past = diff / 60000;
 			long remaining = duration - past;
-			boolean comma = false;
-			long days = remaining / 1440;
-			long hours = ( remaining % 1440 ) / 60;
-			long minutes = ( remaining % 1440 ) % 60;
-			result.append( " for the next " );
-			if(days > 0) {
-				if(days > 1)
-					result.append(days).append(" ");
-				result.append("day");
-				if(days > 1)
-					result.append("s");
-				comma = true;
-			}
-			if(hours > 0) {
-				if(comma)
-					result.append(", ");
-				if(hours > 1)
-					result.append(hours).append(" ");
-				result.append("hour");
-				if(hours > 1)
-					result.append("s");
-				comma = true;
-			}
-			if(minutes > 0) {
-				if(comma)
-					result.append(", ");
-				result.append(minutes).append(" minute");
-				if(minutes > 1)
-					result.append("s");
-			}
+			result.append(formatRemaining(remaining));
 		}
 		if(recurrent) {
 			StringBuffer dayString = new StringBuffer(" on ");
