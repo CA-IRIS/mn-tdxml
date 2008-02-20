@@ -25,6 +25,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import us.mn.state.dot.tdxml.cars.CarsIncidentFactory;
 
 /**
  * Reads an xml document at a specified interval and notifies listeners
@@ -57,7 +58,7 @@ public class XmlIncidentClient extends XmlClient {
 		Logger logger) throws DdsException
 	{
 		try {
-			return new DOMXmlIncidentFactory(props, logger);
+			return new CarsIncidentFactory(props, logger);
 		}
 		catch(IOException e) {
 			throw new DdsException(e);

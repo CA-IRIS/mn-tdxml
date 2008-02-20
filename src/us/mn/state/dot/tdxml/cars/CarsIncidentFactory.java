@@ -12,7 +12,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-package us.mn.state.dot.tdxml;
+package us.mn.state.dot.tdxml.cars;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,13 +32,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import us.mn.state.dot.tdxml.cars.CarsEvent;
+import us.mn.state.dot.tdxml.AbstractXmlIncidentFactory;
+import us.mn.state.dot.tdxml.IncidentException;
 
 /**
  * @author Erik Engstrom
  * @author Douglas Lau
  */
-public class DOMXmlIncidentFactory extends AbstractXmlIncidentFactory {
+public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 
 	static protected final String LOCATION_XML = "/location_lookup.xml";
 
@@ -52,15 +53,15 @@ public class DOMXmlIncidentFactory extends AbstractXmlIncidentFactory {
 	private final HashMap<String, SortedSet<Element>> routeRecords =
 		new HashMap<String, SortedSet<Element>>();
 
-	/** Default constructor */
-	public DOMXmlIncidentFactory(Properties props) throws IOException,
+	/** Create a new CARS incident factory */
+	public CarsIncidentFactory(Properties props) throws IOException,
 		ParserConfigurationException, SAXException
 	{
 		this(props, createLogger());
 	}
 
-	/** Create a DOM XML incident factory */
-	public DOMXmlIncidentFactory(Properties props, Logger logger)
+	/** Create a new CARS incident factory */
+	public CarsIncidentFactory(Properties props, Logger logger)
 		throws IOException, ParserConfigurationException, SAXException
 	{
 		super(logger);
@@ -70,7 +71,7 @@ public class DOMXmlIncidentFactory extends AbstractXmlIncidentFactory {
 	protected void initFactory(Properties props) throws IOException,
 		ParserConfigurationException, SAXException
 	{
-		InputStream is= DOMXmlIncidentFactory.class.getResourceAsStream(
+		InputStream is = CarsIncidentFactory.class.getResourceAsStream(
 			LOCATION_XML);
 		DocumentBuilderFactory fact =
 			DocumentBuilderFactory.newInstance();
