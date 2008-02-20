@@ -287,4 +287,33 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		}
 		return incident;
 	}
+
+	/** Set the location of an incident */
+	protected void setIncidentLocation(CarsIncident incident, Element link)
+		throws IncidentException
+	{
+		String roadway = lookupChildText(link, "link-road-designator");
+		if(roadway == null) {
+			throw new IncidentException(
+				"Error processing incident " +
+				incident.getMessageId() +
+				". No link-road-designator specified.");
+		}
+		incident.setRoadway(roadway);
+		Element pri_loc = lookupChild(link, "link-primary-location");
+		if(pri_loc == null) {
+			throw new IncidentException(
+				"Error processing incident " +
+				incident.getMessageId() +
+				". No link-primary-location.");
+		}
+		String link_dir = lookupChildText(link, "link-direction");
+		incident.setStartLocation(readLocation(roadway, pri_loc, false,
+			link_dir));
+		Element sec_loc = lookupChild(link, "link-secondary-location");
+		if(sec_loc != null) {
+			incident.setEndLocation(readLocation(roadway, sec_loc,
+				true, link_dir));
+		}
+	}
 }

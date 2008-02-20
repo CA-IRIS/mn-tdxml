@@ -15,11 +15,8 @@
 package us.mn.state.dot.tdxml;
 
 import java.util.logging.Logger;
-
 import org.w3c.dom.Element;
-
 import us.mn.state.dot.tdxml.cars.CarsEvent;
-import us.mn.state.dot.tdxml.cars.CarsEventTime;
 import us.mn.state.dot.tdxml.cars.CarsIncident;
 import us.mn.state.dot.tdxml.cars.CarsLocation;
 import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
@@ -27,7 +24,7 @@ import us.mn.state.dot.tdxml.geo.UTM;
 import us.mn.state.dot.log.TmsLogFactory;
 
 /**
- * This is an agency specific incident factory.
+ * An abstract incident factory which provides some commonly needed stuff.
  *
  * @author Erik Engstrom
  * @author <a href="mailto:timothy.a.johnson@dot.state.mn.us">Tim Johnson</a>
@@ -162,35 +159,6 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 
 	protected AbstractXmlIncidentFactory(Logger l) {
 		logger = l;
-	}
-
-	/** Set the location of an incident */
-	protected void setIncidentLocation(CarsIncident incident, Element link)
-		throws IncidentException
-	{
-		String roadway = lookupChildText(link, "link-road-designator");
-		if(roadway == null) {
-			throw new IncidentException(
-				"Error processing incident " +
-				incident.getMessageId() +
-				". No link-road-designator specified.");
-		}
-		incident.setRoadway(roadway);
-		Element pri_loc = lookupChild(link, "link-primary-location");
-		if(pri_loc == null) {
-			throw new IncidentException(
-				"Error processing incident " +
-				incident.getMessageId() +
-				". No link-primary-location.");
-		}
-		String link_dir = lookupChildText(link, "link-direction");
-		incident.setStartLocation(readLocation(roadway, pri_loc, false,
-			link_dir));
-		Element sec_loc = lookupChild(link, "link-secondary-location");
-		if(sec_loc != null) {
-			incident.setEndLocation(readLocation(roadway, sec_loc,
-				true, link_dir));
-		}
 	}
 
 
