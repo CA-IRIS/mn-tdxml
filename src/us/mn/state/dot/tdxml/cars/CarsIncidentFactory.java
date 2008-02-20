@@ -52,6 +52,17 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 
 	static private final String TABLE_CARS = "cars";
 
+	/**
+	 * Get the Description element of the EventReportMessage.
+	 * @param details The details element
+	 * @return The Description element
+	 */
+	static public Element getDescription(Element details) {
+		Element desc = lookupChild(details,
+			"event-element-description");
+		return lookupChild(desc, "event-phrase");
+	}
+
 	/** Read the list of event-phrases into List of CarsEvents */
 	static protected List<CarsEvent> readEvents(Element details) {
 		final List<CarsEvent> result = new ArrayList<CarsEvent>();

@@ -162,17 +162,6 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 	}
 
 
-	/**
-	 * Get the Description element of the EventReportMessage.
-	 * @param details The details element
-	 * @return The Description element
-	 */
-	static public Element getDescription(Element details) {
-		Element desc = lookupChild(details,
-			"event-element-description");
-		return lookupChild(desc, "event-phrase");
-	}
-
 	protected abstract String lookupSign(CarsEvent keyPhrase)
 		throws IncidentException;
 	protected abstract String lookupName(String roadway, double linear,
