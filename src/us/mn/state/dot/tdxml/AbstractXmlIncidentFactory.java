@@ -190,35 +190,4 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 		return new CarsLocation(utm.getEasting(), utm.getNorthing(),
 			linear, name, direction, defaultDirection, metro);
 	}
-
-	/**
-	 * Get the Details element of the EventReportMessage.
-	 * @param erm The EventReportMessage element.
-	 * @return The Details element.
-	 */
-	static public Element getDetails(Element erm) {
-		Element c = lookupChild(erm, "details");
-		return lookupChild(c, "eventElementDetails");
-	}
-
-	/**
-	 * Get the Link element of the EventReportMessage.
-	 * @param erm The EventReportMessage element.
-	 * @return The Link element
-	 */
-	static public Element getLink(Element erm) {
-		Element c = lookupChild(getDetails(erm),
-			"event-element-location");
-		Element gc = lookupChild(c, "event-location-type");
-		Element ggc = lookupChild(gc, "event-location-type-link");
-		return ggc;
-	}
-
-	/**
-	 * Get the LinkLocation element of the EventReportMessage
-	 * @param erm The EventReportMessage element.
-	 */
-	static public Element getLinkLocation(Element erm, String s) {
-		return lookupChild(getLink(erm), s);
-	}
 }

@@ -85,15 +85,6 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			return '?';
 	}
 
-	/**
-	 * Get the LinkDirection element of the EventReportMessage
-	 * @param erm The EventReportMessage element.
-	 */
-	static public String getLinkDirection(Element erm, String s) {
-		return lookupChildText(getLinkLocation(erm, s),
-			"link-direction");
-	}
-
 	/** Get the event message ID */
 	static public String getMessageId(Element erm) {
 		Element child = lookupChild(erm, "message-header");
@@ -104,6 +95,29 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	static public Element getKeyPhrase(Element erm) {
 		Element child = lookupChild(erm, "key-phrase");
 		return (Element)child.getFirstChild();
+	}
+
+	/**
+	 * Get the Details element of the EventReportMessage.
+	 * @param erm The EventReportMessage element.
+	 * @return The Details element.
+	 */
+	static public Element getDetails(Element erm) {
+		Element c = lookupChild(erm, "details");
+		return lookupChild(c, "eventElementDetails");
+	}
+
+	/**
+	 * Get the Link element of the EventReportMessage.
+	 * @param erm The EventReportMessage element.
+	 * @return The Link element
+	 */
+	static public Element getLink(Element erm) {
+		Element c = lookupChild(getDetails(erm),
+			"event-element-location");
+		Element gc = lookupChild(c, "event-location-type");
+		Element ggc = lookupChild(gc, "event-location-type-link");
+		return ggc;
 	}
 
 	private final HashMap<String, Element> tables =
