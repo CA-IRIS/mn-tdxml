@@ -67,26 +67,25 @@ public class CarsIncident implements Incident {
 		sign = s;
 	}
 
-	public String toString() {
-		String roadname = null;
+	/** Get the roadway name for an incident */
+	protected String getRoadname() {
 		if(isLocationValid()) {
 			Direction dir = startLocation.getDirection();
 			switch(dir) {
 				case NORTH_SOUTH:
 				case EAST_WEST:
-					roadname = roadway +
-						" in both directions";
-					break;
+					return roadway + " in both directions";
 				case UNKNOWN:
-					roadname = roadway;
-					break;
+					return roadway;
 				default:
-					roadname = dir.toAbbrev() + " " +
-						roadway;
-					break;
+					return dir.toAbbrev() + " " + roadway;
 			}
 		} else
-			roadname = "";
+			return "";
+	}
+
+	public String toString() {
+		String roadname = getRoadname();
 		StringBuffer buffer = new StringBuffer(
 			key_event.getType().substring(0,1).toUpperCase());
 		buffer.append(key_event.getType().substring(1));
