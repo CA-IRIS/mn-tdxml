@@ -281,7 +281,16 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		return "info";
 	}
 
-	protected String lookupName(String roadway, double linear,
+	/** Lookup a location name */
+	protected String lookupLocation(String roadway, double linear,
+		boolean extent) throws IncidentException
+	{
+		return "MP " + linear + " " + lookupBriefName(roadway, linear,
+			extent);
+	}
+
+	/** Lookup the brief name of a location */
+	protected String lookupBriefName(String roadway, double linear,
 		boolean extent) throws IncidentException
 	{
 		Element below = null;
@@ -299,12 +308,19 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 				break;
 			}
 		}
+		return composeBriefName(below, above, extent);
+	}
+
+	/** Compose the brief name of a location */
+	static protected String composeBriefName(Element below, Element above,
+		boolean extent)
+	{
 		String brief_name = null;
 		Direction dir = Direction.UNKNOWN;
 		if(below == null) {
 			// no record below linear
 			if(above == null)
-				return "MP " + linear;
+				return "";
 			else {
 				dir = lookupBearing(above).opposite();
 				brief_name = above.getAttribute("brief_name");
@@ -324,11 +340,9 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 				dir = d;
 		}
 		if(dir == Direction.UNKNOWN)
-			return "MP " + linear + " near " + brief_name;
-		else {
-			return "MP " + linear + " " + dir.toChar() + " of " +
-				brief_name;
-		}
+			return "near " + brief_name;
+		else
+			return dir.toChar() + " of " + brief_name;
 	}
 
 	protected boolean lookupMetro(String roadway, double linear)
@@ -443,7 +457,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			"event-location-coordinates-longitude");
 		UTM utm = latLongToUtm(latitude, longitude);
 		double linear = getLinearReference(element);
-		String name = lookupName(roadway, linear, extent);
+		String name = lookupLocation(roadway, linear, extent);
 		boolean metro = lookupMetro(roadway, linear);
 		Direction default_dir = lookupDefaultDirection(roadway, linear);
 		Direction dir = calculateDirection(link_dir, default_dir);
