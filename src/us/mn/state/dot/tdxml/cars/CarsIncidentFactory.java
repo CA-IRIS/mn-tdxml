@@ -62,7 +62,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	 * @param details The details element
 	 * @return The Description element
 	 */
-	static public Element getDescription(Element details) {
+	static protected Element getDescription(Element details) {
 		Element desc = lookupChild(details,
 			"event-element-description");
 		return lookupChild(desc, "event-phrase");
@@ -91,13 +91,13 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	}
 
 	/** Get the event message ID */
-	static public String getMessageId(Element erm) {
+	static protected String getMessageId(Element erm) {
 		Element child = lookupChild(erm, "message-header");
 		return lookupChildText(child, "event-message-number");
 	}
 
 	/** Get an event key phrase */
-	static public Element getKeyPhrase(Element erm) {
+	static protected Element getKeyPhrase(Element erm) {
 		Element child = lookupChild(erm, "key-phrase");
 		return (Element)child.getFirstChild();
 	}
@@ -107,7 +107,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	 * @param erm The EventReportMessage element.
 	 * @return The Details element.
 	 */
-	static public Element getDetails(Element erm) {
+	static protected Element getDetails(Element erm) {
 		Element c = lookupChild(erm, "details");
 		return lookupChild(c, "eventElementDetails");
 	}
@@ -117,7 +117,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	 * @param erm The EventReportMessage element.
 	 * @return The Link element
 	 */
-	static public Element getLink(Element erm) {
+	static protected Element getLink(Element erm) {
 		Element c = lookupChild(getDetails(erm),
 			"event-element-location");
 		Element gc = lookupChild(c, "event-location-type");
@@ -267,11 +267,12 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		}
 	}
 
-	protected String lookupSign(CarsEvent keyPhrase) {
+	/** Lookup the "sign" to display for an event */
+	protected String lookupSign(CarsEvent event) {
 		Element table = tables.get(TABLE_XML_EVENT);
 		NodeList list = table.getElementsByTagName("record");
-		String eventType = keyPhrase.getType();
-		String subType = keyPhrase.getMessage();
+		String eventType = event.getType();
+		String subType = event.getMessage();
 		for(int i = 0; i < list.getLength(); i++) {
 			Element rec = (Element)list.item(i);
 			if(rec.getAttribute("event_type").equals(eventType) &&
@@ -391,30 +392,35 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	 * @see us.mn.state.dot.tdxml.XmlIncidentFactory#createIncident(org.jdom.Element)
 	 */
 	public Incident createIncident(Element erm) throws IncidentException {
-		CarsIncident incident = new CarsIncident();
-		incident.setMessageId(getMessageId(erm));
+		String mess_id = getMessageId(erm);
 		Element keyPhrase = getKeyPhrase(erm);
 		CarsEvent keyEvent = new CarsEvent(keyPhrase);
-		incident.setKeyPhrase(keyEvent);
 		Element details = getDetails(erm);
-		incident.setEvents(readEvents(details));
-		incident.setAdditionalText(readAdditionalText(
-			lookupChild(details, "event-additional-text")));
-		incident.setSign(lookupSign(keyEvent));
-
+		String add_text = readAdditionalText(lookupChild(details,
+			"event-additional-text"));
+		Element times = lookupChild(details, "event-element-times");
+		CarsEventTime time;
+		try {
+			time = new CarsEventTime(times);
+		}
+		catch(ParseException pe) {
+			throw new IncidentException("Error parsing date", pe);
+		}
 		Element link = getLink(erm);
+
+		CarsIncident incident = new CarsIncident();
+		incident.setMessageId(mess_id);
+		incident.setKeyPhrase(keyEvent);
+		incident.setEvents(readEvents(details));
+		incident.setAdditionalText(add_text);
+		incident.setSign(lookupSign(keyEvent));
+		incident.setTime(time);
+
 		if(link != null)
 			setIncidentLocation(incident, link);
 		else {
 			incident.setLocation_type(
 				CarsIncident.LOCATION_TYPE_AREA);
-		}
-		Element times = lookupChild(details, "event-element-times");
-		try {
-			incident.setTime(new CarsEventTime(times));
-		}
-		catch(ParseException pe) {
-			throw new IncidentException("Error parsing date", pe);
 		}
 		return incident;
 	}
