@@ -15,7 +15,7 @@
 package us.mn.state.dot.tdxml.cars;
 
 import java.util.Iterator;
-import java.util.List;
+import java.util.LinkedList;
 
 import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.EventTime;
@@ -46,7 +46,9 @@ public class CarsIncident implements Incident {
 	/** Sign to display for the incident */
 	protected final String sign;
 
-	private List<CarsEvent> events;
+	/** List of all events for the incident */
+	protected final LinkedList<CarsEvent> events =
+		new LinkedList<CarsEvent>();
 
 	private String roadway;
 
@@ -192,8 +194,9 @@ public class CarsIncident implements Incident {
 		return messageId;
 	}
 
-	public void setEvents(List<CarsEvent> list) {
-		events = list;
+	/** Add an event to the incident */
+	public void addEvent(CarsEvent e) {
+		events.add(e);
 	}
 
 	protected boolean isLocationValid() {

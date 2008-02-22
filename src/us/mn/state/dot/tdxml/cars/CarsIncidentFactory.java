@@ -17,10 +17,8 @@ package us.mn.state.dot.tdxml.cars;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Properties;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -68,17 +66,17 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		return lookupChild(desc, "event-phrase");
 	}
 
-	/** Read the list of event-phrases into List of CarsEvents */
-	static protected List<CarsEvent> readEvents(Element details) {
-		final List<CarsEvent> result = new ArrayList<CarsEvent>();
+	/** Add all CarsEvents to an incident */
+	static protected void addIncidentEvents(final CarsIncident incident,
+		Element details)
+	{
 		Element description = getDescription(details);
 		lookupChildren(description, "eventType", new ElementCallback() {
 			public void processElement(Element e) {
 				Element descPhrase = (Element)e.getFirstChild();
-				result.add(new CarsEvent(descPhrase));
+				incident.addEvent(new CarsEvent(descPhrase));
 			}
 		});
-		return result;
 	}
 
 	/** Lookup the bearing */
@@ -421,7 +419,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 
 		CarsIncident incident = new CarsIncident(mess_id, time,
 			keyEvent, add_text, sign);
-		incident.setEvents(readEvents(details));
+		addIncidentEvents(incident, details);
 
 		Element link = getLink(erm);
 		if(link != null)
