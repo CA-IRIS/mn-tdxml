@@ -68,20 +68,19 @@ public class CarsIncident implements Incident {
 		if (location_type == LOCATION_TYPE_AREA){
 			roadname = "";
 		} else {
-			char dir = startLocation.getDirection();
-			switch (dir){
-				case 'X':
-					roadname = roadway + " in both directions";
+			Direction dir = startLocation.getDirection();
+			switch(dir) {
+				case NORTH_SOUTH:
+				case EAST_WEST:
+					roadname = roadway +
+						" in both directions";
 					break;
-				case 'N':
-				case 'S':
-				case 'E':
-				case 'W':
-					roadname  = dir + "B " + roadway;
-					break;
-				case '?':
-				default:
+				case UNKNOWN:
 					roadname = roadway;
+					break;
+				default:
+					roadname = dir.toAbbrev() + " " +
+						roadway;
 					break;
 			}
 		}
@@ -195,7 +194,7 @@ public class CarsIncident implements Incident {
 	 * @see us.mn.state.dot.tdxml.client.Incident#getDescription()
 	 */
 	public IncidentDescription getDescription() {
-		Direction direction = getDirection();
+		Direction direction = startLocation.getDirection();
 		String endDescription = null;
 		if(endLocation != null)
 			endDescription = endLocation.toString();
@@ -204,32 +203,11 @@ public class CarsIncident implements Incident {
 			endDescription, time.toString(), sign);
 	}
 
-	/** Get the incident direction */
-	protected Direction getDirection() {
-		char dir = startLocation.getDirection();
-		if(dir == 'X') {
-			switch(startLocation.getDefaultDirection()) {
-				case 'N':
-				case 'S':
-					return Direction.NORTH_SOUTH;
-				case 'E':
-				case 'W':
-					return Direction.EAST_WEST;
-				default:
-					return Direction.UNKNOWN;
-			}
-		} else {
-			String d = String.valueOf(dir);
-			return Direction.fromString(d);
-		}
-	}
-
 	/**
 	 * @see java.lang.Comparable#compareTo(Object)
 	 */
-	public int compareTo(Object o) {
-		CarsIncident comp = ( CarsIncident) o;
-		return getDescription().compareTo( comp.getDescription() );
+	public int compareTo(Incident o) {
+		return getDescription().compareTo(o.getDescription());
 	}
 
 	public void setSign(String string) {

@@ -14,12 +14,14 @@
  */
 package us.mn.state.dot.tdxml.cars;
 
+import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.Location;
 
 /**
  * Encapsulates all the data for a cars incident location.
  *
  * @author Erik Engstrom
+ * @author Douglas Lau
  */
 public class CarsLocation implements Location {
 
@@ -27,26 +29,23 @@ public class CarsLocation implements Location {
 	private final double northing;
 	private final double linear;
 	private final String name;
-	private final char direction;
-	private final char defaultDirection;
+	private final Direction direction;
 	private final boolean metro;
 
 	/** Create a new CARS location */
 	public CarsLocation(double easting, double northing, double linear,
-		String name, char direction, char defaultDirection,
-		boolean metro)
+		String name, Direction direction, boolean metro)
 	{
 		this.easting = easting;
 		this.northing = northing;
 		this.linear = linear;
 		this.name = name;
 		this.direction = direction;
-		this.defaultDirection = defaultDirection;
 		this.metro = metro;
 	}
 
 	public String toString() {
-		return name; //"" + linear;
+		return name;
 	}
 
 	public double getEasting() {
@@ -61,15 +60,11 @@ public class CarsLocation implements Location {
 		return northing;
 	}
 
-	public char getDirection() {
+	public Direction getDirection() {
 		return direction;
 	}
 
-	public char getDefaultDirection() {
-		return defaultDirection;
-	}
-
-	public boolean isInMetro(){
+	public boolean isInMetro() {
 		return metro;
 	}
 }

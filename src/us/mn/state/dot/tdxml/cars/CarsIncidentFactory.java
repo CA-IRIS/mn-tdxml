@@ -36,6 +36,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import us.mn.state.dot.tdxml.AbstractXmlIncidentFactory;
+import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
@@ -79,12 +80,12 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	}
 
 	/** Lookup the bearing */
-	static protected char lookupBearing(Element rec) {
+	static protected Direction lookupBearing(Element rec) {
 		String bearing = rec.getAttribute("bearing");
 		if(bearing != null)
-			return bearing.charAt(0);
+			return Direction.fromString(bearing);
 		else
-			return '?';
+			return Direction.UNKNOWN;
 	}
 
 	/** Get the event message ID */
@@ -136,17 +137,17 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	 * direction for a link and the value from the link-direction tag in
 	 * the XML.
 	 */
-	static protected char calculateDirection(String link_dir,
-		char defaultDirection)
+	static protected Direction calculateDirection(String link_dir,
+		Direction default_dir)
 	{
 		if(link_dir.equals("positive-direction-only"))
-			return defaultDirection;
+			return default_dir;
 		else if(link_dir.equals("negative-direction-only"))
-			return oppositeDirection(defaultDirection);
+			return default_dir.opposite();
 		else if(link_dir.equals("both-directions"))
-			return 'X';
+			return default_dir.both();
 		else
-			return '?';
+			return Direction.UNKNOWN;
 	}
 
 	/** Element name for linear reference */
@@ -299,28 +300,35 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			}
 		}
 		String brief_name = null;
-		char dir = ' ';
+		Direction dir = Direction.UNKNOWN;
 		if(below == null) {
 			// no record below linear
 			if(above == null)
 				return "MP " + linear;
-			else
-				dir = oppositeDirection(lookupBearing(above));
+			else {
+				dir = lookupBearing(above).opposite();
+				brief_name = above.getAttribute("brief_name");
+			}
 		} else {
 			// found record below linear
 			brief_name = below.getAttribute("brief_name");
-			char d = lookupBearing(below);
+			Direction d = lookupBearing(below);
 			if(above != null) {
 				if(extent) {
 					brief_name = above.getAttribute(
 						"brief_name");
-					dir = oppositeDirection(d);
+					dir = d.opposite();
 				} else
 					dir = d;
 			} else
 				dir = d;
 		}
-		return "MP " + linear + " " + dir + " of " + brief_name;
+		if(dir == Direction.UNKNOWN)
+			return "MP " + linear + " near " + brief_name;
+		else {
+			return "MP " + linear + " " + dir.toChar() + " of " +
+				brief_name;
+		}
 	}
 
 	protected boolean lookupMetro(String roadway, double linear)
@@ -342,10 +350,10 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	}
 
 	/** Lookup the default direction for a roadway */
-	protected char lookupDefaultDirection(String roadway, double linear)
-		throws IncidentException
+	protected Direction lookupDefaultDirection(String roadway,
+		double linear) throws IncidentException
 	{
-		char defaultDirection = '?';
+		Direction dir = Direction.UNKNOWN;
 		double closest = Double.MAX_VALUE;
 		SortedSet<Element> records = routeRecords.get(roadway);
 		for(Element rec: records) {
@@ -355,12 +363,12 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			if(diff < closest) {
 				String b = rec.getAttribute("bearing");
 				if(b != null)
-					defaultDirection = b.charAt(0);
+					dir = Direction.fromString(b);
 				closest = diff;
 			} else
 				break;
 		}
-		return defaultDirection;
+		return dir;
 	}
 
 	/* (non-Javadoc)
@@ -437,9 +445,9 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		double linear = getLinearReference(element);
 		String name = lookupName(roadway, linear, extent);
 		boolean metro = lookupMetro(roadway, linear);
-		char defaultDirection = lookupDefaultDirection(roadway, linear);
-		char direction = calculateDirection(link_dir, defaultDirection);
+		Direction default_dir = lookupDefaultDirection(roadway, linear);
+		Direction dir = calculateDirection(link_dir, default_dir);
 		return new CarsLocation(utm.getEasting(), utm.getNorthing(),
-			linear, name, direction, defaultDirection, metro);
+			linear, name, dir, metro);
 	}
 }

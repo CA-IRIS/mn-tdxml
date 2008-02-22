@@ -52,6 +52,24 @@ public enum Direction {
 		return abbrev;
 	}
 
+	/** Get a single character direction */
+	public char toChar() {
+		if(this == NORTH_SOUTH || this == EAST_WEST)
+			return '?';
+		else
+			return abbrev.charAt(0);
+	}
+
+	/** Return the opposite direction */
+	public Direction opposite() {
+		return _opposite(this);
+	}
+
+	/** Return both directions */
+	public Direction both() {
+		return _both(this);
+	}
+
 	/** Get a direction from a string */
 	static public Direction fromString(String sd) {
 		String ud = sd.toUpperCase();
@@ -60,5 +78,35 @@ public enum Direction {
 				return d;
 		}
 		return UNKNOWN;
+	}
+
+	/** Return the opposite direction */
+	static protected Direction _opposite(Direction dir) {
+		switch(dir) {
+			case NORTH:
+				return SOUTH;
+			case SOUTH:
+				return NORTH;
+			case EAST:
+				return WEST;
+			case WEST:
+				return EAST;
+			default:
+				return dir;
+		}
+	}
+
+	/** Return both directions */
+	static protected Direction _both(Direction dir) {
+		switch(dir) {
+			case NORTH:
+			case SOUTH:
+				return NORTH_SOUTH;
+			case EAST:
+			case WEST:
+				return EAST_WEST;
+			default:
+				return dir;
+		}
 	}
 }

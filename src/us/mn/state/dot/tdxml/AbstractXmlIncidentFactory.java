@@ -43,29 +43,6 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 		return LatLongUTMConversion.LLtoUTM(23, latitude, longitude);
 	}
 
-	/** Return the opposite direction */
-	static protected char oppositeDirection(char direction) {
-		char result = '?';
-		switch(direction) {
-			case 'N' :
-				result = 'S';
-				break;
-			case 'S' :
-				result = 'N';
-				break;
-			case 'E' :
-				result = 'W';
-				break;
-			case 'W' :
-				result = 'E';
-				break;
-			default :
-				result = '?';
-				break;
-		}
-		return result;
-	}
-
 	/** Logger to use for reporting */
 	protected final Logger logger;
 
