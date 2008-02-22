@@ -43,6 +43,8 @@ import us.mn.state.dot.tdxml.IncidentException;
 import us.mn.state.dot.tdxml.geo.UTM;
 
 /**
+ * An incident factory for interpreting CARS incidents.
+ *
  * @author Erik Engstrom
  * @author Douglas Lau
  * @author <a href="mailto:timothy.a.johnson@dot.state.mn.us">Tim Johnson</a>
