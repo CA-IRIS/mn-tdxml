@@ -417,19 +417,15 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		CarsEventTime time = getEventTime(details);
 		CarsEvent keyEvent = getKeyEvent(erm);
 		String add_text = getAdditionalText(details);
-		Element link = getLink(erm);
+		String sign = lookupSign(keyEvent);
 
 		CarsIncident incident = new CarsIncident(mess_id, time,
-			keyEvent, add_text);
+			keyEvent, add_text, sign);
 		incident.setEvents(readEvents(details));
-		incident.setSign(lookupSign(keyEvent));
 
+		Element link = getLink(erm);
 		if(link != null)
 			setIncidentLocation(incident, link);
-		else {
-			incident.setLocation_type(
-				CarsIncident.LOCATION_TYPE_AREA);
-		}
 		return incident;
 	}
 

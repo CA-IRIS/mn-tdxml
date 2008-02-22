@@ -31,10 +31,6 @@ import us.mn.state.dot.tdxml.Location;
  */
 public class CarsIncident implements Incident {
 
-	public static final int LOCATION_TYPE_LINK = 0;
-
-	public static final int LOCATION_TYPE_AREA = 1;
-
 	/** Message ID for the incident */
 	protected final String messageId;
 
@@ -47,33 +43,33 @@ public class CarsIncident implements Incident {
 	/** Additional text */
 	protected final String additionalText;
 
+	/** Sign to display for the incident */
+	protected final String sign;
+
 	private List<CarsEvent> events;
 
 	private String roadway;
 
+	/** Starting location for incident */
 	private CarsLocation startLocation;
 
+	/** Ending location for incident */
 	private CarsLocation endLocation;
-
-	private String sign;
-
-	private int location_type = LOCATION_TYPE_LINK;
 
 	/** Create a new CARS incident */
 	public CarsIncident(String mid, EventTime t, CarsEvent event,
-		String a_text)
+		String a_text, String s)
 	{
 		messageId = mid;
 		time = t;
 		key_event = event;
 		additionalText = a_text;
+		sign = s;
 	}
 
 	public String toString() {
 		String roadname = null;
-		if (location_type == LOCATION_TYPE_AREA){
-			roadname = "";
-		} else {
+		if(isLocationValid()) {
 			Direction dir = startLocation.getDirection();
 			switch(dir) {
 				case NORTH_SOUTH:
@@ -89,7 +85,8 @@ public class CarsIncident implements Incident {
 						roadway;
 					break;
 			}
-		}
+		} else
+			roadname = "";
 		StringBuffer buffer = new StringBuffer(
 			key_event.getType().substring(0,1).toUpperCase());
 		buffer.append(key_event.getType().substring(1));
@@ -192,10 +189,6 @@ public class CarsIncident implements Incident {
 		return getDescription().compareTo(o.getDescription());
 	}
 
-	public void setSign(String string) {
-		sign = string;
-	}
-
 	public String getMessageId() {
 		return messageId;
 	}
@@ -204,12 +197,8 @@ public class CarsIncident implements Incident {
 		events = list;
 	}
 
-	public void setLocation_type(int i) {
-		location_type = i;
-	}
-
-	protected boolean isLocationTypeValid() {
-		return location_type != LOCATION_TYPE_AREA;
+	protected boolean isLocationValid() {
+		return startLocation != null;
 	}
 
 	protected boolean isInMetro() {
@@ -246,7 +235,7 @@ public class CarsIncident implements Incident {
 	}
 
 	public boolean isValid() {
-		return isLocationTypeValid() && isInMetro() && isTimeValid() &&
+		return isLocationValid() && isInMetro() && isTimeValid() &&
 			isEventValid();
 	}
 }
