@@ -106,18 +106,19 @@ public class CarsIncident implements Incident {
 		return buffer.toString();
 	}
 
-	public StringBuffer getPhrases() {
-		StringBuffer buffer = new StringBuffer();
+	/** Get the phrases for each event */
+	protected String getPhrases() {
+		StringBuilder b = new StringBuilder();
 		for(CarsEvent event: events) {
 			String temp = event.getMessage();
-			temp = temp.replace('-', ' ');
-			buffer.append(temp).append(", ");
+			b.append(temp.replace('-', ' '));
+			b.append(", ");
 		}
-		if(buffer.length() > 2) {
-			buffer.delete(buffer.length() - 2, buffer.length());
-			buffer.setCharAt(0, Character.toUpperCase(buffer.charAt(0)));
+		if(b.length() > 2) {
+			b.delete(b.length() - 2, b.length());
+			b.setCharAt(0, Character.toUpperCase(b.charAt(0)));
 		}
-		return buffer;
+		return b.toString();
 	}
 
 	/** Get the end location */
@@ -179,7 +180,7 @@ public class CarsIncident implements Incident {
 		if(endLocation != null)
 			endDescription = endLocation.toString();
 		return new IncidentDescription(direction, roadway,
-			getPhrases().toString(), startLocation.toString(),
+			getPhrases(), startLocation.toString(),
 			endDescription, time.toString(), sign);
 	}
 
