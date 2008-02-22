@@ -35,11 +35,19 @@ public class CarsIncident implements Incident {
 
 	public static final int LOCATION_TYPE_AREA = 1;
 
-	private CarsEvent keyPhrase;
+	/** Message ID for the incident */
+	protected final String messageId;
+
+	/** Event time */
+	protected final EventTime time;
+
+	/** Key event */
+	protected final CarsEvent key_event;
+
+	/** Additional text */
+	protected final String additionalText;
 
 	private List<CarsEvent> events;
-
-	private String additionalText;
 
 	private String roadway;
 
@@ -47,20 +55,18 @@ public class CarsIncident implements Incident {
 
 	private CarsLocation endLocation;
 
-	private EventTime time;
-
 	private String sign;
 
 	private int location_type = LOCATION_TYPE_LINK;
 
-	/** The CARS id for the incident. */
-	private String messageId;
-
-	/**
-	 * Constructor for CarsIncident.
-	 */
-	public CarsIncident() {
-		super();
+	/** Create a new CARS incident */
+	public CarsIncident(String mid, EventTime t, CarsEvent event,
+		String a_text)
+	{
+		messageId = mid;
+		time = t;
+		key_event = event;
+		additionalText = a_text;
 	}
 
 	public String toString() {
@@ -85,13 +91,12 @@ public class CarsIncident implements Incident {
 			}
 		}
 		StringBuffer buffer = new StringBuffer(
-			keyPhrase.getType().substring(0,1).toUpperCase());
-		buffer.append(keyPhrase.getType().substring(1));
+			key_event.getType().substring(0,1).toUpperCase());
+		buffer.append(key_event.getType().substring(1));
 		buffer.append(" - ").append(roadname);
 		buffer.append("\n\t").append(getPhrases());
-		if ( additionalText != null ){
+		if(additionalText != null)
 			buffer.append(", ").append(additionalText);
-		}
 		buffer.append(" on ").append(roadname);
 		if (endLocation != null) {
 			buffer.append(" from ").append(startLocation).append(" to ");
@@ -103,7 +108,7 @@ public class CarsIncident implements Incident {
 		return buffer.toString();
 	}
 
-	public StringBuffer getPhrases(){
+	public StringBuffer getPhrases() {
 		StringBuffer buffer = new StringBuffer();
 		for(CarsEvent event: events) {
 			String temp = event.getMessage();
@@ -160,34 +165,11 @@ public class CarsIncident implements Incident {
 	}
 
 	/**
-	 * Returns the keyPhrase.
-	 * @return String
-	 */
-	public CarsEvent getKeyPhrase() {
-		return keyPhrase;
-	}
-
-	/**
-	 * Sets the keyPhrase.
-	 */
-	public void setKeyPhrase(CarsEvent event) {
-		this.keyPhrase = event;
-	}
-
-	/**
 	 * Returns the time.
 	 * @return EventTime
 	 */
 	public EventTime getTime() {
 		return time;
-	}
-
-	/**
-	 * Sets the time.
-	 * @param time The time to set
-	 */
-	public void setTime(EventTime time) {
-		this.time = time;
 	}
 
 	/**
@@ -218,20 +200,8 @@ public class CarsIncident implements Incident {
 		return messageId;
 	}
 
-	public void setMessageId(String string) {
-		messageId = string;
-	}
-
 	public void setEvents(List<CarsEvent> list) {
 		events = list;
-	}
-
-	public String getAdditionalText() {
-		return additionalText;
-	}
-
-	public void setAdditionalText(String string) {
-		additionalText = string;
 	}
 
 	public void setLocation_type(int i) {

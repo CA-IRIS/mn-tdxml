@@ -96,10 +96,24 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		return lookupChildText(child, "event-message-number");
 	}
 
-	/** Get an event key phrase */
-	static protected Element getKeyPhrase(Element erm) {
+	/** Get the event time from a details element */
+	static protected CarsEventTime getEventTime(Element details)
+		throws IncidentException
+	{
+		Element times = lookupChild(details, "event-element-times");
+		try {
+			return new CarsEventTime(times);
+		}
+		catch(ParseException pe) {
+			throw new IncidentException("Error parsing date", pe);
+		}
+	}
+
+	/** Get the key event */
+	static protected CarsEvent getKeyEvent(Element erm) {
 		Element child = lookupChild(erm, "key-phrase");
-		return (Element)child.getFirstChild();
+		Element keyPhrase = (Element)child.getFirstChild();
+		return new CarsEvent(keyPhrase);
 	}
 
 	/**
@@ -132,6 +146,12 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			return lookupChildText(c, "event-description");
 		}
 		return null;
+	}
+
+	/** Get the additional text */
+	static protected String getAdditionalText(Element details) {
+		return readAdditionalText(lookupChild(details,
+			"event-additional-text"));
 	}
 
 	/**
@@ -393,28 +413,16 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 	 */
 	public Incident createIncident(Element erm) throws IncidentException {
 		String mess_id = getMessageId(erm);
-		Element keyPhrase = getKeyPhrase(erm);
-		CarsEvent keyEvent = new CarsEvent(keyPhrase);
 		Element details = getDetails(erm);
-		String add_text = readAdditionalText(lookupChild(details,
-			"event-additional-text"));
-		Element times = lookupChild(details, "event-element-times");
-		CarsEventTime time;
-		try {
-			time = new CarsEventTime(times);
-		}
-		catch(ParseException pe) {
-			throw new IncidentException("Error parsing date", pe);
-		}
+		CarsEventTime time = getEventTime(details);
+		CarsEvent keyEvent = getKeyEvent(erm);
+		String add_text = getAdditionalText(details);
 		Element link = getLink(erm);
 
-		CarsIncident incident = new CarsIncident();
-		incident.setMessageId(mess_id);
-		incident.setKeyPhrase(keyEvent);
+		CarsIncident incident = new CarsIncident(mess_id, time,
+			keyEvent, add_text);
 		incident.setEvents(readEvents(details));
-		incident.setAdditionalText(add_text);
 		incident.setSign(lookupSign(keyEvent));
-		incident.setTime(time);
 
 		if(link != null)
 			setIncidentLocation(incident, link);
