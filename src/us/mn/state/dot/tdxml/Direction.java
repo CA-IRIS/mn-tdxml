@@ -28,7 +28,7 @@ public enum Direction {
 	EAST("Eastbound", "EB"),
 	WEST("Westbound", "WB"),
 	NORTH_SOUTH("NorthSouth", "N-S"),
-	EASH_WEST("EastWest", "E-W");
+	EAST_WEST("EastWest", "E-W");
 
 	/** Full direction string */
 	protected final String dir;

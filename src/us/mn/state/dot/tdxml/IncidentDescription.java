@@ -23,8 +23,8 @@ package us.mn.state.dot.tdxml;
  */
 public class IncidentDescription implements Comparable<IncidentDescription> {
 
-	/** Direction of incident ( NB, SB, EB, WB )  ?? or Northbound, Southbound, Eastbound, Westbound??? */
-	private final String direction;
+	/** Direction of incident */
+	protected final Direction direction;
 
 	/** Roadway that incident is located on ( ie. 35W or 394 ) */
 	private final String road;
@@ -45,7 +45,7 @@ public class IncidentDescription implements Comparable<IncidentDescription> {
 	private final String sign;
 
 	/** Create a new IncidentDescription */
-	public IncidentDescription(String direction, String roadWay,
+	public IncidentDescription(Direction direction, String roadWay,
 		String message, String location, String extent, String duration,
 		String sign)
 	{
@@ -59,7 +59,7 @@ public class IncidentDescription implements Comparable<IncidentDescription> {
 	}
 
 	public String getDirection() {
-		return direction;
+		return direction.toString();
 	}
 
 	public String getRoad() {
@@ -86,25 +86,26 @@ public class IncidentDescription implements Comparable<IncidentDescription> {
 		return sign;
 	}
 
-	public String toString(){
-		StringBuffer result = new StringBuffer( direction );
-		result.append( " " );
-		result.append( road );
-		appendTail( result );
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append(direction.toString());
+		result.append(" ");
+		result.append(road);
+		appendTail(result);
 		return result.toString();
 	}
 
 	public String toHtml(){
-		StringBuffer result = new StringBuffer( "<B>" );
-		result.append( direction );
-		result.append( " " );
-		result.append( road );
-		result.append( "</B>" );
-		appendTail( result );
+		StringBuilder result = new StringBuilder("<B>");
+		result.append(direction.toString());
+		result.append(" ");
+		result.append(road);
+		result.append("</B>");
+		appendTail(result);
 		return result.toString();
 	}
 
-	public void appendTail( StringBuffer result ) {
+	protected void appendTail(StringBuilder result) {
 		result.append( ", " );
 		result.append( message );
 		if ( ( extent == null ) || extent.equals( "" ) ) {
@@ -122,9 +123,9 @@ public class IncidentDescription implements Comparable<IncidentDescription> {
 	}
 
 	protected String getComparator() {
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		result.append( road );
-		appendTail( result );
+		appendTail(result);
 		return result.toString();
 	}
 

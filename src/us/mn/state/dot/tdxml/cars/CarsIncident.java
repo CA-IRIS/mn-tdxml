@@ -17,15 +17,17 @@ package us.mn.state.dot.tdxml.cars;
 import java.util.Iterator;
 import java.util.List;
 
+import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.EventTime;
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentDescription;
 import us.mn.state.dot.tdxml.Location;
 
 /**
- *
+ * An incident retrieved from the CARS system.
  *
  * @author Erik Engstrom
+ * @author Douglas Lau
  */
 public class CarsIncident implements Incident {
 
@@ -46,8 +48,6 @@ public class CarsIncident implements Incident {
 	private CarsLocation endLocation;
 
 	private EventTime time;
-
-	private String direction;
 
 	private String sign;
 
@@ -195,49 +195,33 @@ public class CarsIncident implements Incident {
 	 * @see us.mn.state.dot.tdxml.client.Incident#getDescription()
 	 */
 	public IncidentDescription getDescription() {
-		char dir = startLocation.getDirection();
-		switch(dir){ //TODO need a better solution for this.
-			case 'E':
-				direction="Eastbound";
-				break;
-			case 'W':
-				direction="Westbound";
-				break;
-			case 'N':
-				direction="Northbound";
-			    break;
-			case 'S':
-				direction="Southbound";
-				break;
-			case 'X':
-				char defaultDir = startLocation.getDefaultDirection();
-				direction=calcBothDirections( defaultDir );
-			default:
-				break;
-		}
+		Direction direction = getDirection();
 		String endDescription = null;
-		if ( endLocation != null ){
-			endDescription = endLocation.toString(); //TODO this is pretty damn ugly fix me!
-		}
-		return new IncidentDescription(
-			direction, roadway, getPhrases().toString(),
-			startLocation.toString(), endDescription,
-			time.toString(), sign );
+		if(endLocation != null)
+			endDescription = endLocation.toString();
+		return new IncidentDescription(direction, roadway,
+			getPhrases().toString(), startLocation.toString(),
+			endDescription, time.toString(), sign);
 	}
 
-	private String calcBothDirections( char defaultDirection ){
-		String result = "";
-		switch( defaultDirection ){
-			case 'E': case 'W':
-				result = "EastWest";
-				break;
-			case 'N': case 'S':
-				result = "NorthSouth";
-				break;
-			default:
-				break;
+	/** Get the incident direction */
+	protected Direction getDirection() {
+		char dir = startLocation.getDirection();
+		if(dir == 'X') {
+			switch(startLocation.getDefaultDirection()) {
+				case 'N':
+				case 'S':
+					return Direction.NORTH_SOUTH;
+				case 'E':
+				case 'W':
+					return Direction.EAST_WEST;
+				default:
+					return Direction.UNKNOWN;
+			}
+		} else {
+			String d = String.valueOf(dir);
+			return Direction.fromString(d);
 		}
-		return result;
 	}
 
 	/**
