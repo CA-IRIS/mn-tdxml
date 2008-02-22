@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2007  Minnesota Department of Transportation
+ * Copyright (C) 2000-2008  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +19,9 @@ package us.mn.state.dot.tdxml;
  * readable descriptions of <code>Incident</code> objects.
  *
  * @author Erik Engstrom
+ * @author Douglas Lau
  */
-public class IncidentDescription implements Comparable {
+public class IncidentDescription implements Comparable<IncidentDescription> {
 
 	/** Direction of incident ( NB, SB, EB, WB )  ?? or Northbound, Southbound, Eastbound, Westbound??? */
 	private final String direction;
@@ -120,15 +121,14 @@ public class IncidentDescription implements Comparable {
 		result.append( "." );
 	}
 
-	protected String getComparator(){
+	protected String getComparator() {
 		StringBuffer result = new StringBuffer();
 		result.append( road );
 		appendTail( result );
 		return result.toString();
 	}
 
-	public int compareTo( final java.lang.Object p1 ) {
-		IncidentDescription comp = ( IncidentDescription ) p1;
-		return getComparator().compareTo( comp.getComparator() );
+	public int compareTo(IncidentDescription o) {
+		return getComparator().compareTo(o.getComparator());
 	}
 }
