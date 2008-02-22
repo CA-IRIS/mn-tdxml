@@ -341,8 +341,9 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		return metro;
 	}
 
-	protected char lookupDefaultDirection(String roadway, double linear,
-		String linkDirection) throws IncidentException
+	/** Lookup the default direction for a roadway */
+	protected char lookupDefaultDirection(String roadway, double linear)
+		throws IncidentException
 	{
 		char defaultDirection = '?';
 		double closest = Double.MAX_VALUE;
@@ -436,8 +437,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		double linear = getLinearReference(element);
 		String name = lookupName(roadway, linear, extent);
 		boolean metro = lookupMetro(roadway, linear);
-		char defaultDirection = lookupDefaultDirection(roadway, linear,
-			link_dir);
+		char defaultDirection = lookupDefaultDirection(roadway, linear);
 		char direction = calculateDirection(link_dir, defaultDirection);
 		return new CarsLocation(utm.getEasting(), utm.getNorthing(),
 			linear, name, direction, defaultDirection, metro);
