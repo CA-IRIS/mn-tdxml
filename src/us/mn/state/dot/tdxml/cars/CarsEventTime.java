@@ -26,7 +26,7 @@ import us.mn.state.dot.tdxml.AbstractXmlFactory;
 import us.mn.state.dot.tdxml.EventTime;
 
 /**
- * This class represents an EMF.
+ * A CARS event timeline.
  *
  * @author Erik Engstrom
  * @author Douglas Lau
@@ -105,7 +105,8 @@ public class CarsEventTime implements EventTime {
 		CAL_TO_BYTE.put(Calendar.SATURDAY, SATURDAY.getByte());
 	}
 
-	static int parseDuration(Element validPeriod) {
+	/** Parse the CARS duration element */
+	static protected int parseDuration(Element validPeriod) {
 		String d = AbstractXmlFactory.lookupChildText(validPeriod,
 			"event-timeline-estimated-duration");
 		if(d != null)
@@ -114,7 +115,8 @@ public class CarsEventTime implements EventTime {
 			return 0;
 	}
 
-	static byte parseDaysOfWeek(Element eventPeriod) {
+	/** Pasrse the CARS days-of-week element */
+	static protected byte parseDaysOfWeek(Element eventPeriod) {
 		String b = AbstractXmlFactory.lookupChildText(eventPeriod,
 			"event-timeline-schedule-days-of-the-week");
 		if(b != null)
@@ -123,9 +125,7 @@ public class CarsEventTime implements EventTime {
 			return 0;
 	}
 
-	/**
-	 * Create a new CARS event time.
-	 */
+	/** Create a new CARS event time */
 	public CarsEventTime( Element element ) throws ParseException {
 		super();
 		startTime = readDate(AbstractXmlFactory.lookupChild(element,
@@ -168,6 +168,7 @@ public class CarsEventTime implements EventTime {
 		}
 	}
 
+	/** Get a string of the weekdays in the timeline */
 	private StringBuffer getWeekdays(byte b, boolean start){
 		boolean comma = !start;
 		StringBuffer buffer = new StringBuffer();
@@ -179,6 +180,7 @@ public class CarsEventTime implements EventTime {
 		return buffer;
 	}
 
+	/** Check if the specified day is in the timeline */
 	private boolean checkDay(boolean comma, byte b, CarsDay day,
 		StringBuffer buffer)
 	{
@@ -224,6 +226,7 @@ public class CarsEventTime implements EventTime {
 		return buf.toString();
 	}
 
+	/** Get a string representation of the timeline */
 	public String toString() {
 		StringBuffer result = new StringBuffer( "since " );
 		result.append( outDateFormat.format(startTime));
@@ -272,6 +275,7 @@ public class CarsEventTime implements EventTime {
 		return result.toString();
 	}
 
+	/** Parse a CARS date */
 	private Date readDate( Element element ) throws ParseException {
 		if(element == null)
 			return null;
@@ -312,11 +316,13 @@ public class CarsEventTime implements EventTime {
 		return now.after(start) && now.before(end);
 	}
 
+	/** Set a time value */
 	private void setTime(Calendar cal, String time){
 		cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time.substring(0,1)));
 		cal.set(Calendar.MINUTE, Integer.parseInt(time.substring(2,3)));
 	}
 
+	/** Get the duration of the timeline */
 	public long getDuration() {
 		long result = 0;
 		if ( endTime != null ){
