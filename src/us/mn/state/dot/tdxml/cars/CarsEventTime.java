@@ -33,6 +33,9 @@ import us.mn.state.dot.tdxml.EventTime;
  */
 public class CarsEventTime implements EventTime {
 
+	/** Magic duration value to indicate indefinite duration */
+	static protected final int INDEFINITE_DURATION = 2000000;
+
 	/** Constant for the number of minutes per day */
 	static protected final int MINUTES_PER_DAY = 1440;
 
@@ -226,7 +229,7 @@ public class CarsEventTime implements EventTime {
 		result.append( outDateFormat.format(startTime));
 		if ( endTime != null ) {
 			result.append( " until " ).append(outDateFormat.format(endTime));
-		} else if ( duration == 2000000 ) {
+		} else if(duration == INDEFINITE_DURATION) {
 			result.append( " until further notice" );
 		} else if ( duration > 0 ) {
 			Date now = new Date();
