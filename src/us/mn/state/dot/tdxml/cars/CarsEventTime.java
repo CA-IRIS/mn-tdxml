@@ -157,7 +157,6 @@ public class CarsEventTime implements EventTime {
 
 	/** Create a new CARS event time */
 	public CarsEventTime(Element element) throws ParseException {
-		super();
 		startTime = parseDate(AbstractXmlFactory.lookupChild(element,
 			"start-time"));
 		Element validPeriod = AbstractXmlFactory.lookupChild(element,
@@ -314,7 +313,8 @@ public class CarsEventTime implements EventTime {
 		Date now = new Date();
 		Date start = startTime;
 		Date end = endTime;
-		if(end == null) { // No end time specified only duration.
+		if(end == null) {
+			// No end time specified only duration.
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(startTime);
 			cal.add(Calendar.MINUTE, duration);
@@ -347,13 +347,11 @@ public class CarsEventTime implements EventTime {
 
 	/** Get the duration of the timeline */
 	public long getDuration() {
-		long result = 0;
 		if(endTime != null) {
 			long diff = startTime.getTime() - endTime.getTime();
-			result = diff / 60000;
+			return diff / 60000;
 		} else
-			result = duration;
-		return result;
+			return duration;
 	}
 
 	public static class CarsDay {
