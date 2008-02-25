@@ -194,26 +194,26 @@ public class CarsEventTime implements EventTime {
 	}
 
 	/** Get a string of the weekdays in the timeline */
-	protected StringBuffer getWeekdays(byte b, boolean start) {
+	static protected String getWeekdays(byte b, boolean start) {
 		boolean comma = !start;
-		StringBuffer buffer = new StringBuffer();
-		comma = checkDay(comma, b, MONDAY, buffer) || comma;
-		comma = checkDay(comma, b, TUESDAY, buffer) || comma;
-		comma = checkDay(comma, b, WEDNESDAY, buffer) || comma;
-		comma = checkDay(comma, b, THURSDAY, buffer) || comma;
-		comma = checkDay(comma, b, FRIDAY, buffer) || comma;
-		return buffer;
+		StringBuilder buf = new StringBuilder();
+		comma = checkDay(comma, b, MONDAY, buf) || comma;
+		comma = checkDay(comma, b, TUESDAY, buf) || comma;
+		comma = checkDay(comma, b, WEDNESDAY, buf) || comma;
+		comma = checkDay(comma, b, THURSDAY, buf) || comma;
+		comma = checkDay(comma, b, FRIDAY, buf) || comma;
+		return buf.toString();
 	}
 
 	/** Check if the specified day is in the timeline */
-	private boolean checkDay(boolean comma, byte b, CarsDay day,
-		StringBuffer buffer)
+	static protected boolean checkDay(boolean comma, byte b, CarsDay day,
+		StringBuilder buf)
 	{
 		boolean result = day.contains(b);
 		if(result) {
 			if(comma)
-				buffer.append(", ");
-			buffer.append(day.name);
+				buf.append(", ");
+			buf.append(day.name);
 		}
 		return result;
 	}
