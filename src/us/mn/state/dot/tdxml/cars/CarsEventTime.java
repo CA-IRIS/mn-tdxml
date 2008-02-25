@@ -195,7 +195,7 @@ public class CarsEventTime implements EventTime {
 	}
 
 	/** Get a string of the weekdays in the timeline */
-	private StringBuffer getWeekdays(byte b, boolean start){
+	protected StringBuffer getWeekdays(byte b, boolean start) {
 		boolean comma = !start;
 		StringBuffer buffer = new StringBuffer();
 		comma = checkDay(comma, b, MONDAY, buffer) || comma;
@@ -295,7 +295,7 @@ public class CarsEventTime implements EventTime {
 			result.append(dayString);
 			if(effectiveQualifier.length() > 0)
 				result.append(" ").append(effectiveQualifier);
-			if(null != scheduleStart) {
+			if(scheduleStart != null) {
 				result.append(" from ");
 				result.append(scheduleStart.substring(0,2));
 				result.append(':');
@@ -328,22 +328,21 @@ public class CarsEventTime implements EventTime {
 				// incident is active today
 				if(scheduleStart == null)
 					return true;
-				Calendar startCal = Calendar.getInstance();
-				setTime(startCal, scheduleStart);
-				start = startCal.getTime();
-				Calendar endCal = Calendar.getInstance();
-				setTime(endCal, scheduleEnd);
-				end = endCal.getTime();
+				start = parseTime(scheduleStart);
+				end = parseTime(scheduleEnd);
 			} else
 				return false;
 		}
 		return now.after(start) && now.before(end);
 	}
 
-	/** Set a time value */
-	private void setTime(Calendar cal, String time){
-		cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time.substring(0,1)));
+	/** Parse a time value */
+	static protected Date parseTime(String time) {
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,
+			Integer.parseInt(time.substring(0,1)));
 		cal.set(Calendar.MINUTE, Integer.parseInt(time.substring(2,3)));
+		return cal.getTime();
 	}
 
 	/** Get the duration of the timeline */
@@ -362,17 +361,17 @@ public class CarsEventTime implements EventTime {
 		public byte byteValue = 0;
 		public String name = null;
 
-		public CarsDay(String name, byte b, int i){
+		public CarsDay(String name, byte b, int i) {
 			this.name = name;
 			this.byteValue = b;
 			this.calandarIndex = i;
 		}
 
-		public Byte getByte(){
+		public Byte getByte() {
 			return new Byte(byteValue);
 		}
 
-		public boolean contains(byte source){
+		public boolean contains(byte source) {
 			return ((source & byteValue) == byteValue);
 		}
 	}
