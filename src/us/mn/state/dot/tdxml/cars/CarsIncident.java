@@ -99,7 +99,7 @@ public class CarsIncident implements Incident {
 			buffer.append(", ");
 			buffer.append(additionalText);
 		}
-		buffer.append(" on ");
+		buffer.append("\n\ton ");
 		buffer.append(roadname);
 		if(endLocation != null) {
 			buffer.append(" from ");
@@ -108,7 +108,9 @@ public class CarsIncident implements Incident {
 			buffer.append(endLocation);
 		} else
 			buffer.append(" at ").append(startLocation);
-		buffer.append(' ').append(time.toString()).append('.');
+		buffer.append("\n\t");
+		buffer.append(time.toString());
+		buffer.append('.');
 		return buffer.toString();
 	}
 
