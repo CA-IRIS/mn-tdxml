@@ -67,6 +67,7 @@ public class CarsEventTime implements EventTime {
 	private static final Map<Integer, Byte> CAL_TO_BYTE =
 		new HashMap<Integer, Byte>(7);
 
+	/** CARS date formatter */
 	private static final DateFormat dateFormat = new CarsDateFormat();
 
 	private static final DateFormat outDateFormat =
@@ -106,6 +107,14 @@ public class CarsEventTime implements EventTime {
 		CAL_TO_BYTE.put(Calendar.SATURDAY, SATURDAY.getByte());
 	}
 
+	/** Parse a CARS date */
+	static protected Date parseDate(Element element) throws ParseException {
+		if(element == null)
+			return null;
+		String date = element.getTextContent();
+		return dateFormat.parse(date);
+	}
+
 	/** Parse the CARS duration element */
 	static protected int parseDuration(Element validPeriod) {
 		String d = AbstractXmlFactory.lookupChildText(validPeriod,
@@ -139,11 +148,11 @@ public class CarsEventTime implements EventTime {
 	/** Create a new CARS event time */
 	public CarsEventTime( Element element ) throws ParseException {
 		super();
-		startTime = readDate(AbstractXmlFactory.lookupChild(element,
+		startTime = parseDate(AbstractXmlFactory.lookupChild(element,
 			"start-time"));
 		Element validPeriod = AbstractXmlFactory.lookupChild(element,
 			"valid-period");
-		endTime = readDate(AbstractXmlFactory.lookupChild(validPeriod,
+		endTime = parseDate(AbstractXmlFactory.lookupChild(validPeriod,
 			"expected-end-time"));
 		duration = parseDuration(validPeriod);
 		Element recurrentTimes = AbstractXmlFactory.lookupChild(element,
@@ -280,14 +289,6 @@ public class CarsEventTime implements EventTime {
 			}
 		}
 		return result.toString();
-	}
-
-	/** Parse a CARS date */
-	private Date readDate( Element element ) throws ParseException {
-		if(element == null)
-			return null;
-		String date = element.getTextContent();
-		return dateFormat.parse( date );
 	}
 
 	/** Is this CarsEventTime valid right now? */
