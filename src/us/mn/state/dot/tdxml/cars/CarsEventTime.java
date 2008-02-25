@@ -251,6 +251,48 @@ public class CarsEventTime implements EventTime {
 		return buf.toString();
 	}
 
+	/** Format the schedule for recurrent events */
+	protected String formatSchedule() {
+		StringBuffer dayString = new StringBuffer(" on ");
+		if((bDays & WEEKDAYS) == WEEKDAYS) {
+			dayString.append(WEEKDAYS_KEY);
+			byte weekends = (byte)(bDays & WEEKENDS);
+			if(weekends == WEEKENDS)
+				dayString = new StringBuffer(" daily");
+			else if(SATURDAY.contains(weekends)) {
+				dayString.append(" and ");
+				dayString.append(SATURDAY.name);
+			} else if(SUNDAY.contains(weekends)) {
+				dayString.append(" and ");
+				dayString.append(SUNDAY.name);
+			}
+		} else if((bDays & WEEKENDS) == WEEKENDS) {
+			dayString.append(WEEKENDS_KEY);
+			dayString.append(getWeekdays(bDays, false));
+		} else {
+			dayString.append(getWeekdays(bDays, true));
+			if(SUNDAY.contains(bDays))
+				dayString.append(SUNDAY.name);
+			else if(SATURDAY.contains(bDays))
+				dayString.append(SATURDAY.name);
+		}
+		StringBuffer result = new StringBuffer();
+		result.append(dayString);
+		if(effectiveQualifier.length() > 0)
+			result.append(" ").append(effectiveQualifier);
+		if(scheduleStart != null) {
+			result.append(" from ");
+			result.append(scheduleStart.substring(0,2));
+			result.append(':');
+			result.append(scheduleStart.substring(2,4));
+			result.append(" to ");
+			result.append(scheduleEnd.substring(0,2));
+			result.append(':');
+			result.append(scheduleEnd.substring(2,4));
+		}
+		return result.toString();
+	}
+
 	/** Get a string representation of the timeline */
 	public String toString() {
 		StringBuffer result = new StringBuffer("since ");
@@ -267,44 +309,8 @@ public class CarsEventTime implements EventTime {
 			long remaining = duration - past;
 			result.append(formatRemaining(remaining));
 		}
-		if(recurrent) {
-			StringBuffer dayString = new StringBuffer(" on ");
-			if((bDays & WEEKDAYS) == WEEKDAYS) {
-				dayString.append(WEEKDAYS_KEY);
-				byte weekends = (byte)(bDays & WEEKENDS);
-				if(weekends == WEEKENDS)
-					dayString = new StringBuffer(" daily");
-				else if(SATURDAY.contains(weekends)) {
-					dayString.append(" and ");
-					dayString.append(SATURDAY.name);
-				} else if(SUNDAY.contains(weekends)) {
-					dayString.append(" and ");
-					dayString.append(SUNDAY.name);
-				}
-			} else if((bDays & WEEKENDS) == WEEKENDS) {
-				dayString.append(WEEKENDS_KEY);
-				dayString.append(getWeekdays(bDays, false));
-			} else {
-				dayString.append(getWeekdays(bDays, true));
-				if(SUNDAY.contains(bDays))
-					dayString.append(SUNDAY.name);
-				else if(SATURDAY.contains(bDays))
-					dayString.append(SATURDAY.name);
-			}
-			result.append(dayString);
-			if(effectiveQualifier.length() > 0)
-				result.append(" ").append(effectiveQualifier);
-			if(scheduleStart != null) {
-				result.append(" from ");
-				result.append(scheduleStart.substring(0,2));
-				result.append(':');
-				result.append(scheduleStart.substring(2,4));
-				result.append(" to ");
-				result.append(scheduleEnd.substring(0,2));
-				result.append(':');
-				result.append(scheduleEnd.substring(2,4));
-			}
-		}
+		if(recurrent)
+			result.append(formatSchedule());
 		return result.toString();
 	}
 
