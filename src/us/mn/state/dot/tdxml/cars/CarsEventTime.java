@@ -282,21 +282,23 @@ public class CarsEventTime implements EventTime {
 
 	/** Format the schedule for recurrent events */
 	protected String formatSchedule() {
-		StringBuffer result = new StringBuffer();
-		result.append(formatScheduleDay());
-		if(effectiveQualifier.length() > 0)
-			result.append(" ").append(effectiveQualifier);
-		if(scheduleStart != null) {
-			result.append(" from ");
-			result.append(scheduleStart.substring(0,2));
-			result.append(':');
-			result.append(scheduleStart.substring(2,4));
-			result.append(" to ");
-			result.append(scheduleEnd.substring(0,2));
-			result.append(':');
-			result.append(scheduleEnd.substring(2,4));
+		StringBuilder buf = new StringBuilder();
+		buf.append(formatScheduleDay());
+		if(effectiveQualifier.length() > 0) {
+			buf.append(" ");
+			buf.append(effectiveQualifier);
 		}
-		return result.toString();
+		if(scheduleStart != null) {
+			buf.append(" from ");
+			buf.append(scheduleStart.substring(0,2));
+			buf.append(':');
+			buf.append(scheduleStart.substring(2,4));
+			buf.append(" to ");
+			buf.append(scheduleEnd.substring(0,2));
+			buf.append(':');
+			buf.append(scheduleEnd.substring(2,4));
+		}
+		return buf.toString();
 	}
 
 	/** Get a string representation of the timeline */
