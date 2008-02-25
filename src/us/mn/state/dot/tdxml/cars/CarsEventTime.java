@@ -295,23 +295,23 @@ public class CarsEventTime implements EventTime {
 
 	/** Get a string representation of the timeline */
 	public String toString() {
-		StringBuffer result = new StringBuffer("since ");
-		result.append(outDateFormat.format(startTime));
+		StringBuilder buf = new StringBuilder("since ");
+		buf.append(outDateFormat.format(startTime));
 		if(endTime != null) {
-			result.append(" until ");
-			result.append(outDateFormat.format(endTime));
-		} else if(duration == INDEFINITE_DURATION) {
-			result.append(" until further notice");
-		} else if(duration > 0) {
+			buf.append(" until ");
+			buf.append(outDateFormat.format(endTime));
+		} else if(duration == INDEFINITE_DURATION)
+			buf.append(" until further notice");
+		else if(duration > 0) {
 			Date now = new Date();
 			long diff = now.getTime() - startTime.getTime();
 			long past = diff / 60000;
 			long remaining = duration - past;
-			result.append(formatRemaining(remaining));
+			buf.append(formatRemaining(remaining));
 		}
 		if(recurrent)
-			result.append(formatSchedule());
-		return result.toString();
+			buf.append(formatSchedule());
+		return buf.toString();
 	}
 
 	/** Is this CarsEventTime valid right now? */
