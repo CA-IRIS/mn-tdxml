@@ -125,6 +125,16 @@ public class CarsEventTime implements EventTime {
 			return 0;
 	}
 
+	/** Parse the CARS scheduled times */
+	static protected String parseScheduledTimes(Element recurrentTimes) {
+		String scheduledTimes = AbstractXmlFactory.lookupChildText(
+			recurrentTimes, "event-timeline-schedule-times");
+		if("".equals(scheduledTimes))
+			return null;
+		else
+			return scheduledTimes;
+	}
+
 	/** Parse the CARS effective period qualifier */
 	static protected String parseEffectiveQualifier(Element eventPeriod) {
 		String q = AbstractXmlFactory.lookupChildText(eventPeriod,
@@ -162,9 +172,9 @@ public class CarsEventTime implements EventTime {
 				recurrentTimes, "eventRecurrentTimes");
 		recurrent = recurrentTimes != null;
 		if(recurrent) {
-			String scheduledTimes = AbstractXmlFactory.lookupChildText(
-				recurrentTimes, "event-timeline-schedule-times");
-			if(null != scheduledTimes && !"".equals(scheduledTimes)){
+			String scheduledTimes = parseScheduledTimes(
+				recurrentTimes);
+			if(scheduledTimes != null) {
 				scheduleStart = scheduledTimes.substring(0, 4);
 				scheduleEnd = scheduledTimes.substring(4, 8);
 			} else {
