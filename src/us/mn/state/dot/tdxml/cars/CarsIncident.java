@@ -91,17 +91,23 @@ public class CarsIncident implements Incident {
 		StringBuffer buffer = new StringBuffer(
 			key_event.getType().substring(0,1).toUpperCase());
 		buffer.append(key_event.getType().substring(1));
-		buffer.append(" - ").append(roadname);
-		buffer.append("\n\t").append(getPhrases());
-		if(additionalText != null)
-			buffer.append(", ").append(additionalText);
-		buffer.append(" on ").append(roadname);
-		if (endLocation != null) {
-			buffer.append(" from ").append(startLocation).append(" to ");
-			buffer.append(endLocation);
-		} else {
-			buffer.append(" at ").append(startLocation);
+		buffer.append(" - ");
+		buffer.append(roadname);
+		buffer.append("\n\t");
+		buffer.append(getPhrases());
+		if(additionalText != null) {
+			buffer.append(", ");
+			buffer.append(additionalText);
 		}
+		buffer.append(" on ");
+		buffer.append(roadname);
+		if(endLocation != null) {
+			buffer.append(" from ");
+			buffer.append(startLocation);
+			buffer.append(" to ");
+			buffer.append(endLocation);
+		} else
+			buffer.append(" at ").append(startLocation);
 		buffer.append(' ').append(time.toString()).append('.');
 		return buffer.toString();
 	}
@@ -126,10 +132,7 @@ public class CarsIncident implements Incident {
 		return endLocation;
 	}
 
-	/**
-	 * Returns the freeway.
-	 * @return String
-	 */
+	/** Returns the freeway */
 	public String getRoadway() {
 		return roadway;
 	}
@@ -191,6 +194,7 @@ public class CarsIncident implements Incident {
 		return getDescription().compareTo(o.getDescription());
 	}
 
+	/** Get the message ID */
 	public String getMessageId() {
 		return messageId;
 	}
