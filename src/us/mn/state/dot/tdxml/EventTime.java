@@ -26,7 +26,7 @@ package us.mn.state.dot.tdxml;
  * @author Erik Engstrom
  * @author Michael Darter
  *
- * @see us.mn.state.dot.tdxml.CarsEventTime
+ * @see us.mn.state.dot.tdxml.cars.CarsEventTime
  */
 public interface EventTime {
 

@@ -175,7 +175,7 @@ public class CarsIncident implements Incident {
 	}
 
 	/**
-	 * @see us.mn.state.dot.tdxml.client.Incident#getDescription()
+	 * @see us.mn.state.dot.tdxml.Incident#getDescription()
 	 */
 	public IncidentDescription getDescription() {
 		Direction direction = startLocation.getDirection();
