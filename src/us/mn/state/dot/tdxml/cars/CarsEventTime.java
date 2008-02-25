@@ -156,7 +156,7 @@ public class CarsEventTime implements EventTime {
 	}
 
 	/** Create a new CARS event time */
-	public CarsEventTime( Element element ) throws ParseException {
+	public CarsEventTime(Element element) throws ParseException {
 		super();
 		startTime = parseDate(AbstractXmlFactory.lookupChild(element,
 			"start-time"));
@@ -254,13 +254,14 @@ public class CarsEventTime implements EventTime {
 
 	/** Get a string representation of the timeline */
 	public String toString() {
-		StringBuffer result = new StringBuffer( "since " );
-		result.append( outDateFormat.format(startTime));
-		if ( endTime != null ) {
-			result.append( " until " ).append(outDateFormat.format(endTime));
+		StringBuffer result = new StringBuffer("since ");
+		result.append(outDateFormat.format(startTime));
+		if(endTime != null) {
+			result.append(" until ");
+			result.append(outDateFormat.format(endTime));
 		} else if(duration == INDEFINITE_DURATION) {
-			result.append( " until further notice" );
-		} else if ( duration > 0 ) {
+			result.append(" until further notice");
+		} else if(duration > 0) {
 			Date now = new Date();
 			long diff = now.getTime() - startTime.getTime();
 			long past = diff / 60000;
@@ -273,11 +274,14 @@ public class CarsEventTime implements EventTime {
 				dayString.append(WEEKDAYS_KEY);
 				byte weekends = (byte)(bDays & WEEKENDS);
 				if(weekends == WEEKENDS)
-					dayString = new StringBuffer( " daily");
-				else if(SATURDAY.contains(weekends))
-					dayString.append(" and ").append(SATURDAY.name);
-				else if (SUNDAY.contains(weekends))
-					dayString.append(" and ").append(SUNDAY.name);
+					dayString = new StringBuffer(" daily");
+				else if(SATURDAY.contains(weekends)) {
+					dayString.append(" and ");
+					dayString.append(SATURDAY.name);
+				} else if(SUNDAY.contains(weekends)) {
+					dayString.append(" and ");
+					dayString.append(SUNDAY.name);
+				}
 			} else if((bDays & WEEKENDS) == WEEKENDS) {
 				dayString.append(WEEKENDS_KEY);
 				dayString.append(getWeekdays(bDays, false));
@@ -291,11 +295,15 @@ public class CarsEventTime implements EventTime {
 			result.append(dayString);
 			if(effectiveQualifier.length() > 0)
 				result.append(" ").append(effectiveQualifier);
-			if ( null != scheduleStart){
-				result.append(" from ").append(scheduleStart.substring(0,2))
-					.append(':').append(scheduleStart.substring(2,4))
-					.append(" to ").append(scheduleEnd.substring(0,2))
-					.append(':').append(scheduleEnd.substring(2,4));
+			if(null != scheduleStart) {
+				result.append(" from ");
+				result.append(scheduleStart.substring(0,2));
+				result.append(':');
+				result.append(scheduleStart.substring(2,4));
+				result.append(" to ");
+				result.append(scheduleEnd.substring(0,2));
+				result.append(':');
+				result.append(scheduleEnd.substring(2,4));
 			}
 		}
 		return result.toString();
@@ -306,30 +314,28 @@ public class CarsEventTime implements EventTime {
 		Date now = new Date();
 		Date start = startTime;
 		Date end = endTime;
-		if ( end == null ){ // No end time specified only duration.
+		if(end == null) { // No end time specified only duration.
 			Calendar cal = Calendar.getInstance();
-			cal.setTime( startTime );
-			cal.add( Calendar.MINUTE, duration );
+			cal.setTime(startTime);
+			cal.add(Calendar.MINUTE, duration);
 			end = cal.getTime();
 		}
-		if(recurrent){
+		if(recurrent) {
 			Calendar cal = Calendar.getInstance();
 			int day = cal.get(Calendar.DAY_OF_WEEK);
 			byte bValue = (CAL_TO_BYTE.get(day)).byteValue();
-			if((bDays & bValue) == bValue) { //If true incident is active today.
-				if (null == scheduleStart){
-					return true; //There is no scheduled start and end time so
-					// just return true;
-				}
+			if((bDays & bValue) == bValue) {
+				// incident is active today
+				if(scheduleStart == null)
+					return true;
 				Calendar startCal = Calendar.getInstance();
 				setTime(startCal, scheduleStart);
 				start = startCal.getTime();
 				Calendar endCal = Calendar.getInstance();
 				setTime(endCal, scheduleEnd);
 				end = endCal.getTime();
-			} else {
+			} else
 				return false;
-			}
 		}
 		return now.after(start) && now.before(end);
 	}
@@ -343,7 +349,7 @@ public class CarsEventTime implements EventTime {
 	/** Get the duration of the timeline */
 	public long getDuration() {
 		long result = 0;
-		if ( endTime != null ){
+		if(endTime != null) {
 			long diff = startTime.getTime() - endTime.getTime();
 			result = diff / 60000;
 		} else
