@@ -93,7 +93,8 @@ public class CarsEventTime implements EventTime {
 	/** End of scheduled event time */
 	private final String scheduleEnd;
 
-	private String effectiveQualifier = null;
+	/** Effective period qualifier */
+	protected final String effectiveQualifier;
 
 	static {
 		CAL_TO_BYTE.put(Calendar.SUNDAY, SUNDAY.getByte());
@@ -113,6 +114,16 @@ public class CarsEventTime implements EventTime {
 			return Integer.parseInt(d);
 		else
 			return 0;
+	}
+
+	/** Parse the CARS effective period qualifier */
+	static protected String parseEffectiveQualifier(Element eventPeriod) {
+		String q = AbstractXmlFactory.lookupChildText(eventPeriod,
+			"event-effective-period-qualifier");
+		if(q == null || "not-specified".equals(q))
+			return "";
+		else
+			return q.replace('-', ' ');
 	}
 
 	/** Pasrse the CARS days-of-week element */
@@ -142,8 +153,6 @@ public class CarsEventTime implements EventTime {
 				recurrentTimes, "eventRecurrentTimes");
 		recurrent = recurrentTimes != null;
 		if(recurrent) {
-			Element eventPeriod = AbstractXmlFactory.lookupChild(
-				recurrentTimes, "event-period");
 			String scheduledTimes = AbstractXmlFactory.lookupChildText(
 				recurrentTimes, "event-timeline-schedule-times");
 			if(null != scheduledTimes && !"".equals(scheduledTimes)){
@@ -153,17 +162,15 @@ public class CarsEventTime implements EventTime {
 				scheduleStart = null;
 				scheduleEnd = null;
 			}
-			effectiveQualifier = AbstractXmlFactory.lookupChildText(
-				eventPeriod, "event-effective-period-qualifier");
-			if("not-specified".equals(effectiveQualifier))
-				effectiveQualifier = null;
-			if(effectiveQualifier != null)
-				effectiveQualifier =
-					effectiveQualifier.replace('-', ' ');
+			Element eventPeriod = AbstractXmlFactory.lookupChild(
+				recurrentTimes, "event-period");
+			effectiveQualifier = parseEffectiveQualifier(
+				eventPeriod);
 			bDays = parseDaysOfWeek(eventPeriod);
 		} else {
 			scheduleStart = null;
 			scheduleEnd = null;
+			effectiveQualifier = "";
 			bDays = 0;
 		}
 	}
@@ -263,7 +270,7 @@ public class CarsEventTime implements EventTime {
 					dayString.append(SATURDAY.name);
 			}
 			result.append(dayString);
-			if(effectiveQualifier != null)
+			if(effectiveQualifier.length() > 0)
 				result.append(" ").append(effectiveQualifier);
 			if ( null != scheduleStart){
 				result.append(" from ").append(scheduleStart.substring(0,2))
