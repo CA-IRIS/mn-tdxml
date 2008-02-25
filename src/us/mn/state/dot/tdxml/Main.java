@@ -32,9 +32,6 @@ public class Main {
 	/** Name of the properties file. */
 	private String propertyFile = "tdxml.properties";
 
-	/** The xml stream to connect to */
-	private final String stream = "xstation";
-
 	private final Logger logger = Logger.getAnonymousLogger();
 
 	/**
@@ -47,7 +44,7 @@ public class Main {
 			Main main = new Main();
 			Properties props = main.createProperties();
 			ProxySelector.setDefault(new HTTPProxySelector(props));
-			XmlClient client = main.createClient(props);
+			XmlClient client = main.createClient(args[0], props);
 			client.setDaemon(false);
 			client.start();
 		}
@@ -113,10 +110,10 @@ public class Main {
 	}
 
 	/** Create an XmlClient using the provided properties object */
-	public XmlClient createClient(Properties properties)
+	public XmlClient createClient(String argv, Properties properties)
 		throws TdxmlException
 	{
-		if(stream.equals("xincident"))
+		if(argv.equals("incident"))
 			return createXmlIncidentClient(properties);
 		else
 			return createXmlStationClient(properties);
