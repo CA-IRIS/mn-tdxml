@@ -45,14 +45,6 @@ public class XmlStationClient extends XmlClient {
 	static protected final String ENTITY_DECL =
 		"<?xml version='1.0' encoding='UTF-8'?>";
 
-	/** Strip the "S" prefix from a station ID */
-	static protected String stripPrefix(String sensor) {
-		if(sensor.startsWith("S"))
-			return sensor.substring(1);
-		else
-			return sensor;
-	}
-
 	/** Parse an attribute as an integer value */
 	static protected int parseInt(String v) {
 		try {
@@ -157,11 +149,10 @@ public class XmlStationClient extends XmlClient {
 
 	/** Notify listeners of one sensor sample */
 	protected void notifySensorSample(String sensor, String f, String s) {
-		String id = stripPrefix(sensor);
 		int flow = parseInt(f);
 		int speed = parseInt(s);
 		if(flow >= 0 || speed >= 0)
-			notifySample(new StationSample(id, flow, speed));
+			notifySample(new StationSample(sensor, flow, speed));
 	}
 
 	/** Handle one station sample element */
