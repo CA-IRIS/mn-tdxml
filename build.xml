@@ -92,8 +92,7 @@
 		<mkdir dir="${build.classes}"/>
 		<javac srcdir="${build.src}"
 			destdir="${build.classes}"
-			debug="off"
-			optimize="${optimize}"
+			debug="${debug}"
 			deprecation="on"
 			source="1.5"
 			target="1.5">
