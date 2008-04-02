@@ -1,0 +1,11 @@
+syntax: glob
+*.class
+*~
+*.jar
+*.war
+*.tgz
+*.gz
+*.zip
+build
+*.txt
+*.MF
