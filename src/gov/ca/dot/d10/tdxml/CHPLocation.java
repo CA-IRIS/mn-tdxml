@@ -21,8 +21,6 @@ import us.mn.state.dot.tdxml.AbstractXmlFactory;
 import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.Location;
 
-import gov.ca.dot.common.Log;
-
 /**
  * Encapsulates all the data for a CHP incident location. A
  * CHPLocation is not valid unless getValid() returns true.

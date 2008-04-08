@@ -26,8 +26,6 @@ import us.mn.state.dot.tdxml.AbstractXmlFactory;
 import us.mn.state.dot.tdxml.EventTime;
 import us.mn.state.dot.tdxml.Location;
 
-import gov.ca.dot.common.Log;
-
 /**
  * An extended version of EventTime that is agency specific
  * to Caltrans District 10 and the CHP XML incident format.

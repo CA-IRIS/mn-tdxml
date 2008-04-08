@@ -34,8 +34,6 @@ import us.mn.state.dot.tdxml.XmlIncidentClient;
 import us.mn.state.dot.tdxml.TdxmlException;
 import us.mn.state.dot.tdxml.Incident;
 
-import gov.ca.dot.common.Log;
-
 /**
  * A Caltrans CHP specific class for reading an xml document at a specified
  * interval and notifying listeners that new data is available.

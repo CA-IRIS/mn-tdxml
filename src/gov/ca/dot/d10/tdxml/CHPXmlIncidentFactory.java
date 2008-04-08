@@ -41,8 +41,6 @@ import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident; 
 import us.mn.state.dot.tdxml.geo.UTM;
 
-import gov.ca.dot.common.Log;
-
 /**
  * CHP specific incident factory.
  *

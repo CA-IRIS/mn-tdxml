@@ -24,8 +24,6 @@ import org.w3c.dom.Node;
 
 import us.mn.state.dot.tdxml.AbstractXmlFactory;
 
-import gov.ca.dot.common.Log;
-
 /**
  * An incident event.
  *
@@ -72,8 +70,9 @@ public class CHPEvent {
                 AbstractXmlFactory.lookupChildText(element,"IncidentDetail"));
         }
 
-        else
-            Log.warning("CHPEvent.CHPEvent.1: unexpected XML structure: "+element.getNodeName());
+        else {
+            System.err.println("CHPEvent.CHPEvent.1: unexpected XML structure: "+element.getNodeName());
+        }
 	}
 
     /** return event time */
