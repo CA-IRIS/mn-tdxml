@@ -15,26 +15,25 @@
 
 package gov.ca.dot.d10.tdxml;
 
-import java.text.ParseException;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.w3c.dom.Element;
 
-import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
+import us.mn.state.dot.log.TmsLogFactory;
 import us.mn.state.dot.tdxml.AbstractXmlFactory;
-import us.mn.state.dot.tdxml.XmlIncidentFactory;
-import us.mn.state.dot.tdxml.IncidentException;
 import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident;
+import us.mn.state.dot.tdxml.IncidentException;
+import us.mn.state.dot.tdxml.XmlIncidentFactory;
+import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
 import us.mn.state.dot.tdxml.geo.UTM;
 
-import us.mn.state.dot.log.TmsLogFactory;
+import java.text.ParseException;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
- *  An abstract factory for parsing XML stuff. This class was copied from the existing 
+ *  An abstract factory for parsing XML stuff. This class was copied from the existing
  *  AbstractXmlIncidentFactory class. The original class contained Cars (mn/dot) specific
  *  definitions, otherwise this would be a subclass of AbstractXmlIncidentFactory. It is
  *  hoped that sometime in the future, the AbstractXmlIncidentFactory class will have
@@ -52,9 +51,33 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 	static protected final String LINEAR_REF =
 		"link-location-linear-reference";
 
+	/** Logger to use for reporting */
+	protected final Logger logger;
+
+	/** Default constructor */
+	protected AbstractCHPXmlIncidentFactory() {
+		logger = createLogger();
+	}
+
+	/**
+	 * Constructs ...
+	 *
+	 *
+	 * @param l
+	 */
+	protected AbstractCHPXmlIncidentFactory(Logger l) {
+		logger = l;
+	}
+
+	/**
+	 * Method description
+	 *
+	 *
+	 * @return
+	 */
 	static protected Logger createLogger() {
 		return TmsLogFactory.createLogger("XmlIncidentClient", null,
-			null);
+						  null);
 	}
 
 	/**
@@ -74,16 +97,14 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 
 	/** Read degrees from a child element */
 	static protected double readDegrees(Element elem, String name)
-		throws IncidentException
-	{
+		throws IncidentException {
 		String d = lookupChildText(elem, name);
 		if(d != null) {
 			try {
 				return toDegrees(d);
-			}
-			catch(NumberFormatException e) {
-				throw new IncidentException("Invalid '" +
-					name + "' element.");
+			} catch (NumberFormatException e) {
+				throw new IncidentException("Invalid '" + name
+							    + "' element.");
 			}
 		} else
 			return 0;
@@ -91,27 +112,24 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 
 	/** Parse a linear reference */
 	static protected double parseLinearReference(String l)
-		throws IncidentException
-	{
+		throws IncidentException {
 		try {
 			return Double.parseDouble(l);
-		}
-		catch(NumberFormatException e) {
-			throw new IncidentException("Invalid '" + LINEAR_REF +
-				"' element.");
+		} catch (NumberFormatException e) {
+			throw new IncidentException("Invalid '" + LINEAR_REF
+						    + "' element.");
 		}
 	}
 
 	/** Get the linear reference from an element */
 	static protected double getLinearReference(Element elem)
-		throws IncidentException
-	{
+		throws IncidentException {
 		String l = lookupChildText(elem, LINEAR_REF);
 		if(l != null)
 			return parseLinearReference(l);
 		else
-			throw new IncidentException("No '" + LINEAR_REF +
-				"' element.");
+			throw new IncidentException("No '" + LINEAR_REF
+						    + "' element.");
 	}
 
 	/** Read any additional text */
@@ -120,29 +138,31 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 			Element c = lookupChild(elem, "eventAdditionalText");
 			return lookupChildText(c, "event-description");
 		}
+
 		return null;
 	}
 
 	/** Return the opposite direction */
 	static protected char oppositeDirection(char direction) {
 		char result = '?';
-		switch(direction) {
-			case 'N' :
-				result = 'S';
-				break;
-			case 'S' :
-				result = 'N';
-				break;
-			case 'E' :
-				result = 'W';
-				break;
-			case 'W' :
-				result = 'E';
-				break;
-			default :
-				result = '?';
-				break;
+		switch (direction) {
+		case 'N' :
+			result = 'S';
+			break;
+		case 'S' :
+			result = 'N';
+			break;
+		case 'E' :
+			result = 'W';
+			break;
+		case 'W' :
+			result = 'E';
+			break;
+		default :
+			result = '?';
+			break;
 		}
+
 		return result;
 	}
 
@@ -152,8 +172,7 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 	 * the XML.
 	 */
 	static protected char calculateDirection(String link_dir,
-		char defaultDirection)
-	{
+		char defaultDirection) {
 		if(link_dir.equals("positive-direction-only"))
 			return defaultDirection;
 		else if(link_dir.equals("negative-direction-only"))
@@ -164,27 +183,28 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 			return '?';
 	}
 
-	/** Logger to use for reporting */
-	protected final Logger logger;
-
-	/** Default constructor */
-	protected AbstractCHPXmlIncidentFactory() {
-		logger = createLogger();
-	}
-
-	protected AbstractCHPXmlIncidentFactory(Logger l) {
-		logger = l;
-	}
-
 	/** Set the location of an incident */
-	abstract protected void setIncidentLocation(CHPIncident incident, Element link)
+	abstract protected void setIncidentLocation(CHPIncident incident,
+		Element link)
 		throws IncidentException;
 
-	/* (non-Javadoc)
+	/*
+	 *  (non-Javadoc)
 	 * @see us.mn.state.dot.tdxml.XmlIncidentFactory#createIncident(org.jdom.Element)
 	 */
-	abstract public Incident createIncident(Element erm) 
-        throws IncidentException;
+
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param erm
+	 *
+	 * @return
+	 *
+	 * @throws IncidentException
+	 */
+	abstract public Incident createIncident(Element erm)
+		throws IncidentException;
 
 	/**
 	 * Get the Description element of the EventReportMessage.
@@ -193,7 +213,7 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 	 */
 	static public Element getDescription(Element details) {
 		Element desc = lookupChild(details,
-			"event-element-description");
+					   "event-element-description");
 		return lookupChild(desc, "event-phrase");
 	}
 
@@ -203,36 +223,105 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 	static protected List<CHPEvent> readEvents(Element details) {
 		final List<CHPEvent> result = new ArrayList<CHPEvent>();
 		Element description = getDescription(details);
-		lookupChildren(description, "eventType", new ElementCallback() {
+		lookupChildren(description, "eventType", new ElementCallback()
+		{
 			public void processElement(Element e) {
-				Element descPhrase = (Element)e.getFirstChild();
+				Element descPhrase =
+					(Element) e.getFirstChild();
 				result.add(new CHPEvent(descPhrase));
 			}
 		});
 		return result;
 	}
+
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param keyPhrase
+	 *
+	 * @return
+	 *
+	 * @throws IncidentException
+	 */
 	protected abstract String lookupSign(CHPEvent keyPhrase)
 		throws IncidentException;
+
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param roadway
+	 * @param linear
+	 * @param extent
+	 *
+	 * @return
+	 *
+	 * @throws IncidentException
+	 */
 	protected abstract String lookupName(String roadway, double linear,
-		boolean extent) throws IncidentException;
+		boolean extent)
+		throws IncidentException;
+
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param roadway
+	 * @param linear
+	 *
+	 * @return
+	 *
+	 * @throws IncidentException
+	 */
 	protected abstract boolean lookupMetro(String roadway, double linear)
 		throws IncidentException;
-	protected abstract char lookupDefaultDirection(String roadway, double linear,
-		String link_dir) throws IncidentException;
+
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param roadway
+	 * @param linear
+	 * @param link_dir
+	 *
+	 * @return
+	 *
+	 * @throws IncidentException
+	 */
+	protected abstract char lookupDefaultDirection(String roadway,
+		double linear, String link_dir)
+		throws IncidentException;
 
 	/** Convert an XML LinkLocation to a CHPLocation */
 	abstract protected CHPLocation readLocation(String roadway,
 		Element element, boolean extent, String link_dir)
 		throws IncidentException;
 
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param erm
+	 *
+	 * @return
+	 */
 	static public String getMessageId(Element erm) {
 		Element child = lookupChild(erm, "message-header");
 		return lookupChildText(child, "event-message-number");
 	}
 
+	/**
+	 * Method description
+	 *
+	 *
+	 * @param erm
+	 *
+	 * @return
+	 */
 	static public Element getKeyPhrase(Element erm) {
 		Element child = lookupChild(erm, "key-phrase");
-		return (Element)child.getFirstChild();
+		return (Element) child.getFirstChild();
 	}
 
 	/**
@@ -252,7 +341,7 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 	 */
 	static public Element getLink(Element erm) {
 		Element c = lookupChild(getDetails(erm),
-			"event-element-location");
+					"event-element-location");
 		Element gc = lookupChild(c, "event-location-type");
 		Element ggc = lookupChild(gc, "event-location-type-link");
 		return ggc;
@@ -272,7 +361,7 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 	 */
 	static public String getLinkDirection(Element erm, String s) {
 		return lookupChildText(getLinkLocation(erm, s),
-			"link-direction");
+				       "link-direction");
 	}
 
 	/**

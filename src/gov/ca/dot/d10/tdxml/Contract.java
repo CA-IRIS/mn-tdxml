@@ -17,37 +17,34 @@ package gov.ca.dot.d10.tdxml;
 
 /**
  * Contract related class.
- * 
+ *
  * @author      Michael Darter, AHMCT
  * @version     1.0, 12/03/07
  * @since       1.0
- * @see         
+ * @see
  */
 public class Contract
 {
-    /**
-     *  Test an assertion. true is returned if ok, else false.
-     */
-    public static boolean verify(String tag,boolean ok)
-    {
-        if( !ok )
-            Contract.fail(tag);
-        return(ok);
-    }   
+	/**
+	 *  Test an assertion. true is returned if ok, else false.
+	 */
+	public static boolean verify(String tag, boolean ok) {
+		if(!ok)
+			Contract.fail(tag);
+		return (ok);
+	}
 
-    /**
-     *  Explicit contract failure.
-     */
-    public static void fail(String tag,String msg)
-    {
-        Contract.fail(tag+","+msg);
-    }   
+	/**
+	 *  Explicit contract failure.
+	 */
+	public static void fail(String tag, String msg) {
+		Contract.fail(tag + "," + msg);
+	}
 
-    /**
-     *  Explicit contract failure, root fail.
-     */
-    public static void fail(String msg)
-    {
-        System.err.println(msg);
-    }   
+	/**
+	 *  Explicit contract failure, root fail.
+	 */
+	public static void fail(String msg) {
+		System.err.println(msg);
+	}
 }

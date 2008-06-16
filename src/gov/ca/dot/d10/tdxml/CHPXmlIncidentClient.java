@@ -15,24 +15,26 @@
 
 package gov.ca.dot.d10.tdxml;
 
-import java.util.logging.Logger;
-import java.util.Properties;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import org.xml.sax.SAXException;
+
+import us.mn.state.dot.tdxml.Incident;
+import us.mn.state.dot.tdxml.IncidentException;
+import us.mn.state.dot.tdxml.TdxmlException;
+import us.mn.state.dot.tdxml.XmlIncidentClient;
+import us.mn.state.dot.tdxml.XmlIncidentFactory;
+
 import java.io.IOException;
 
+import java.util.Properties;
+import java.util.logging.Logger;
+
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.NamedNodeMap;
-import org.xml.sax.SAXException;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.Attr;
-
-import us.mn.state.dot.tdxml.XmlIncidentFactory;
-import us.mn.state.dot.tdxml.IncidentException;
-import us.mn.state.dot.tdxml.XmlIncidentClient;
-import us.mn.state.dot.tdxml.TdxmlException;
-import us.mn.state.dot.tdxml.Incident;
 
 /**
  * A Caltrans CHP specific class for reading an xml document at a specified
@@ -42,191 +44,216 @@ import us.mn.state.dot.tdxml.Incident;
  * @author Douglas Lau
  * @author Michael Darter
  */
-public class CHPXmlIncidentClient extends XmlIncidentClient {
-
+public class CHPXmlIncidentClient extends XmlIncidentClient
+{
 	/**
 	 * Constructor for CHPXmlIncidentClient.
 	 */
 	public CHPXmlIncidentClient(Properties props, Logger l)
-		throws TdxmlException
-	{
-        super(props,l);
+		throws TdxmlException {
+		super(props, l);
 	}
 
 	/** create incident factory, called by constructor, may be overridden by each agency. */
-	protected XmlIncidentFactory createIncidentFactory(Properties props, Logger logger) 
-		throws TdxmlException
-    {
+	protected XmlIncidentFactory createIncidentFactory(Properties props,
+		Logger logger)
+		throws TdxmlException {
 		try {
-    	    return(new CHPXmlIncidentFactory(props, logger));
-		}
-		catch(IOException e) {
+			return (new CHPXmlIncidentFactory(props, logger));
+		} catch (IOException e) {
 			throw new TdxmlException(e);
-		}
-		catch(ParserConfigurationException e) {
+		} catch (ParserConfigurationException e) {
 			throw new TdxmlException(e);
-		}
-		catch(SAXException e) {
+		} catch (SAXException e) {
 			throw new TdxmlException(e);
 		}
 	}
 
-	/** 
-     * Parse the incidents in an XML document. Agency specific. 
-     * The argument Element tag name must be "State".
-     */
+	/**
+	 * Parse the incidents in an XML document. Agency specific.
+	 * The argument Element tag name must be "State".
+	 */
 	protected void parseIncidents(Element root) throws IncidentException {
 
-        //Log.info("CHPXmlIncidentClient.parseIncidents("+root.getTagName()+") called.");
+		// Log.info("CHPXmlIncidentClient.parseIncidents("+root.getTagName()+") called.");
 
-        // preconds
-        if( !Contract.verify("CHPXmlIncidentClint.parseIncidents.0",root.getTagName().equals("State")) )
-            return;
+		// preconds
+		if(!Contract.verify("CHPXmlIncidentClint.parseIncidents.0",
+				    root.getTagName().equals("State")))
+			return;
 
-        // for each Center within State
-    	NodeList nodes = root.getChildNodes();
-    	for(int c = 0; c < nodes.getLength(); c++) 
-        {
-            // get Center
-    		Node n = nodes.item(c);
-            if( n.getNodeType()!=Node.ELEMENT_NODE )
-                continue;
+		// for each Center within State
+		NodeList nodes = root.getChildNodes();
+		for(int c = 0; c < nodes.getLength(); c++) {
 
-            // parse Center
-            this.parseXmlElementCenter((Element)n);
-    	}
+			// get Center
+			Node n = nodes.item(c);
+			if(n.getNodeType() != Node.ELEMENT_NODE)
+				continue;
+
+			// parse Center
+			this.parseXmlElementCenter((Element) n);
+		}
 	}
 
-	/** 
-     * 
-     * The argument Element tag name must be "Center".
-     */
+	/**
+	 *
+	 * The argument Element tag name must be "Center".
+	 */
 	private void parseXmlElementCenter(Element e) throws IncidentException {
 
-        //Log.info("CHPXmlIncidentClient.parseXmlElementCenter("+e.getTagName()+") called.");
+		// Log.info("CHPXmlIncidentClient.parseXmlElementCenter("+e.getTagName()+") called.");
 
-        // preconds
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementCenter.1",e.getNodeName().equals("Center")) )
-            return;
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementCenter.2",e.hasAttributes()) )
-            return;
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementCenter.3",e.hasChildNodes()) )
-            return;
+		// preconds
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementCenter.1",
+			e.getNodeName().equals("Center")))
+			return;
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementCenter.2",
+			e.hasAttributes()))
+			return;
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementCenter.3",
+			e.hasChildNodes()))
+			return;
 
-        // get attribute: ID
-        NamedNodeMap attrs = e.getAttributes();
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementCenter.4",attrs.getLength()>=1) )
-            return;
-        Attr a=(Attr)attrs.item(0);
-        String cid=a.getNodeValue();
-        //Log.info(" " + a.getNodeName()+"="+cid);
+		// get attribute: ID
+		NamedNodeMap attrs = e.getAttributes();
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementCenter.4",
+			attrs.getLength() >= 1))
+			return;
+		Attr a = (Attr) attrs.item(0);
+		String cid = a.getNodeValue();
 
-        // for each Dispatch within Center
+		// Log.info(" " + a.getNodeName()+"="+cid);
+
+		// for each Dispatch within Center
 		NodeList nodes = e.getChildNodes();
-		for(int d = 0; d < nodes.getLength(); d++) 
-        {
-            // get Dispatch
-			Node n = nodes.item(d);
-            if( n.getNodeType()!=Node.ELEMENT_NODE )
-                continue;
+		for(int d = 0; d < nodes.getLength(); d++) {
 
-            // parse Dispatch
-            this.parseXmlElementDispatch(cid,(Element)n);
+			// get Dispatch
+			Node n = nodes.item(d);
+			if(n.getNodeType() != Node.ELEMENT_NODE)
+				continue;
+
+			// parse Dispatch
+			this.parseXmlElementDispatch(cid, (Element) n);
 		}
 	}
 
-	/** 
-     * 
-     * The argument Element tag name must be "Dispatch".
-     */
-	private void parseXmlElementDispatch(String cid,Element e) throws IncidentException {
+	/**
+	 *
+	 * The argument Element tag name must be "Dispatch".
+	 */
+	private void parseXmlElementDispatch(String cid, Element e)
+		throws IncidentException {
 
-        //Log.info("CHPXmlIncidentClient.parseXmlElementDispatch("+e.getTagName()+") called.");
+		// Log.info("CHPXmlIncidentClient.parseXmlElementDispatch("+e.getTagName()+") called.");
 
-        // preconds
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementDispatch.1",e.getNodeName().equals("Dispatch")) )
-            return;
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementDispatch.2",e.hasAttributes()) )
-            return;
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementDispatch.3",e.hasChildNodes()) )
-            return;
+		// preconds
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementDispatch.1",
+			e.getNodeName().equals("Dispatch")))
+			return;
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementDispatch.2",
+			e.hasAttributes()))
+			return;
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementDispatch.3",
+			e.hasChildNodes()))
+			return;
 
-        // get attribute: ID
-        NamedNodeMap attrs = e.getAttributes();
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementDispatch.4",attrs.getLength()>=1) )
-            return;
-        Attr a=(Attr)attrs.item(0);
-        String did=a.getNodeValue();
-        //Log.info(" " + a.getNodeName()+"="+did);
+		// get attribute: ID
+		NamedNodeMap attrs = e.getAttributes();
+		if(!Contract.verify(
+			"CHPXmlIncidentClint.parseXmlElementDispatch.4",
+			attrs.getLength() >= 1))
+			return;
+		Attr a = (Attr) attrs.item(0);
+		String did = a.getNodeValue();
 
-        // for each Log within Dispatch
+		// Log.info(" " + a.getNodeName()+"="+did);
+
+		// for each Log within Dispatch
 		NodeList nodes = e.getChildNodes();
-		for(int d = 0; d < nodes.getLength(); d++) 
-        {
-            // get Log
-			Node n = nodes.item(d);
-            if( n.getNodeType()!=Node.ELEMENT_NODE )
-                continue;
+		for(int d = 0; d < nodes.getLength(); d++) {
 
-            // parse Log
-            this.parseXmlElementLog(cid,did,(Element)n);
+			// get Log
+			Node n = nodes.item(d);
+			if(n.getNodeType() != Node.ELEMENT_NODE)
+				continue;
+
+			// parse Log
+			this.parseXmlElementLog(cid, did, (Element) n);
 		}
 	}
 
-	/** 
-     * 
-     * The argument Element tag name must be "Log".
-     */
-	private void parseXmlElementLog(String cid,String did,Element e) throws IncidentException {
+	/**
+	 *
+	 * The argument Element tag name must be "Log".
+	 */
+	private void parseXmlElementLog(String cid, String did, Element e)
+		throws IncidentException {
 
-        //Log.info("CHPXmlIncidentClient.parseXmlElementLog("+e.getTagName()+") called.");
+		// Log.info("CHPXmlIncidentClient.parseXmlElementLog("+e.getTagName()+") called.");
 
-        // preconds
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.1",e.getNodeName().equals("Log")) )
-            return;
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.2",e.hasAttributes()) )
-            return;
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.3",e.hasChildNodes()) )
-            return;
+		// preconds
+		if(!Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.1",
+				    e.getNodeName().equals("Log")))
+			return;
+		if(!Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.2",
+				    e.hasAttributes()))
+			return;
+		if(!Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.3",
+				    e.hasChildNodes()))
+			return;
 
-        // get attribute: ID
-        NamedNodeMap attrs = e.getAttributes();
-        if( !Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.4",attrs.getLength()>=1) )
-            return;
-        Attr a=(Attr)attrs.item(0);
-        String logid=a.getNodeValue();
-        //Log.info("log id="+logid);
+		// get attribute: ID
+		NamedNodeMap attrs = e.getAttributes();
+		if(!Contract.verify("CHPXmlIncidentClint.parseXmlElementLog.4",
+				    attrs.getLength() >= 1))
+			return;
+		Attr a = (Attr) attrs.item(0);
+		String logid = a.getNodeValue();
 
-        // create incident
-        this.createIncidentAndNotify(cid,did,logid,e);
+		// Log.info("log id="+logid);
+
+		// create incident
+		this.createIncidentAndNotify(cid, did, logid, e);
 	}
 
-	/** 
-     * Create an incident and notify listeners.
-     */
-    private void createIncidentAndNotify(String cid,String did,String logid,Element e) 
-        throws IncidentException 
-    {
-        CHPXmlIncidentFactory chpf=(CHPXmlIncidentFactory)factory;
-		Incident inc = chpf.createIncident(cid,did,e);
+	/**
+	 * Create an incident and notify listeners.
+	 */
+	private void createIncidentAndNotify(String cid, String did,
+		String logid, Element e)
+		throws IncidentException {
+		CHPXmlIncidentFactory chpf = (CHPXmlIncidentFactory) factory;
+		Incident inc = chpf.createIncident(cid, did, e);
 
-        // failure
-		if( inc==null ) {
-        //    Log.info("CHPXmlIncidentClient.parseXmlElementLog(): incident is NOT valid: cid="+
-        //        cid+", did="+did+", log id="+logid);
-        }
+		// failure
+		if(inc == null) {
 
-        // success and valid incident
-        else if( inc.isValid() ) {
-            //Log.info("CHPXmlIncidentClient.parseXmlElementLog(): notifying listeners of valid incident: cid="+
-            //    cid+", did="+did+", log id="+logid+". toString="+inc.toString());
-            this.notifyIncident(inc);
-        }
+			// Log.info("CHPXmlIncidentClient.parseXmlElementLog(): incident is NOT valid: cid="+
+			// cid+", did="+did+", log id="+logid);
+		}
 
-        // success but invalid incident
-        else {
-            //Log.info("CHPXmlIncidentClient.parseXmlElementLog(): incident is NOT valid: cid="+
-            //    cid+", did="+did+", log id="+logid+". toString="+inc.toString());
-        }
-    }
+		// success and valid incident
+		else if(inc.isValid()) {
+
+			// Log.info("CHPXmlIncidentClient.parseXmlElementLog(): notifying listeners of valid incident: cid="+
+			// cid+", did="+did+", log id="+logid+". toString="+inc.toString());
+			this.notifyIncident(inc);
+		}
+
+		// success but invalid incident
+		else {
+
+			// Log.info("CHPXmlIncidentClient.parseXmlElementLog(): incident is NOT valid: cid="+
+			// cid+", did="+did+", log id="+logid+". toString="+inc.toString());
+		}
+	}
 }

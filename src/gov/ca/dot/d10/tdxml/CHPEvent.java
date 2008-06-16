@@ -15,14 +15,14 @@
 
 package gov.ca.dot.d10.tdxml;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import us.mn.state.dot.tdxml.AbstractXmlFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An incident event.
@@ -30,112 +30,122 @@ import us.mn.state.dot.tdxml.AbstractXmlFactory;
  * @author Erik Engstrom
  * @author Michael Darter
  */
-public class CHPEvent {
+public class CHPEvent
+{
+	private String m_detail =
+		"";    // <IncidentDetail> e.g. "DOG RUNNING ON RS"
+	private String m_time = "";    // <DetailTime> e.g. "1:45PM"
+	private String m_type = "";    // either "details" or "units"
 
-    private String m_type="";       // either "details" or "units"
-	private String m_time="";       // <DetailTime> e.g. "1:45PM" 
-	private String m_detail="";     // <IncidentDetail> e.g. "DOG RUNNING ON RS"
-
-    /**
-     * construct a single event using the passed argument 
-     * CHP xml element <details> or <units>.
-     */
+	/**
+	 * construct a single event using the passed argument
+	 * CHP xml element <details> or <units>.
+	 */
 	public CHPEvent(Element element) {
 
-        // preconds
-        if( element==null )
-            return;
-        String eName=SString.removeEnclosingQuotes(element.getNodeName());
-        if( eName==null )
-            return;
+		// preconds
+		if(element == null)
+			return;
+		String eName =
+			SString.removeEnclosingQuotes(element.getNodeName());
+		if(eName == null)
+			return;
 
-        // correct xml tag?
-        assert eName.equals("details") || eName.equals("units") : "incorrect XML tag";
+		// correct xml tag?
+		assert eName.equals("details") || eName.equals("units") :
+		       "incorrect XML tag";
 
-        // parse <details>
-        if( eName.equals("details")) {
-            this.m_type="Details";
-            this.m_time=SString.removeEnclosingQuotes(
-                AbstractXmlFactory.lookupChildText(element,"DetailTime"));
-            this.m_detail=SString.removeEnclosingQuotes(
-                AbstractXmlFactory.lookupChildText(element,"IncidentDetail"));
-        }
+		// parse <details>
+		if(eName.equals("details")) {
+			this.m_type = "Details";
+			this.m_time = SString.removeEnclosingQuotes(
+				AbstractXmlFactory.lookupChildText(
+					element, "DetailTime"));
+			this.m_detail = SString.removeEnclosingQuotes(
+				AbstractXmlFactory.lookupChildText(
+					element, "IncidentDetail"));
+		}
 
-        // parse <units>
-        else if( eName.equals("units")) {
-            this.m_type="Units";
-            this.m_time=SString.removeEnclosingQuotes(
-                AbstractXmlFactory.lookupChildText(element,"DetailTime"));
-            this.m_detail=SString.removeEnclosingQuotes(
-                AbstractXmlFactory.lookupChildText(element,"IncidentDetail"));
-        }
-
-        else {
-            System.err.println("CHPEvent.CHPEvent.1: unexpected XML structure: "+element.getNodeName());
-        }
+		// parse <units>
+		else if(eName.equals("units")) {
+			this.m_type = "Units";
+			this.m_time = SString.removeEnclosingQuotes(
+				AbstractXmlFactory.lookupChildText(
+					element, "DetailTime"));
+			this.m_detail = SString.removeEnclosingQuotes(
+				AbstractXmlFactory.lookupChildText(
+					element, "IncidentDetail"));
+		} else {
+			System.err.println(
+			    "CHPEvent.CHPEvent.1: unexpected XML structure: "
+			    + element.getNodeName());
+		}
 	}
 
-    /** return event time */
+	/** return event time */
 	public String getTime() {
 		return m_time;
 	}
 
-    /** return event type */
+	/** return event type */
 	public String getType() {
 		return m_type;
 	}
 
-    /** return event detail */
+	/** return event detail */
 	public String getDetail() {
 		return m_detail;
 	}
 
-    /** artifact */
+	/** artifact */
 	public String getMessage() {
 		return getDetail();
 	}
 
-    /**
-     * Static method to return a container of all events in the given CHP "Log" element.
-     */
+	/**
+	 * Static method to return a container of all events in the given CHP "Log" element.
+	 */
 	public static List<CHPEvent> parseEvents(Element element) {
 
-        // return value
-        List<CHPEvent> events=new ArrayList<CHPEvent>();
+		// return value
+		List<CHPEvent> events = new ArrayList<CHPEvent>();
 
-        // preconds
-        if( element==null )
-            return(events);
+		// preconds
+		if(element == null)
+			return (events);
 
-        // correct xml tag?
-        assert element.getNodeName().equals("Log") : "CHPEvent.parseEvents.0";
+		// correct xml tag?
+		assert element.getNodeName().equals("Log") :
+		       "CHPEvent.parseEvents.0";
 
-        // get <LogDetails> element
-        Element logDetails=AbstractXmlFactory.lookupChild(element,"LogDetails");
-        if( logDetails==null )
-            return(events);
+		// get <LogDetails> element
+		Element logDetails = AbstractXmlFactory.lookupChild(element,
+					     "LogDetails");
+		if(logDetails == null)
+			return (events);
 
-        // for each <details> and <units> within <LogDetails>
-    	NodeList nodes = logDetails.getChildNodes();
-    	for(int c = 0; c < nodes.getLength(); c++) 
-        {
-            // get <details> or <units>
-    		Node n = nodes.item(c);
-            if( n.getNodeType()!=Node.ELEMENT_NODE )
-                continue;
+		// for each <details> and <units> within <LogDetails>
+		NodeList nodes = logDetails.getChildNodes();
+		for(int c = 0; c < nodes.getLength(); c++) {
 
-            // add new event to container
-            CHPEvent ne=new CHPEvent((Element)n);
-            events.add(ne);
-            //Log.info("Added new CHPEvent:"+ne.toString());
-    	}
+			// get <details> or <units>
+			Node n = nodes.item(c);
+			if(n.getNodeType() != Node.ELEMENT_NODE)
+				continue;
 
-        return(events);
+			// add new event to container
+			CHPEvent ne = new CHPEvent((Element) n);
+			events.add(ne);
+
+			// Log.info("Added new CHPEvent:"+ne.toString());
+		}
+
+		return (events);
 	}
 
-    /** toString */
+	/** toString */
 	public String toString() {
-        return(this.getType()+","+this.getTime()+","+this.getDetail());
-    }
-
+		return (this.getType() + "," + this.getTime() + ","
+			+ this.getDetail());
+	}
 }
