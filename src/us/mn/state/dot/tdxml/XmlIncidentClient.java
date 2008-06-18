@@ -97,7 +97,7 @@ public class XmlIncidentClient extends XmlClient {
 	protected void readXmlFile() throws Exception {
 		logger.info("Creating URL for " + location);
 		URL url = new URL(location);
-		logger.info("Openning connection to " + location);
+		logger.info("Opening connection to " + location);
 		URLConnection conn = url.openConnection();
 		logger.info("Setting connect timeout on " + location);
 		conn.setConnectTimeout(60000);
