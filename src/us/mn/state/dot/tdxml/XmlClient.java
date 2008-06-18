@@ -103,7 +103,8 @@ abstract public class XmlClient implements Runnable {
 		}
 		catch(Exception e) {
 			logger.warning("Error reading xml from " + location +
-				", will retry in " + sleepTime / 1000 +
+				"("+e+"), " +
+				"will retry in " + sleepTime / 1000 +
 				" seconds.");
 		}
 		catch(Throwable t){
