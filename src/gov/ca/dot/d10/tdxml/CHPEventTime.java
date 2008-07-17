@@ -93,17 +93,26 @@ public class CHPEventTime implements EventTime
 		if(!Contract.verify("CHPEventTime.readDate.1", e != null))
 			return (new Date());
 		if(!Contract.verify("CHPEventTime.readDate.2",
-				    e.getNodeName().equals("Log")))
+			e.getNodeName().equals("Log")))
 			return (new Date());
 
-		// get date (format "2/8/2008 8:21:08 AM")
-		String dt = AbstractXmlFactory.lookupChildText(e, "LogTime");
-		dt = SString.removeEnclosingQuotes(dt);
+		try {
+			// get date (format "2/8/2008 8:21:08 AM")
+			String dt1 = AbstractXmlFactory.lookupChildText(e, "LogTime");
+			String dt2 = SString.removeEnclosingQuotes(dt1);
+			if (dt2==null || dt2.length()<=0)
+				throw new ParseException("zero length date string for CHP LogTime",0);
 
-		// Log.info("date string="+dt);
-		Date d = m_dateFormat.parse(dt);
+			// Log.info("date string="+dt2);
+			Date d = m_dateFormat.parse(dt2);  // throws NullPointerException
 
-		// Log.info("parsed date="+d.toString());
-		return (d);
+			// Log.info("parsed date="+d.toString());
+			return (d);
+
+		// handle all errors as parse errors
+		} catch (Exception ex) {
+			throw new ParseException(ex.toString(),0); 
+		}
 	}
 }
+
