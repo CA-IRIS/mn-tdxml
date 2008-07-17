@@ -30,13 +30,19 @@ import us.mn.state.dot.tdxml.Location;
  */
 public class CHPLocation implements Location
 {
-	private double m_easting = 0;     // UTM zone 10
+	private double m_easting = 0;	// UTM zone 10
 	private double m_linear = 0;
 	private String m_name = "";
-	private double m_northing = 0;    // UTM zone 10
+	private double m_northing = 0;	// UTM zone 10
 	private boolean m_metro = false;
 	private Direction m_direction = Direction.UNKNOWN;
 	private boolean m_valid = false;
+	private int m_chpzone = 0;	// chp dispatch zone
+	private String m_chpCenterId=""; // chp center id
+
+	// CHP dispatch zones
+	private static final int ZONE_STCC=2;
+	private static final int ZONE_FRCC=4;
 
 	/** Create a new CHP location */
 	public CHPLocation() {}
@@ -47,18 +53,17 @@ public class CHPLocation implements Location
 	 *
 	 *  @param e A Log element within the CHP xml file.
 	 */
-	public CHPLocation(Element e) {
+	public CHPLocation(Element e,String centerId) {
 
 		// valid arg?
 		if(!Contract.verify("CHPLocation.CHPLocation.1",
-				    e.getNodeName().equals("Log")))
+			e.getNodeName().equals("Log")))
 			return;
 
 		// get coords (format "6736155:1629797"). May be empty (e.g. "")
 		String coords = AbstractXmlFactory.lookupChildText(e, "TBXY");
 		coords = SString.removeEnclosingQuotes(coords);
-		if(!Contract.verify("CHPLocation.CHPLocation.2",
-				    coords != null))
+		if(!Contract.verify("CHPLocation.CHPLocation.2",coords != null))
 			return;
 		if(coords.length() > 0) {
 			int i = coords.indexOf(':');
@@ -73,6 +78,7 @@ public class CHPLocation implements Location
 		}
 
 		// etc
+		this.m_chpCenterId = centerId;
 		this.m_linear = 0;
 		this.m_name = "Incident";
 		this.m_direction = Direction.UNKNOWN;
@@ -154,7 +160,7 @@ public class CHPLocation implements Location
 	 *  @param northingTB Thomas Brothers northing coordinate.
 	 */
 	private void setPositionWithTB(double eastingTB, double northingTB) {
-		int zone = CHPLocation.centerIdToZone("STCC");    // FIXME
+		int zone = CHPLocation.centerIdToZone(m_chpCenterId);
 		this.ConvertTBtoUTM10(eastingTB, northingTB, zone);
 	}
 
@@ -169,17 +175,34 @@ public class CHPLocation implements Location
 		;
 	}
 
-	/** Coordinate transformation from Thomas Brother to UTM 10 in meters */
+	/** given center id, return known zone */
 	static int centerIdToZone(String cid) {
-		return (2);    // FIXME
+		// have valid zone?
+		if (cid==null || cid.length()<=0)
+			return ZONE_STCC;	//FIXME: shouldn't have to do this
 
-		// return("FRCC");
+		int zone=0;
+		if (cid.equals("STCC"))
+			return ZONE_STCC;
+		else if (cid.equals("FRCC"))
+			return ZONE_FRCC;
+		String msg="Warning: bogus zone ("+cid+") in centerIdToZone().";
+		assert false : msg;
+		System.err.println(msg);
+		return ZONE_STCC;
 	}
 
 	/** Coordinate transformation from Thomas Brother to UTM 10 in meters */
 	protected void ConvertTBtoUTM10(double tbx, double tby, int zone) {
 
-		double m_utm10x = tbx;
+		// validate args
+		if (zone!=ZONE_FRCC && zone!=ZONE_STCC) {
+			String msg="Warning: bogus zone ("+zone+") in ConvertTBtoUTM10().";
+			assert false : msg;
+			System.err.println(msg);
+		}
+
+		double m_utm10x = tbx;	//FIXME remove these
 		double m_utm10y = tby;
 
 		/**
@@ -200,19 +223,17 @@ public class CHPLocation implements Location
 		m_utm10y = 0;
 
 		// center id: STCC
-		if(zone == 2) {
+		if(zone == ZONE_STCC) {
 			m_utm10x = TB_Zone2_X2UTM10X_Offset + US_FT2METER * tbx;
 			m_utm10y = TB_Zone2_Y2UTM10Y_Offset + US_FT2METER * tby;
-
 			// System.err.println("zone2=,"+tbx+","+tby+","+m_utm10x+","+m_utm10y+","+zone);
 			// Do a range check of the solution? The answer should be > zero, and smaller than some number (TBD).
 		}
 
 		// center id: FRCC
-		else if(zone == 4) {
+		else if(zone == ZONE_FRCC) {
 			m_utm10x = TB_Zone4_X2UTM10X_Offset + US_FT2METER * tbx;
 			m_utm10y = TB_Zone4_Y2UTM10Y_Offset + US_FT2METER * tby;
-
 			// System.err.println("zone4,"+tbx+","+tby+","+m_utm10x+","+m_utm10y+","+zone);
 			// Do a range check of the solution? The answer should be > zero, and smaller than some number (TBD).
 		} else {
@@ -225,9 +246,11 @@ public class CHPLocation implements Location
 
 	/**
 	 *  Is the current location within D10?
+	 *
+	 *  This function determine if a point (x,y in UTM10 meter) is 
+	 *  within Caltrans D10 area. it returns true if the point is 
+	 *  in D10, and returns false otherwise. 
 	 */
-
-	/** This function determine if a point (x,y in UTM10 meter) is within Caltrans D10 area. it returns true if the point is in D10, and returns false otherwise. */
 	public boolean inD10() {
 		double x = m_easting;
 		double y = m_northing;
@@ -261,35 +284,35 @@ public class CHPLocation implements Location
 
 		if(inBox(x, y, D10_Boundary1_X1, D10_Boundary1_Y1,
 			D10_Boundary1_X2, D10_Boundary1_Y2)) {
-
 			// System.err.println("In box 1");
 			return (true);
 		} else if(inBox(x, y, D10_Boundary2_X1, D10_Boundary2_Y1,
 				D10_Boundary2_X2, D10_Boundary2_Y2)) {
-
 			// System.err.println("In box 2");
 			return (true);
 		} else if(inBox(x, y, D10_Boundary3_X1, D10_Boundary3_Y1,
 				D10_Boundary3_X2, D10_Boundary3_Y2)) {
-
 			// System.err.println("In box 3");
 			return (true);
 		} else if(inBox(x, y, D10_Boundary4_X1, D10_Boundary4_Y1,
 				D10_Boundary4_X2, D10_Boundary4_Y2)) {
-
 			// System.err.println("In box 4");
 			return (true);
 		} else {
-
 			// System.err.println("Not in any box");
 			return (false);
 		}
 	}
 
-	/** This function determine if a point is within a box given the point(x,y) and the box lower left (X1, Y1) and upper right corner (X2, Y2). It return true if the point in locationed within the rectangular box and returns false otherwise. */
+	/** 
+	 *  This function determine if a point is within a box given the 
+ 	 *  point(x,y) and the box lower left (X1, Y1) and upper right 
+	 *  corner (X2, Y2). It return true if the point in locationed 
+	 *  within the rectangular box and returns false otherwise. 
+	 */
 	public static boolean inBox(double x, double y, double x1, double y1,
-				    double x2, double y2) {
-
+		double x2, double y2) 
+	{
 		// By ksy
 		// x, y the is coordinate of the point
 		// x1 define X coordinate of the rectangle lower left corner

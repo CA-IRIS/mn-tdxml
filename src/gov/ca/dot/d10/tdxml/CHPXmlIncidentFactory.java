@@ -426,7 +426,7 @@ public class CHPXmlIncidentFactory extends AbstractCHPXmlIncidentFactory
 		incident.setAreaTB(this.parseAreaTB(e));
 
 		// TBXY (location)
-		incident.setStartLocation(new CHPLocation(e));
+		incident.setStartLocation(new CHPLocation(e,incident.getCenterId()));
 
 		// log time
 		try {
