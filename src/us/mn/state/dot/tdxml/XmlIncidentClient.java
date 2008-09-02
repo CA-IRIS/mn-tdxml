@@ -95,14 +95,26 @@ public class XmlIncidentClient extends XmlClient {
 
 	/** Read and parse an XML file */
 	protected void readXmlFile() throws Exception {
+		final int TIMEOUT_MS=60000;
+
+		// sanity checks
+		if (location==null)
+			throw new IllegalStateException("location URL is null in readXmlFile().");
+		if (location==null)
+			throw new IllegalStateException("location URL is null in readXmlFile().");
+		if (builder==null)
+			throw new IllegalStateException("builder is null in readXmlFile().");
+
 		logger.info("Creating URL for " + location);
 		URL url = new URL(location);
 		logger.info("Opening connection to " + location);
 		URLConnection conn = url.openConnection();
+		if (conn==null) 
+			throw new IllegalStateException("conn is null in readXmlFile().");
 		logger.info("Setting connect timeout on " + location);
-		conn.setConnectTimeout(60000);
+		conn.setConnectTimeout(TIMEOUT_MS);
 		logger.info("Setting read timeout on " + location);
-		conn.setReadTimeout(60000);
+		conn.setReadTimeout(TIMEOUT_MS);
 		logger.info("Getting input stream from " + location);
 		InputStream in = conn.getInputStream();
 		logger.info("Reading data from " + location);

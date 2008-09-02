@@ -106,10 +106,11 @@ abstract public class XmlClient implements Runnable {
 				"("+e+"), " +
 				"will retry in " + sleepTime / 1000 +
 				" seconds.");
+			e.printStackTrace();
 		}
 		catch(Throwable t){
 			logger.warning("Fatal exception.  Attempting to recover.");
-			logger.severe(t.getStackTrace().toString());
+			t.printStackTrace();
 		}
 	}
 
