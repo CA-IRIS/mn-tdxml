@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  */
 
-package gov.ca.dot.d10.tdxml;
+package us.mn.state.dot.tdxml.d10;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
