@@ -317,7 +317,7 @@ public class CHPLocation implements Location
 
 	/** 
 	 *  This function determine if a point is within a box given the 
- 	 *  point(x,y) and the box lower left (X1, Y1) and upper right 
+	 *  point(x,y) and the box lower left (X1, Y1) and upper right 
 	 *  corner (X2, Y2). It return true if the point in locationed 
 	 *  within the rectangular box and returns false otherwise. 
 	 *  @author Kin S Yen 
