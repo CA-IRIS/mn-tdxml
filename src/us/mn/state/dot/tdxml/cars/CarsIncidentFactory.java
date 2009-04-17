@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2008  Minnesota Department of Transportation
+ * Copyright (C) 2003-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,6 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Properties;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.logging.Logger;
@@ -229,21 +228,22 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		new HashMap<String, SortedSet<Element>>();
 
 	/** Create a new CARS incident factory */
-	public CarsIncidentFactory(Properties props) throws IOException,
+	public CarsIncidentFactory() throws IOException,
 		ParserConfigurationException, SAXException
 	{
-		this(props, createLogger());
+		this(createLogger());
 	}
 
 	/** Create a new CARS incident factory */
-	public CarsIncidentFactory(Properties props, Logger logger)
-		throws IOException, ParserConfigurationException, SAXException
+	public CarsIncidentFactory(Logger logger) throws IOException,
+		ParserConfigurationException, SAXException
 	{
 		super(logger);
-		initFactory(props);
+		initFactory();
 	}
 
-	protected void initFactory(Properties props) throws IOException,
+	/** Initialize the incident factory */
+	protected void initFactory() throws IOException,
 		ParserConfigurationException, SAXException
 	{
 		InputStream is = CarsIncidentFactory.class.getResourceAsStream(
