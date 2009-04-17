@@ -1,6 +1,6 @@
 /*
  * IRIS -- Intelligent Roadway Information System
- * Copyright (C) 2000-2008  Minnesota Department of Transportation
+ * Copyright (C) 2000-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@ package us.mn.state.dot.tdxml;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.ProxySelector;
+import java.net.URL;
+import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -61,10 +63,11 @@ public class Main {
 	 * @return        XmlClient initialized with the provided properties.
 	 */
 	protected XmlClient createXmlIncidentClient(Properties props)
-		throws TdxmlException
+		throws TdxmlException, MalformedURLException
 	{
 		logger.info("Creating XmlIncidentClient");
-		XmlIncidentClient client = new XmlIncidentClient(props, logger);
+		URL url = new URL(props.getProperty("tdxml.incident.url"));
+		XmlIncidentClient client = new XmlIncidentClient(url, logger);
 		IncidentListener listener = new IncidentListener() {
 			int n_incidents = 0;
 			public void update(boolean finish) {
@@ -90,10 +93,11 @@ public class Main {
 	 * @return        XmlClient initialized with the provided properties.
 	 */
 	protected XmlClient createXmlStationClient(Properties props)
-		throws TdxmlException
+		throws TdxmlException, MalformedURLException
 	{
 		logger.info("Creating XmlStationClient");
-		XmlStationClient client = new XmlStationClient(props, logger);
+		URL url = new URL(props.getProperty("tdxml.station.url"));
+		XmlStationClient client = new XmlStationClient(url, logger);
 		client.addTdxmlListener(new StationListener() {
 			public void update(boolean finish) {
 				String sf = finish ? "finish": "start";
@@ -111,7 +115,7 @@ public class Main {
 
 	/** Create an XmlClient using the provided properties object */
 	public XmlClient createClient(String argv, Properties properties)
-		throws TdxmlException
+		throws TdxmlException, MalformedURLException
 	{
 		if(argv.equals("incident"))
 			return createXmlIncidentClient(properties);

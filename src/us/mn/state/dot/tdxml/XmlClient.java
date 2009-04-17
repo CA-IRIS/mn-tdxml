@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2008  Minnesota Department of Transportation
+ * Copyright (C) 2000-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,10 +15,10 @@
 package us.mn.state.dot.tdxml;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,8 +33,8 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 abstract public class XmlClient implements Runnable {
 
-	/** The location of the xml document */
-	protected final String location;
+	/** The URL of the xml document */
+	protected final URL url;
 
 	/** The thread the client runs in */
 	private Thread thread = null;
@@ -56,11 +56,9 @@ abstract public class XmlClient implements Runnable {
 		new LinkedList<TdxmlListener>();
 
 	/** Create a new XmlClient */
-	protected XmlClient(String loc, Logger l) throws TdxmlException {
+	protected XmlClient(URL u, Logger l) throws TdxmlException {
 		super();
-		location = loc;
-		if(location == null)
-			throw new NullPointerException();
+		url = u;
 		logger = l;
 		try {
 			DocumentBuilderFactory factory =
@@ -80,8 +78,9 @@ abstract public class XmlClient implements Runnable {
 			readData();
 			try {
 				Thread.sleep(sleepTime);
-			} catch(InterruptedException ie) {
-				logger.info("Interrupted: no longer reading " + location);
+			}
+			catch(InterruptedException ie) {
+				logger.info("Interrupted: " + url);
 				logger.fine(ie.getMessage());
 				break;
 			}
@@ -93,16 +92,16 @@ abstract public class XmlClient implements Runnable {
 
 	/** Read the data from the xml file */
 	protected void readData() {
-		logger.info("Reading data from " + location);
+		logger.info("Reading data from " + url);
 		try {
 			readXmlFile();
 		}
 		catch(IOException ioe){
-			logger.warning("IOException reading data from " + location);
+			logger.warning("IOException reading data from " + url);
 			logger.warning(ioe.getMessage());
 		}
 		catch(Exception e) {
-			logger.warning("Error reading xml from " + location +
+			logger.warning("Error reading xml from " + url +
 				"("+e+"), " +
 				"will retry in " + sleepTime / 1000 +
 				" seconds.");
@@ -119,7 +118,7 @@ abstract public class XmlClient implements Runnable {
 	 * events to registered listeners when new data arrives.
 	 */
 	public void start() {
-		logger.info("start() " + location);
+		logger.info("start() " + url);
 		synchronized(this) {
 			if(!isRunning()) {
 				thread = new Thread(this);
@@ -133,7 +132,7 @@ abstract public class XmlClient implements Runnable {
 	 * Stops the running thread
 	 */
 	public void stop() {
-		logger.info("stop() " + location);
+		logger.info("stop() " + url);
 		synchronized(this) {
 			Thread t = thread;
 			thread = null;
@@ -169,12 +168,9 @@ abstract public class XmlClient implements Runnable {
 		this.daemon = daemon;
 	}
 
-	/**
-	 * Returns the location.
-	 * @return String
-	 */
-	public String getLocation() {
-		return location;
+	/** Get the URL */
+	public URL getURL() {
+		return url;
 	}
 
 	public boolean isRunning() {

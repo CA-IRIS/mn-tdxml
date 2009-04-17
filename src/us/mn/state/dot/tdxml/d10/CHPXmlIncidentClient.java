@@ -15,8 +15,8 @@
 package us.mn.state.dot.tdxml.d10;
 
 import java.io.IOException;
-import java.util.Properties;
 import java.util.logging.Logger;
+import java.net.URL;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
@@ -43,10 +43,8 @@ public class CHPXmlIncidentClient extends XmlIncidentClient
 	/**
 	 * Constructor for CHPXmlIncidentClient.
 	 */
-	public CHPXmlIncidentClient(Properties props, Logger l)
-		throws TdxmlException
-	{
-		super(props, l);
+	public CHPXmlIncidentClient(URL u, Logger l) throws TdxmlException {
+		super(u, l);
 	}
 
 	/** create incident factory, called by constructor, may be overridden by each agency. */

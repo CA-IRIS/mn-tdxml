@@ -18,7 +18,6 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Properties;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
@@ -40,15 +39,9 @@ public class XmlIncidentClient extends XmlClient {
 	/** Factory for creating incidents from an XML stream */
 	protected final XmlIncidentFactory factory;
 
-	/**
-	 * Constructor for XmlIncidentClient that uses a Properties object to
-	 * configure it.  Available properties are:
-	 *  tdxml.incident.url which is the url of the incident stream.
-	 */
-	public XmlIncidentClient(Properties props, Logger l)
-		throws TdxmlException
-	{
-		super(props.getProperty("tdxml.incident.url"), l);
+	/** Create a new XML incident client */
+	public XmlIncidentClient(URL u, Logger l) throws TdxmlException {
+		super(u, l);
 		factory = createIncidentFactory(l);
 	}
 
@@ -98,28 +91,24 @@ public class XmlIncidentClient extends XmlClient {
 		final int TIMEOUT_MS=60000;
 
 		// sanity checks
-		if (location==null)
-			throw new IllegalStateException("location URL is null in readXmlFile().");
 		if (builder==null)
 			throw new IllegalStateException("builder is null in readXmlFile().");
 
-		logger.info("Creating URL for " + location);
-		URL url = new URL(location);
-		logger.info("Opening connection to " + location);
+		logger.info("Opening connection to " + url);
 		URLConnection conn = url.openConnection();
 		if (conn==null) 
 			throw new IllegalStateException("conn is null in readXmlFile().");
-		logger.info("Setting connect timeout on " + location);
+		logger.info("Setting connect timeout on " + url);
 		conn.setConnectTimeout(TIMEOUT_MS);
-		logger.info("Setting read timeout on " + location);
+		logger.info("Setting read timeout on " + url);
 		conn.setReadTimeout(TIMEOUT_MS);
-		logger.info("Getting input stream from " + location);
+		logger.info("Getting input stream from " + url);
 		InputStream in = conn.getInputStream();
-		logger.info("Reading data from " + location);
+		logger.info("Reading data from " + url);
 		Document doc = builder.parse(in);
-		logger.info("Parsing document for " + location);
+		logger.info("Parsing document for " + url);
 		parse(doc);
-		logger.info("Parse complete for " + location);
+		logger.info("Parse complete for " + url);
 	}
 
 	/** Parse the XML document and notify clients.

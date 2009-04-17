@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2008  Minnesota Department of Transportation
+ * Copyright (C) 2000-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,6 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 
@@ -67,10 +66,8 @@ public class XmlStationClient extends XmlClient {
 	protected boolean time_changed = false;
 
 	/** Create a new XmlStationClient */
-	public XmlStationClient(Properties props, Logger l)
-		throws TdxmlException
-	{
-		super(props.getProperty("tdxml.station.url"), l);
+	public XmlStationClient(URL url, Logger l) throws TdxmlException {
+		super(url, l);
 		try {
 			SAXParserFactory factory =
 				SAXParserFactory.newInstance();
@@ -96,19 +93,17 @@ public class XmlStationClient extends XmlClient {
 
 	/** Read and parse an XML file */
 	protected void readXmlFile() throws Exception {
-		logger.info("Creating URL for " + location);
-		URL url = new URL(location);
-		logger.info("Openning connection to " + location);
+		logger.info("Openning connection to " + url);
 		URLConnection conn = url.openConnection();
-		logger.info("Setting connect timeout on " + location);
+		logger.info("Setting connect timeout on " + url);
 		conn.setConnectTimeout(60000);
-		logger.info("Setting read timeout on " + location);
+		logger.info("Setting read timeout on " + url);
 		conn.setReadTimeout(60000);
-		logger.info("Getting input stream from " + location);
+		logger.info("Getting input stream from " + url);
 		InputStream in = new GZIPInputStream(conn.getInputStream());
-		logger.info("Parsing XML for " + location);
+		logger.info("Parsing XML for " + url);
 		parse(in);
-		logger.info("Parse complete for " + location);
+		logger.info("Parse complete for " + url);
 	}
 
 	/** Parse the station.xml document and notify clients */
