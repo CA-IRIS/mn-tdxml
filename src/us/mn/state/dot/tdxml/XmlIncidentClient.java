@@ -100,8 +100,6 @@ public class XmlIncidentClient extends XmlClient {
 		// sanity checks
 		if (location==null)
 			throw new IllegalStateException("location URL is null in readXmlFile().");
-		if (location==null)
-			throw new IllegalStateException("location URL is null in readXmlFile().");
 		if (builder==null)
 			throw new IllegalStateException("builder is null in readXmlFile().");
 
