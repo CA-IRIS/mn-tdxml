@@ -15,6 +15,9 @@
 
 package us.mn.state.dot.tdxml.d10;
 
+//FIXME: remove this class and use SString in utils after 
+//       utils is in it's own common module that tdxml can reference.
+
 /**
  * Static String methods, provides static string convenience methods.
  *
