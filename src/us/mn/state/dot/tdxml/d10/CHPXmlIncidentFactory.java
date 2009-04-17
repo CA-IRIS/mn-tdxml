@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2007  Minnesota Department of Transportation
+ * Copyright (C) 2003-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,6 @@ import java.text.ParseException;
 
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Properties;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.logging.Logger;
@@ -64,29 +63,21 @@ public class CHPXmlIncidentFactory extends AbstractCHPXmlIncidentFactory
 		new HashMap<String, SortedSet<Element>>();
 
 	/** Default constructor */
-	public CHPXmlIncidentFactory(Properties props)
-		throws IOException, ParserConfigurationException, SAXException {
-		this(props, createLogger());
+	public CHPXmlIncidentFactory() throws IOException,
+		ParserConfigurationException, SAXException
+	{
+		this(createLogger());
 	}
 
 	/** Create a CHP XML incident factory */
-	public CHPXmlIncidentFactory(Properties props, Logger logger)
-		throws IOException, ParserConfigurationException, SAXException {
+	public CHPXmlIncidentFactory(Logger logger) throws IOException,
+		ParserConfigurationException, SAXException
+	{
 		super(logger);
-		initFactory(props);
+		initFactory();
 	}
 
-	/**
-	 * Method description
-	 *
-	 *
-	 * @param props
-	 *
-	 * @throws IOException
-	 * @throws ParserConfigurationException
-	 * @throws SAXException
-	 */
-	protected void initFactory(Properties props)
+	protected void initFactory()
 		throws IOException, ParserConfigurationException, SAXException {
 		InputStream is =
 			CHPXmlIncidentFactory.class.getResourceAsStream(

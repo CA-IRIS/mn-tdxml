@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2008  Minnesota Department of Transportation
+ * Copyright (C) 2003-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,29 +12,23 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-
 package us.mn.state.dot.tdxml.d10;
 
+import java.io.IOException;
+import java.util.Properties;
+import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import org.xml.sax.SAXException;
-
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
 import us.mn.state.dot.tdxml.TdxmlException;
 import us.mn.state.dot.tdxml.XmlIncidentClient;
 import us.mn.state.dot.tdxml.XmlIncidentFactory;
-
-import java.io.IOException;
-
-import java.util.Properties;
-import java.util.logging.Logger;
-
-import javax.xml.parsers.ParserConfigurationException;
 
 /**
  * A Caltrans CHP specific class for reading an xml document at a specified
@@ -50,16 +44,17 @@ public class CHPXmlIncidentClient extends XmlIncidentClient
 	 * Constructor for CHPXmlIncidentClient.
 	 */
 	public CHPXmlIncidentClient(Properties props, Logger l)
-		throws TdxmlException {
+		throws TdxmlException
+	{
 		super(props, l);
 	}
 
 	/** create incident factory, called by constructor, may be overridden by each agency. */
-	protected XmlIncidentFactory createIncidentFactory(Properties props,
-		Logger logger)
-		throws TdxmlException {
+	protected XmlIncidentFactory createIncidentFactory(Logger logger)
+		throws TdxmlException
+	{
 		try {
-			return (new CHPXmlIncidentFactory(props, logger));
+			return new CHPXmlIncidentFactory(logger);
 		} catch (IOException e) {
 			throw new TdxmlException(e);
 		} catch (ParserConfigurationException e) {
