@@ -15,8 +15,8 @@
 
 package us.mn.state.dot.tdxml.d10;
 
+import java.awt.geom.Point2D;
 import org.w3c.dom.Element;
-
 import us.mn.state.dot.tdxml.AbstractXmlFactory;
 import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.Location;
@@ -119,17 +119,12 @@ public class CHPLocation implements Location
 	/** is location valid? */
 	public boolean isValid() {
 		if(!m_valid)
-			return (false);
-		m_valid = m_valid && this.inD10();
+			return false;
+		m_valid = m_valid && inD10();
 		return m_valid;
 	}
 
-	/**
-	 * Method description
-	 *
-	 *
-	 * @return
-	 */
+	/** get metro */
 	public boolean isInMetro() {
 		return m_metro;
 	}
@@ -143,18 +138,9 @@ public class CHPLocation implements Location
 	 */
 	private void setPositionWithTB(double eastingTB, double northingTB) {
 		int zone = CHPLocation.centerIdToZone(m_chpCenterId);
-		this.ConvertTBtoUTM10(eastingTB, northingTB, zone);
-	}
-
-	/** Main for testing purposes */
-	public static void main(String[] args) {
-		System.err.println("entered main");
-		if(CHPLocation.test()) {
-			System.err.println("TEST Pass");
-		} else {
-			System.err.println("TEST FAIL");
-		}
-		;
+		Point2D.Double pnt = ConvertTBtoUTM10(eastingTB, northingTB, zone);
+		m_easting = pnt.x;
+		m_northing = pnt.y;
 	}
 
 	/** given center id, return known zone */
@@ -200,7 +186,7 @@ public class CHPLocation implements Location
 	 * @param zone Thomas brothers zone.
 	 * @author Kin S Yen
 	 */
-	protected void ConvertTBtoUTM10(double tbx, double tby, int zone) {
+	protected static Point2D.Double ConvertTBtoUTM10(double tbx, double tby, int zone) {
 
 		// validate args
 		if (zone!=ZONE_FRCC && zone!=ZONE_STCC) {
@@ -250,22 +236,24 @@ public class CHPLocation implements Location
 			assert false : "bogus zone in CHPLocation()";
 		}
 
-		m_easting = m_utm10x;
-		m_northing = m_utm10y;
+		Point2D.Double ret = new Point2D.Double(m_utm10x, m_utm10y);
+		return ret;
+	}
+
+	/** Is the current location within D10? */
+	public boolean inD10() {
+		return inD10(m_easting, m_northing);
 	}
 
 	/**
-	 *  Is the current location within D10?
+	 *  Is the specified location within D10?
 	 *
-	 *  This function determine if a point (x,y in UTM10 meter) is 
+	 *  This method determine if a point (x,y in UTM10 meter) is 
 	 *  within Caltrans D10 area. it returns true if the point is 
 	 *  in D10, and returns false otherwise.
 	 *  @author Kin S Yen 
 	 */
-	public boolean inD10() {
-		double x = m_easting;
-		double y = m_northing;
-
+	public static boolean inD10(double x, double y) {
 		// CA D10 area is divided in four rectangle boxes.
 		// If a point is within any of the four boxes, it is 
 		// within CA D10.
@@ -339,129 +327,5 @@ public class CHPLocation implements Location
 			// System.err.println("not in box");
 			return (false);
 		}
-	}
-
-	/** static tests */
-	public static boolean test() {
-/*
-		// t1_xy are points located outside of D10 in 
-		// Thomas Brother Zone2
-		final int n = 33;
-		final double[] t1_xy = {
-		    6752253, 1887621, 6736885, 1911407, 6704006, 1931747,
-		    6737456, 1941102, 6720184, 1942967, 6720269, 1942969,
-		    6727792, 1942985, 6716239, 1948153, 6712206, 1959345,
-		    6712206, 1959345, 6739198, 1965857, 6719502, 1975946,
-		    6765355, 1977881, 6806920, 1987775, 6702305, 1972100,
-		    6703485, 1976385, 6725636, 1936527
-		};
-
-		// t2_xy are points located inside of D10 in TB Zone2
-		final double[] t2_xy = {
-		    6780370, 1734265, 6780370, 1734265, 6759975, 1746155,
-		    6775358, 1770406, 6753566, 1771596, 6775820, 1780786,
-		    6769244, 1799435, 6708501, 1804261, 6734935, 1804617,
-		    6798114, 1805226, 6779928, 1744987, 6781874, 1713697,
-		    6784231, 1733393, 6823359, 1848868, 6757245, 1640369,
-		    6707727, 1667936, 6724840, 1675936
-		};
-
-		// t3_xy are points located outside D10 in TB Zone 4.
-		final double[] t3_xy = {
-		    6413813, 2082511, 6388133, 2082784, 6313426, 2085508,
-		    6198212, 2127183, 6334718, 2141332, 6435171, 2144312,
-		    6342894, 2173077, 6351511, 2183525, 6330800, 2195186,
-		    6334403, 2158634, 6386580, 2082797, 6392780, 2088024,
-		    6263066, 2220945, 6250515, 2234834, 6248429, 2295133,
-		    6589577, 2042305, 6472041, 2076327
-		};
-
-		// t3_xy are points located outside D10 in TB Zone 4.
-		final double[] t4_xy = {
-		    6372490, 2368383, 6086889, 2369073, 6117561, 2371663,
-		    6099666, 2395359, 6063719, 2391488, 6103453, 2372479,
-		    5974704, 2387964, 5924047, 2429583, 5903868, 2451150,
-		    5993060, 2469958, 5983445, 2475705, 5986093, 2479037,
-		    5935820, 2486686, 5976721, 2489140, 6135285, 2501592,
-		    5959853, 2511235, 5955603, 2513312
-		};
-
-		boolean ok = true;
-		int i = 0;
-		while(i <= n) {
-		    if(!ConvertTBtoUTM10(t1_xy[i], t1_xy[i + 1], 2)) {
-		        System.err.println(
-		            "zone not available at test1" + i);
-		    }
-		    ;
-
-		    // System.err.println(i);
-	//FIXME: test cases
-		    if(inD10(m_utm10x, m_utm10y)) {
-		        System.err.println("test fail at t1_xy," + i);
-		        ok = false;
-		    }
-		    ;
-
-		    i = i + 2;
-		}
-
-		i = 0;
-		while(i <= n) {
-		    if(!ConvertTBtoUTM10(t2_xy[i], t2_xy[i + 1], 2)) {
-		        System.err.println(
-		            "zone not available at test2" + i);
-		    }
-		    ;
-
-		    // System.err.println(i);
-		    if(!inD10(m_utm10x, m_utm10y)) {
-		        System.err.println("test fail at t2_xy," + i);
-		        ok = false;
-		    }
-		    ;
-
-		    i = i + 2;
-		}
-
-		i = 0;
-		while(i <= n) {
-		    if(!ConvertTBtoUTM10(t3_xy[i], t3_xy[i + 1], 4)) {
-		        System.err.println(
-		            "zone not available at test3" + i);
-		    }
-		    ;
-
-		    // System.err.println(i);
-		    if(inD10(m_utm10x, m_utm10y)) {
-		        System.err.println("test fail at t3_xy," + i);
-		        ok = false;
-		    }
-		    ;
-
-		    i = i + 2;
-		}
-
-		i = 0;
-		while(i <= n) {
-		    if(!ConvertTBtoUTM10(t4_xy[i], t4_xy[i + 1], 4)) {
-		        System.err.println(
-		            "zone not available at test4" + i);
-		    }
-		    ;
-
-		    // System.err.println(i);
-		    if(!inD10(m_utm10x, m_utm10y)) {
-		        System.err.println("test fail at t4_xy," + i);
-		        ok = false;
-		    }
-		    ;
-
-		    i = i + 2;
-		}
-
-		return (ok);
-*/
-		return true;
 	}
 }
