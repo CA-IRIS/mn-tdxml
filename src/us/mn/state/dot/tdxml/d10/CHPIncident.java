@@ -144,11 +144,21 @@ public class CHPIncident implements Incident
 		boolean valid = true;
 
 		// filter based on center and dispatch id
-		// valid=valid && ( this.getCenterId().equals("STCC") && this.getDispatchId().equals("SKCC") );
+		// valid=valid && ( this.getCenterId().equals("STCC") 
+		//	&& this.getDispatchId().equals("SKCC") );
 
-		// location valid?
-		valid = valid
-			&& ((CHPLocation) this.getStartLocation()).isValid();
+		CHPLocation cl = (CHPLocation)getStartLocation();
+
+		// filter based on location
+		valid = valid && cl.isValid();
+
+		// exception: if position is 0,0 in STCC / SKCC
+		if(cl.getEasting() == 0 && cl.getNorthing() == 0 && 
+			getCenterId().equals("STCC") && 
+			getDispatchId().equals("SKCC")) 
+		{
+			valid = true;
+		}
 
 		// time valid?
 		valid = valid && this.getTime().isValid();
@@ -214,6 +224,9 @@ public class CHPIncident implements Incident
 		b.append(this.getType()).append(",\n");
 		b.append("  ").append(this.getLocationDesc()).append(
 		    ", ").append(this.getArea()).append(",\n");
+		b.append("  ").append("Center: ").append(getCenterId()).
+			append(", Dispatch: ").append(getDispatchId()).
+			append(",\n");
 		b.append("  ").append(this.getTime().toString()).append(",\n");
 		b.append("  TB Area:").append(this.getAreaTB()).append(
 		    ", ").append(this.getStartLocation().toString());
