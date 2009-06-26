@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2008  Minnesota Department of Transportation
+ * Copyright (C) 2003-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -110,7 +110,7 @@ public class CarsEventTime implements EventTime {
 	/** Parse a CARS date */
 	static protected Date parseDate(Element element) throws ParseException {
 		if(element == null)
-			return null;
+			return new Date();
 		String date = element.getTextContent();
 		return dateFormat.parse(date);
 	}
