@@ -317,6 +317,8 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		Element below = null;
 		Element above = null;
 		SortedSet<Element> records = routeRecords.get(roadway);
+		if(records == null)
+			return "on " + roadway;
 		for(Element rec: records) {
 			double actual = Double.parseDouble(rec.getAttribute(
 				"actual_miles"));
@@ -372,6 +374,8 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		boolean metro = false;
 		double closest = Double.MAX_VALUE;
 		SortedSet<Element> records = routeRecords.get(roadway);
+		if(records == null)
+			return true;
 		for(Element rec: records) {
 			double actual = Double.parseDouble(rec.getAttribute(
 				"actual_miles"));
@@ -391,6 +395,8 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 		Direction dir = Direction.UNKNOWN;
 		double closest = Double.MAX_VALUE;
 		SortedSet<Element> records = routeRecords.get(roadway);
+		if(records == null)
+			return dir;
 		for(Element rec: records) {
 			double actual = Double.parseDouble(rec.getAttribute(
 				"actual_miles"));
