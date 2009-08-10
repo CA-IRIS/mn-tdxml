@@ -14,18 +14,24 @@
      GNU General Public License for more details.  -->
 
 <project default="jar" basedir=".">
-	<property file="project.properties"/>
-	<property file="${user.home}/.ant.properties"/>
+
+	<!-- Base directory configuration -->
 	<property name="src.dir" value="src"/>
 	<property name="etc.dir" value="etc"/>
 	<property name="lib.dir" value="lib"/>
- 	<property name="spbase.dir" value="deps"/>
+
+	<!-- Property configuration -->
+	<property file="project.properties"/>
+	<property file="${user.home}/.ant.properties"/>
+
+	<!-- Build directory configuration -->
 	<property name="build.dir" value="build"/>
 	<property name="build.etc" value="${build.dir}/etc"/>
 	<property name="build.lib" value="${build.dir}/lib"/>
 	<property name="build.src" value="${build.dir}/src"/>
 	<property name="build.classes" value="${build.dir}/classes"/>
 	<property name="build.docs" value="${build.dir}/docs"/>
+ 	<property name="build.deps" value="${build.dir}/deps"/>
 	<property name="dist.name" value="${name}-${version}"/>
 	<property name="dist.dir" value="${dist.name}"/>
 	<property name="dist.lib" value="${dist.dir}/lib"/>
@@ -51,7 +57,7 @@
 
 	<!-- Check for dependencies -->
         <target name="check">
-		<mkdir dir="${spbase.dir}"/>
+		<mkdir dir="${build.deps}"/>
 		<antcall target="check-subproject">
 			<param name="file.dep" value="${tms-log.jar}"/>
 			<param name="repo.name" value="log"/>
@@ -70,23 +76,23 @@
 	<!-- Build a subproject -->
 	<target name="build-subproject" unless="file.exists">
 		<antcall target="hg-check"/>
-		<ant dir="${spbase.dir}/${repo.name}"
+		<ant dir="${build.deps}/${repo.name}"
 		     target="jar" inheritAll="false"/>
 		<copy todir="${lib.dir}">
-			<fileset dir="${spbase.dir}/${repo.name}/build/lib/"/>
+			<fileset dir="${build.deps}/${repo.name}/build/lib/"/>
 		</copy>
 	</target>
 
 	<!-- Clone a mercurial subproject -->
 	<target name="hg-check" unless="file.exists">
 		<available property="dir.exists"
-		           file="${spbase.dir}/${repo.name}"/>
+		           file="${build.deps}/${repo.name}"/>
 		<antcall target="hg-clone"/>
 	</target>
 
 	<!-- Clone a mercurial subproject -->
 	<target name="hg-clone" unless="dir.exists">
-		<exec executable="hg" dir="${spbase.dir}" failonerror="true">
+		<exec executable="hg" dir="${build.deps}" failonerror="true">
 			<arg value="clone"/>
 			<arg value="-r${repo.version}"/>
 			<arg value="${hgbase.url}${repo.name}"/>
@@ -127,11 +133,11 @@
 		description="--> compile the source code">
 		<mkdir dir="${build.classes}"/>
 		<javac srcdir="${build.src}"
-			destdir="${build.classes}"
-			debug="${debug}"
-			deprecation="on"
-			source="1.5"
-			target="1.5">
+		       destdir="${build.classes}"
+		       debug="${debug}"
+		       deprecation="on"
+		       source="1.5"
+		       target="1.5">
 			<classpath refid="classpath"/>
 			<compilerarg value="-Xlint:unchecked"/>
 		</javac>
@@ -142,7 +148,7 @@
 		depends="compile"
 		description="--> generate the ${name} jar files">
 		<jar jarfile="${build.lib}/${name}-${version}.jar"
-			manifest="${build.etc}/${manifest}">
+		     manifest="${build.etc}/${manifest}">
 			<fileset dir="${etc.dir}">
 				<include name="location_lookup.xml"/>
 			</fileset>
@@ -158,13 +164,13 @@
 		description="--> create the javadocs for the project">
 		<mkdir dir="${build.docs}"/>
 		<javadoc packagenames="${packages}"
-			sourcepath="${basedir}/${build.src}"
-			destdir="${build.docs}"
-			author="true"
-			version="true"
-			windowtitle="${name} API"
-			doctitle="${name}"
-			bottom="Copyright &#169; Minnesota Department of
+		         sourcepath="${basedir}/${build.src}"
+		         destdir="${build.docs}"
+		         author="true"
+		         version="true"
+		         windowtitle="${name} API"
+		         doctitle="${name}"
+		         bottom="Copyright &#169; Minnesota Department of
 				Transportation. All Rights Reserved.">
 			<classpath refid="classpath"/>
 		</javadoc>
@@ -204,8 +210,8 @@
 		</copy>
 
 		<zip zipfile="${dist.name}.zip"
-			basedir="${dist.dir}/.."
-			includes="${dist.dir}/**"/>
+		     basedir="${dist.dir}/.."
+		     includes="${dist.dir}/**"/>
 	</target>
 
 	<!-- Clean up build and distribution directories -->
@@ -233,9 +239,9 @@
 	       depends="compile, init-junit"
 	       description="Compile junit test cases">
 	       <javac srcdir="${testsrc.dir}"
-		       includeAntRuntime="true"
-		       destdir="${testbuild.dir}"
-		       debug="true">
+		      includeAntRuntime="true"
+		      destdir="${testbuild.dir}"
+		      debug="true">
 		       <classpath refid="junit.classpath"/>
 	       </javac>
        </target>
@@ -244,20 +250,20 @@
        <target name="test" depends="compile-junit"
 	       description="Run junit test cases">
 	       <junit printsummary="yes" 
-		       fork="yes" 
-		       haltonfailure="yes" 
-		       errorProperty="test.failed" 
-		       failureProperty="test.failed">
+		      fork="yes" 
+		      haltonfailure="yes" 
+		      errorProperty="test.failed" 
+		      failureProperty="test.failed">
 		       <classpath refid="junit.classpath"/>
 		       <formatter type="plain" usefile="false"/>
 		       <formatter type="xml" usefile="true"/>
 		       <jvmarg value="-Ddebug=true"/>
 		       <batchtest todir="${testreports.dir}">
-			       <fileset dir="${testbuild.dir}" includes="**/*Test.class"/>
+			       <fileset dir="${testbuild.dir}"
+			                includes="**/*Test.class"/>
 		       </batchtest>
 	       </junit>
 	       <fail message="Junit tests failed. Check log and/or reports."
 		       if="test.failed"/>
        </target>
-
 </project>
