@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2006-2007  Minnesota Department of Transportation
+ * Copyright (C) 2006-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,8 @@ abstract public class AbstractXmlFactory {
 		NodeList children = e.getChildNodes();
 		for(int c = 0; c < children.getLength(); c++) {
 			Node child = children.item(c);
-			if(child.getNodeName().equalsIgnoreCase(name))
+			if(child instanceof Element &&
+			   child.getNodeName().equalsIgnoreCase(name))
 				return (Element)child;
 		}
 		return null;
@@ -67,7 +68,8 @@ abstract public class AbstractXmlFactory {
 		NodeList nodes = parent.getChildNodes();
 		for(int i = 0; i < nodes.getLength(); i++) {
 			Node n = nodes.item(i);
-			if(n.getNodeName().equalsIgnoreCase(name))
+			if(n instanceof Element &&
+			   n.getNodeName().equalsIgnoreCase(name))
 				cb.processElement((Element)n);
 		}
 	}
