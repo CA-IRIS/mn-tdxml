@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2004-2007  Minnesota Department of Transportation
+ * Copyright (C) 2004-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,36 +15,43 @@
 package us.mn.state.dot.tdxml;
 
 /**
- * Traffic data sample for one mainline station
+ * Traffic data sample for one sensor (or station)
  *
  * @author Douglas Lau
  */
-public class StationSample {
+public class SensorSample {
 
-	/** Constant definition for missing data */
-	static public final int MISSING_DATA = -1;
-
-	/** Station ID */
+	/** Sensor ID */
 	public final String id;
 
 	/** Flow rate (vehicles per hour per lane) */
-	public final int flow;
+	protected final Integer flow;
+
+	/** Get the flow rate (vehicles per hour per lane) */
+	public Integer getFlow() {
+		return flow;
+	}
 
 	/** Sampled speed (miles per hour) */
-	public final int speed;
+	protected final Integer speed;
 
-	/** Create a new Station Sample */
-	public StationSample(String i, int f, int s) {
+	/** Get the sampled speed (miles per hour) */
+	public Integer getSpeed() {
+		return speed;
+	}
+
+	/** Create a new sensor sample */
+	public SensorSample(String i, Integer f, Integer s) {
 		id = i;
 		flow = f;
 		speed = s;
 	}
 
 	/** Get the density (vehicles per mile per lane) */
-	public int getDensity() {
-		if(speed > 0)
+	public Integer getDensity() {
+		if(flow != null && speed != null && speed > 0)
 			return Math.round((float)flow / (float)speed);
 		else
-			return MISSING_DATA;
+			return null;
 	}
 }

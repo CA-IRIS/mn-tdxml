@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2004-2008  Minnesota Department of Transportation
+ * Copyright (C) 2004-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,12 +15,12 @@
 package us.mn.state.dot.tdxml;
 
 /**
- * Interface for receiving station data updates from DDS
+ * Interface for receiving sensor sample data updates
  *
  * @author Douglas Lau
  */
-public interface StationListener extends TdxmlListener {
+public interface SensorListener extends TdxmlListener {
 
-	/** Update one station with new data */
-	void update(StationSample s);
+	/** Update one sensor with new sample data */
+	void update(SensorSample s);
 }

@@ -28,6 +28,7 @@ import us.mn.state.dot.util.HTTPProxySelector;
  * This class was developed to test the installation of the tdxml package.
  *
  * @author Erik Engstrom
+ * @author Douglas Lau
  */
 public class Main {
 
@@ -87,27 +88,27 @@ public class Main {
 	}
 
 	/**
-	 * Creates an XmlStationClient from the provided properties.
+	 * Creates an XmlSensorClient from the provided properties.
 	 *
 	 * @param props   User properties.
 	 * @return        XmlClient initialized with the provided properties.
 	 */
-	protected XmlClient createXmlStationClient(Properties props)
+	protected XmlClient createXmlSensorClient(Properties props)
 		throws TdxmlException, MalformedURLException
 	{
-		logger.info("Creating XmlStationClient");
+		logger.info("Creating XmlSensorClient");
 		URL url = new URL(props.getProperty("tdxml.station.url"));
-		XmlStationClient client = new XmlStationClient(url, logger);
-		client.addTdxmlListener(new StationListener() {
+		XmlSensorClient client = new XmlSensorClient(url, logger);
+		client.addTdxmlListener(new SensorListener() {
 			public void update(boolean finish) {
 				String sf = finish ? "finish": "start";
-				System.out.println("Station data " + sf +
+				System.out.println("Sensor data " + sf +
 					" at " + new Date());
 			}
-			public void update(StationSample s) {
-				System.out.println("Station " + s.id +
-					", flow=" + s.flow +
-					", speed=" + s.speed);
+			public void update(SensorSample s) {
+				System.out.println("Sensor " + s.id +
+					", flow=" + s.getFlow() +
+					", speed=" + s.getSpeed());
 			}
 		});
 		return client;
@@ -120,7 +121,7 @@ public class Main {
 		if(argv.equals("incident"))
 			return createXmlIncidentClient(properties);
 		else
-			return createXmlStationClient(properties);
+			return createXmlSensorClient(properties);
 	}
 
 	/**

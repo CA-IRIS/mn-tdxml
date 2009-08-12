@@ -21,31 +21,29 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * Reads the station XML document at a specified interval and notifies listeners
- * when there is new data available.
+ * Reads a sensor sample XML document at a specified interval and notifies
+ * listeners when there is new data available.
  *
  * @author Erik Engstrom
  * @author Douglas Lau
  */
-public class XmlStationClient extends XmlClient {
+public class XmlSensorClient extends XmlClient {
 
 	/** Entity declaration */
 	static protected final String ENTITY_DECL =
 		"<?xml version='1.0' encoding='UTF-8'?>";
 
 	/** Parse an attribute as an integer value */
-	static protected int parseInt(String v) {
+	static protected Integer parseInt(String v) {
 		try {
 			if(v != null)
 				return Integer.parseInt(v);
@@ -53,7 +51,7 @@ public class XmlStationClient extends XmlClient {
 		catch(NumberFormatException e) {
 			// Invalid value
 		}
-		return StationSample.MISSING_DATA;
+		return null;
 	}
 
 	/** SAX parser */
@@ -65,8 +63,8 @@ public class XmlStationClient extends XmlClient {
 	/** Flag to indicate the time stamp changed since last time */
 	protected boolean time_changed = false;
 
-	/** Create a new XmlStationClient */
-	public XmlStationClient(URL url, Logger l) throws TdxmlException {
+	/** Create a new XmlSensorClient */
+	public XmlSensorClient(URL url, Logger l) throws TdxmlException {
 		super(url, l);
 		try {
 			SAXParserFactory factory =
@@ -81,11 +79,11 @@ public class XmlStationClient extends XmlClient {
 		}
 	}
 
-	/** Notify listeners of a station data sample */
-	protected void notifySample(final StationSample s) {
+	/** Notify listeners of a sensor data sample */
+	protected void notifySample(final SensorSample s) {
 		doNotify(new Notifier() {
 			void notify(TdxmlListener l) {
-				StationListener sl = (StationListener)l;
+				SensorListener sl = (SensorListener)l;
 				sl.update(s);
 			}
 		});
@@ -106,7 +104,7 @@ public class XmlStationClient extends XmlClient {
 		logger.info("Parse complete for " + url);
 	}
 
-	/** Parse the station.xml document and notify clients */
+	/** Parse the XML document and notify clients */
 	protected void parse(InputStream in) throws IOException, SAXException {
 		notifyStart();
 		try {
@@ -144,13 +142,13 @@ public class XmlStationClient extends XmlClient {
 
 	/** Notify listeners of one sensor sample */
 	protected void notifySensorSample(String sensor, String f, String s) {
-		int flow = parseInt(f);
-		int speed = parseInt(s);
-		if(flow >= 0 || speed >= 0)
-			notifySample(new StationSample(sensor, flow, speed));
+		Integer flow = parseInt(f);
+		Integer speed = parseInt(s);
+		if(flow != null || speed != null)
+			notifySample(new SensorSample(sensor, flow, speed));
 	}
 
-	/** Handle one station sample element */
+	/** Handle one sensor sample element */
 	protected void handleSample(Attributes attrs) {
 		if(time_changed) {
 			String sensor = attrs.getValue("sensor");
