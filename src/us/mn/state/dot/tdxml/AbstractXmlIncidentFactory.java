@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2008  Minnesota Department of Transportation
+ * Copyright (C) 2003-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,8 +15,9 @@
 package us.mn.state.dot.tdxml;
 
 import java.util.logging.Logger;
-import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
-import us.mn.state.dot.tdxml.geo.UTM;
+import us.mn.state.dot.geokit.GeodeticDatum;
+import us.mn.state.dot.geokit.Position;
+import us.mn.state.dot.geokit.UTMPosition;
 import us.mn.state.dot.log.TmsLogFactory;
 
 /**
@@ -35,12 +36,13 @@ abstract public class AbstractXmlIncidentFactory extends AbstractXmlFactory
 
 	/**
 	 * Convert latitude, longitude to UTM coordinates.
-	 * @param latitude the latitude
-	 * @param longitude the longitude
+	 * @param lat the latitude
+	 * @param lon the longitude
 	 * @return a UTM coordinate object.
 	 */
-	static protected UTM latLongToUtm(double latitude, double longitude) {
-		return LatLongUTMConversion.LLtoUTM(23, latitude, longitude);
+	static protected UTMPosition latLongToUtm(double lat, double lon) {
+		Position p = new Position(lat, lon);
+		return UTMPosition.convert(GeodeticDatum.WGS_84, p);
 	}
 
 	/** Logger to use for reporting */

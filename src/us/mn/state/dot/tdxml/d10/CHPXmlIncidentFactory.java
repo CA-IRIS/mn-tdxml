@@ -12,36 +12,28 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-
 package us.mn.state.dot.tdxml.d10;
-
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
-
-import org.xml.sax.SAXException;
-
-import us.mn.state.dot.tdxml.ElementCallback;
-import us.mn.state.dot.tdxml.Incident;
-import us.mn.state.dot.tdxml.IncidentException;
-import us.mn.state.dot.tdxml.geo.UTM;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.text.ParseException;
-
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.logging.Logger;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import us.mn.state.dot.tdxml.ElementCallback;
+import us.mn.state.dot.tdxml.Incident;
+import us.mn.state.dot.tdxml.IncidentException;
 
 /**
  * CHP specific incident factory.

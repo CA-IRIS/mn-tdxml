@@ -22,22 +22,19 @@ import java.util.HashMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.logging.Logger;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import us.mn.state.dot.tdxml.AbstractXmlIncidentFactory;
 import us.mn.state.dot.tdxml.Direction;
 import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
-import us.mn.state.dot.tdxml.geo.UTM;
+import us.mn.state.dot.geokit.UTMPosition;
 
 /**
  * An incident factory for interpreting CARS incidents.
@@ -471,7 +468,7 @@ public class CarsIncidentFactory extends AbstractXmlIncidentFactory {
 			"event-location-coordinates-latitude");
 		double longitude = readDegrees(element,
 			"event-location-coordinates-longitude");
-		UTM utm = latLongToUtm(latitude, longitude);
+		UTMPosition utm = latLongToUtm(latitude, longitude);
 		double linear = getLinearReference(element);
 		String name = lookupLocation(roadway, linear, extent);
 		boolean metro = lookupMetro(roadway, linear);

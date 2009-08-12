@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2003-2008  Minnesota Department of Transportation
+ * Copyright (C) 2003-2009  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,25 +12,22 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-
 package us.mn.state.dot.tdxml.d10;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 import org.w3c.dom.Element;
-
+import us.mn.state.dot.geokit.GeodeticDatum;
+import us.mn.state.dot.geokit.Position;
+import us.mn.state.dot.geokit.UTMPosition;
 import us.mn.state.dot.log.TmsLogFactory;
 import us.mn.state.dot.tdxml.AbstractXmlFactory;
 import us.mn.state.dot.tdxml.ElementCallback;
 import us.mn.state.dot.tdxml.Incident;
 import us.mn.state.dot.tdxml.IncidentException;
 import us.mn.state.dot.tdxml.XmlIncidentFactory;
-import us.mn.state.dot.tdxml.geo.LatLongUTMConversion;
-import us.mn.state.dot.tdxml.geo.UTM;
-
-import java.text.ParseException;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 /**
  *  An abstract factory for parsing XML stuff. This class was copied from the existing
@@ -82,12 +79,13 @@ abstract public class AbstractCHPXmlIncidentFactory extends AbstractXmlFactory
 
 	/**
 	 * Convert latitude, longitude to UTM coordinates.
-	 * @param latitude the latitude
-	 * @param longitude the longitude
+	 * @param lat the latitude
+	 * @param lon the longitude
 	 * @return a UTM coordinate object.
 	 */
-	static protected UTM latLongToUtm(double latitude, double longitude) {
-		return LatLongUTMConversion.LLtoUTM(23, latitude, longitude);
+	static protected UTMPosition latLongToUtm(double lat, double lon) {
+		Position p = new Position(lat, lon);
+		return UTMPosition.convert(GeodeticDatum.WGS_84, p);
 	}
 
 	/** Convert a string to degrees */
