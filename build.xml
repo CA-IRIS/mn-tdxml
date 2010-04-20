@@ -24,32 +24,15 @@
 
 	<!-- Build directory configuration -->
 	<property name="build.dir" value="build"/>
-	<property name="build.etc" value="${build.dir}/etc"/>
 	<property name="build.lib" value="${build.dir}/lib"/>
 	<property name="build.src" value="${build.dir}/src"/>
 	<property name="build.classes" value="${build.dir}/classes"/>
 	<property name="build.docs" value="${build.dir}/docs"/>
-	<property name="dist.name" value="${name}-${version}"/>
-	<property name="dist.dir" value="${dist.name}"/>
-	<property name="dist.lib" value="${dist.dir}/lib"/>
-	<property name="dist.docs" value="${dist.dir}/docs"/>
-	<property name="dist.etc" value="${dist.dir}/etc"/>
-
-	<!-- junit related -->
-	<property name="testsrc.dir" location="test"/>
-	<property name="testbuild.dir" location="${build.dir}/test"/>
-	<property name="testdata.dir" location="${testbuild.dir}/data"/>
-	<property name="testreports.dir" location="${testbuild.dir}/reports"/>
-	<path id="junit.classpath">
-		<pathelement location="${build.dir}/classes"/>
-		<pathelement location="${build.dir}/test"/>
-	</path>
 
 	<!-- Prepare the build directory -->
 	<target name="prepare">
 		<tstamp/>
 		<mkdir dir="${build.dir}"/>
-		<mkdir dir="${build.etc}"/>
 		<mkdir dir="${build.lib}"/>
 		<mkdir dir="${build.src}"/>
 		<mkdir dir="${build.docs}"/>
@@ -103,82 +86,9 @@
 		</javadoc>
 	</target>
 
-	<!-- Create the distribution -->
-	<target name="dist"
-		depends="jar,javadocs"
-		description="--> generate the ${name} distribution">
-		<mkdir dir="${dist.docs}"/>
-		<mkdir dir="${dist.etc}"/>
-		<mkdir dir="${dist.lib}"/>
-		<copy todir="${dist.lib}">
-			<fileset dir="${build.lib}">
-				<include name="${name}-${version}.jar"/>
-			</fileset>
-		</copy>
-
-		<copy todir="${dist.docs}">
-			<fileset dir="${build.docs}"/>
-		</copy>
-
-		<copy todir="${dist.dir}">
-			<fileset dir=".">
-				<include name="COPYING"/>
-			</fileset>
-		</copy>
-
-		<zip zipfile="${dist.name}.zip"
-		     basedir="${dist.dir}/.."
-		     includes="${dist.dir}/**"/>
-	</target>
-
 	<!-- Clean up build and distribution directories -->
 	<target name="clean"
 		description="--> clean up the created directories">
 		<delete dir="${build.dir}"/>
-		<delete dir="${dist.dir}"/>
-		<delete file="${dist.name}.zip"/>
-		<delete file="${dist.name}-src.zip"/>
 	</target>
-
-       <!-- init junit dirs-->
-       <target name="init-junit"
-	       depends="prepare"
-	       description="Init junit test cases">
-	       <delete dir="${testdata.dir}"/>
-	       <delete dir="${testreports.dir}"/>
-	       <mkdir dir="${testbuild.dir}" />
-	       <mkdir dir="${testdata.dir}" />
-	       <mkdir dir="${testreports.dir}" />
-       </target>
-
-       <!-- compile junit test cases -->
-       <target name="compile-junit"
-	       depends="compile, init-junit"
-	       description="Compile junit test cases">
-	       <javac srcdir="${testsrc.dir}"
-		      includeAntRuntime="true"
-		      destdir="${testbuild.dir}"
-		      debug="true">
-	       </javac>
-       </target>
-
-       <!-- run junit test cases -->
-       <target name="test" depends="compile-junit"
-	       description="Run junit test cases">
-	       <junit printsummary="yes" 
-		      fork="yes" 
-		      haltonfailure="yes" 
-		      errorProperty="test.failed" 
-		      failureProperty="test.failed">
-		       <formatter type="plain" usefile="false"/>
-		       <formatter type="xml" usefile="true"/>
-		       <jvmarg value="-Ddebug=true"/>
-		       <batchtest todir="${testreports.dir}">
-			       <fileset dir="${testbuild.dir}"
-			                includes="**/*Test.class"/>
-		       </batchtest>
-	       </junit>
-	       <fail message="Junit tests failed. Check log and/or reports."
-		       if="test.failed"/>
-       </target>
 </project>
