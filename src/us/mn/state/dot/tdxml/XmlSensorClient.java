@@ -79,16 +79,6 @@ public class XmlSensorClient extends XmlClient {
 		}
 	}
 
-	/** Notify listeners of a sensor data sample */
-	protected void notifySample(final SensorSample s) {
-		doNotify(new Notifier() {
-			void notify(SensorListener l) {
-				SensorListener sl = (SensorListener)l;
-				sl.update(s);
-			}
-		});
-	}
-
 	/** Read and parse an XML file */
 	protected void readXmlFile() throws Exception {
 		logger.info("Openning connection to " + url);
@@ -108,28 +98,28 @@ public class XmlSensorClient extends XmlClient {
 	protected void parse(InputStream in) throws IOException, SAXException {
 		notifyStart();
 		try {
-			DefaultHandler h = new DefaultHandler() {
-				public InputSource resolveEntity(
-					String publicId, String systemId)
-					throws IOException, SAXException
-				{
-					return new InputSource(
-						new StringReader(ENTITY_DECL));
-				}
-				public void startElement(String uri,
-					String localName, String qname,
-					Attributes attrs)
-				{
-					if(qname.equals("traffic_sample"))
-						handleTrafficSample(attrs);
-					if(qname.equals("sample"))
-						handleSample(attrs);
-				}
-			};
+			SensorHandler h = new SensorHandler();
 			parser.parse(in, h);
 		}
 		finally {
 			notifyFinish();
+		}
+	}
+
+	/** Inner class to handle parsing sensor elements */
+	protected class SensorHandler extends DefaultHandler {
+		public InputSource resolveEntity(String publicId,
+			String systemId) throws IOException, SAXException
+		{
+			return new InputSource(new StringReader(ENTITY_DECL));
+		}
+		public void startElement(String uri, String localName,
+			String qname, Attributes attrs)
+		{
+			if(qname.equals("traffic_sample"))
+				handleTrafficSample(attrs);
+			if(qname.equals("sample"))
+				handleSample(attrs);
 		}
 	}
 

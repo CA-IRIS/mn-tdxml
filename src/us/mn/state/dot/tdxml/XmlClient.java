@@ -223,4 +223,13 @@ abstract public class XmlClient implements Runnable {
 			}
 		});
 	}
+
+	/** Notify listeners of a sensor data sample */
+	protected void notifySample(final SensorSample s) {
+		doNotify(new Notifier() {
+			void notify(SensorListener l) {
+				l.update(s);
+			}
+		});
+	}
 }
