@@ -17,8 +17,6 @@
 
 	<!-- Base directory configuration -->
 	<property name="src.dir" value="src"/>
-	<property name="etc.dir" value="etc"/>
-	<property name="lib.dir" value="lib"/>
 
 	<!-- Property configuration -->
 	<property file="project.properties"/>
@@ -37,17 +35,12 @@
 	<property name="dist.docs" value="${dist.dir}/docs"/>
 	<property name="dist.etc" value="${dist.dir}/etc"/>
 
-	<path id="classpath">
-		<fileset dir="lib" includes="**/*.jar"/>
-	</path>
-
 	<!-- junit related -->
 	<property name="testsrc.dir" location="test"/>
 	<property name="testbuild.dir" location="${build.dir}/test"/>
 	<property name="testdata.dir" location="${testbuild.dir}/data"/>
 	<property name="testreports.dir" location="${testbuild.dir}/reports"/>
 	<path id="junit.classpath">
-		<path refid="classpath"/>
 		<pathelement location="${build.dir}/classes"/>
 		<pathelement location="${build.dir}/test"/>
 	</path>
@@ -60,17 +53,6 @@
 		<mkdir dir="${build.lib}"/>
 		<mkdir dir="${build.src}"/>
 		<mkdir dir="${build.docs}"/>
-		<copy todir="${build.etc}">
-			<fileset dir="${etc.dir}"/>
-			<filterset begintoken="@@" endtoken="@@">
-				<filter token="PROXY.HOST"
-					value="${proxy.host}"/>
-				<filter token="PROXY.PORT"
-					value="${proxy.port}"/>
-				<filter token="NO.PROXY.HOSTS"
-					value="${no.proxy.hosts}"/>
-			</filterset>
-		</copy>
 		<copy todir="${build.src}">
 			<fileset dir="${src.dir}">
 				<include name = "**/*.java" />
@@ -89,7 +71,6 @@
 		       deprecation="on"
 		       source="1.5"
 		       target="1.5">
-			<classpath refid="classpath"/>
 			<compilerarg value="-Xlint:unchecked"/>
 		</javac>
 	</target>
@@ -119,7 +100,6 @@
 		         doctitle="${name}"
 		         bottom="Copyright &#169; Minnesota Department of
 				Transportation. All Rights Reserved.">
-			<classpath refid="classpath"/>
 		</javadoc>
 	</target>
 
@@ -134,16 +114,6 @@
 			<fileset dir="${build.lib}">
 				<include name="${name}-${version}.jar"/>
 			</fileset>
-			<fileset dir="${lib.dir}">
-				<include name="*.jar"/>
-			</fileset>
-		</copy>
-
-		<copy file="${etc.dir}/tdxml.properties"
-			tofile="${dist.lib}/tdxml.properties"/>
-
-		<copy todir="${dist.etc}">
-			<fileset dir="${etc.dir}"/>
 		</copy>
 
 		<copy todir="${dist.docs}">
@@ -189,7 +159,6 @@
 		      includeAntRuntime="true"
 		      destdir="${testbuild.dir}"
 		      debug="true">
-		       <classpath refid="junit.classpath"/>
 	       </javac>
        </target>
 
@@ -201,7 +170,6 @@
 		      haltonfailure="yes" 
 		      errorProperty="test.failed" 
 		      failureProperty="test.failed">
-		       <classpath refid="junit.classpath"/>
 		       <formatter type="plain" usefile="false"/>
 		       <formatter type="xml" usefile="true"/>
 		       <jvmarg value="-Ddebug=true"/>
