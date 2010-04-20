@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2009  Minnesota Department of Transportation
+ * Copyright (C) 2000-2010  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,8 +52,8 @@ abstract public class XmlClient implements Runnable {
 	protected final DocumentBuilder builder;
 
 	/** List of listeners */
-	protected List<TdxmlListener> listeners =
-		new LinkedList<TdxmlListener>();
+	protected List<SensorListener> listeners =
+		new LinkedList<SensorListener>();
 
 	/** Create a new XmlClient */
 	protected XmlClient(URL u, Logger l) throws TdxmlException {
@@ -107,7 +107,7 @@ abstract public class XmlClient implements Runnable {
 				" seconds.");
 			e.printStackTrace();
 		}
-		catch(Throwable t){
+		catch(Throwable t) {
 			logger.warning("Fatal exception.  Attempting to recover.");
 			t.printStackTrace();
 		}
@@ -164,7 +164,7 @@ abstract public class XmlClient implements Runnable {
 	 * @param daemon if true the thread this client is run in will be set as
 	 * a daemon thread.
 	 */
-	public void setDaemon( boolean daemon ) {
+	public void setDaemon(boolean daemon) {
 		this.daemon = daemon;
 	}
 
@@ -194,41 +194,41 @@ abstract public class XmlClient implements Runnable {
 	}
 
 	/** Add a TDXML listener */
-	public void addTdxmlListener(TdxmlListener l) {
-		LinkedList<TdxmlListener> lsnr =
-			new LinkedList<TdxmlListener>(listeners);
+	public void addSensorListener(SensorListener l) {
+		LinkedList<SensorListener> lsnr =
+			new LinkedList<SensorListener>(listeners);
 		lsnr.add(l);
 		listeners = lsnr;
 	}
 
 	/** Remove a TDXML listener */
-	public void removeTdxmlListener(TdxmlListener l) {
-		LinkedList<TdxmlListener> lsnr =
-			new LinkedList<TdxmlListener>(listeners);
+	public void removeSensorListener(SensorListener l) {
+		LinkedList<SensorListener> lsnr =
+			new LinkedList<SensorListener>(listeners);
 		lsnr.remove(l);
 		listeners = lsnr;
 	}
 
 	/** Remove all of the registered data listeners */
-	public void removeAllTdxmlListeners() {
-		listeners = new LinkedList<TdxmlListener>();
+	public void removeAllSensorListeners() {
+		listeners = new LinkedList<SensorListener>();
 	}
 
 	/** Notifier for TDXML listeners */
 	abstract protected class Notifier {
-		abstract void notify(TdxmlListener l);
+		abstract void notify(SensorListener l);
 	}
 
 	/** Notify all listeners of an update */
 	protected void doNotify(Notifier n) {
-		for(TdxmlListener l: listeners)
+		for(SensorListener l: listeners)
 			n.notify(l);
 	}
 
 	/** Notify listeners of the start of new data */
 	protected void notifyStart() {
 		doNotify(new Notifier() {
-			void notify(TdxmlListener l) {
+			void notify(SensorListener l) {
 				l.update(false);
 			}
 		});
@@ -237,7 +237,7 @@ abstract public class XmlClient implements Runnable {
 	/** Notify listeners that new data is finished */
 	protected void notifyFinish() {
 		doNotify(new Notifier() {
-			void notify(TdxmlListener l) {
+			void notify(SensorListener l) {
 				l.update(true);
 			}
 		});

@@ -1,6 +1,6 @@
 /*
  * TDXML -- Traffic Data XML Reader
- * Copyright (C) 2000-2009  Minnesota Department of Transportation
+ * Copyright (C) 2000-2010  Minnesota Department of Transportation
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -82,7 +82,7 @@ public class XmlSensorClient extends XmlClient {
 	/** Notify listeners of a sensor data sample */
 	protected void notifySample(final SensorSample s) {
 		doNotify(new Notifier() {
-			void notify(TdxmlListener l) {
+			void notify(SensorListener l) {
 				SensorListener sl = (SensorListener)l;
 				sl.update(s);
 			}
