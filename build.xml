@@ -42,7 +42,6 @@
 	<path id="classpath">
 		<fileset dir="lib" includes="**/*.jar"/>
 	</path>
-	<property name="geokit.jar" value="geokit-${geokit.version}.jar"/>
 	<property name="tms-log.jar" value="tms-log-${tms-log.version}.jar"/>
 
 	<!-- junit related -->
@@ -59,12 +58,6 @@
 	<!-- Check for dependencies -->
         <target name="check">
 		<mkdir dir="${build.deps}"/>
-		<antcall target="check-subproject">
-			<param name="file.dep" value="${geokit.jar}"/>
-			<param name="repo.name" value="geokit"/>
-			<param name="repo.version"
-			       value="${geokit.version}"/>
-		</antcall>
 		<antcall target="check-subproject">
 			<param name="file.dep" value="${tms-log.jar}"/>
 			<param name="repo.name" value="log"/>
@@ -117,8 +110,6 @@
 		<copy todir="${build.etc}">
 			<fileset dir="${etc.dir}"/>
 			<filterset begintoken="@@" endtoken="@@">
-				<filter token="GEOKIT.VERSION"
-				        value="${geokit.version}"/>
 				<filter token="TMSLOG.VERSION"
 					value="${tms-log.version}"/>
 				<filter token="PROXY.HOST"
