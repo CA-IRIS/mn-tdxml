@@ -19,9 +19,6 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 /**
  * XmlClient reads an xml document at a specified interval and parses it to java
@@ -48,9 +45,6 @@ abstract public class XmlClient implements Runnable {
 	/** Time to wait till re-reading data */
 	private int sleepTime = 30000;
 
-	/** DOM document builder */
-	protected final DocumentBuilder builder;
-
 	/** List of listeners */
 	protected List<SensorListener> listeners =
 		new LinkedList<SensorListener>();
@@ -60,14 +54,6 @@ abstract public class XmlClient implements Runnable {
 		super();
 		url = u;
 		logger = l;
-		try {
-			DocumentBuilderFactory factory =
-				DocumentBuilderFactory.newInstance();
-			builder = factory.newDocumentBuilder();
-		}
-		catch(ParserConfigurationException e) {
-			throw new TdxmlException(e);
-		}
 	}
 
 	/**
@@ -102,14 +88,9 @@ abstract public class XmlClient implements Runnable {
 		}
 		catch(Exception e) {
 			logger.warning("Error reading xml from " + url +
-				"("+e+"), " +
-				"will retry in " + sleepTime / 1000 +
-				" seconds.");
+				"(" + e + "), " + "will retry in " +
+				(sleepTime / 1000) + " seconds.");
 			e.printStackTrace();
-		}
-		catch(Throwable t) {
-			logger.warning("Fatal exception.  Attempting to recover.");
-			t.printStackTrace();
 		}
 	}
 
