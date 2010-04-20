@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- ant build file for tdxml project
-     Copyright (C) 2000-2009  Minnesota Department of Transportation
+     Copyright (C) 2000-2010  Minnesota Department of Transportation
 
      This program is free software; you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
@@ -31,18 +31,15 @@
 	<property name="build.src" value="${build.dir}/src"/>
 	<property name="build.classes" value="${build.dir}/classes"/>
 	<property name="build.docs" value="${build.dir}/docs"/>
- 	<property name="build.deps" value="${build.dir}/deps"/>
 	<property name="dist.name" value="${name}-${version}"/>
 	<property name="dist.dir" value="${dist.name}"/>
 	<property name="dist.lib" value="${dist.dir}/lib"/>
 	<property name="dist.docs" value="${dist.dir}/docs"/>
 	<property name="dist.etc" value="${dist.dir}/etc"/>
-	<property name="manifest" value="MANIFEST.MF"/>
 
 	<path id="classpath">
 		<fileset dir="lib" includes="**/*.jar"/>
 	</path>
-	<property name="tms-log.jar" value="tms-log-${tms-log.version}.jar"/>
 
 	<!-- junit related -->
 	<property name="testsrc.dir" location="test"/>
@@ -55,50 +52,6 @@
 		<pathelement location="${build.dir}/test"/>
 	</path>
 
-	<!-- Check for dependencies -->
-        <target name="check">
-		<mkdir dir="${build.deps}"/>
-		<antcall target="check-subproject">
-			<param name="file.dep" value="${tms-log.jar}"/>
-			<param name="repo.name" value="log"/>
-			<param name="repo.version"
-			       value="${tms-log.version}"/>
-		</antcall>
-        </target>
-
-	<!-- Check for one subproject dependancy -->
-	<target name="check-subproject">
-		<available property="file.exists"
-			   file="${lib.dir}/${file.dep}"/>
-		<antcall target="build-subproject"/>
-	</target>
-
-	<!-- Build a subproject -->
-	<target name="build-subproject" unless="file.exists">
-		<antcall target="hg-check"/>
-		<ant dir="${build.deps}/${repo.name}"
-		     target="jar" inheritAll="false"/>
-		<copy todir="${lib.dir}">
-			<fileset dir="${build.deps}/${repo.name}/build/lib/"/>
-		</copy>
-	</target>
-
-	<!-- Clone a mercurial subproject -->
-	<target name="hg-check" unless="file.exists">
-		<available property="dir.exists"
-		           file="${build.deps}/${repo.name}"/>
-		<antcall target="hg-clone"/>
-	</target>
-
-	<!-- Clone a mercurial subproject -->
-	<target name="hg-clone" unless="dir.exists">
-		<exec executable="hg" dir="${build.deps}" failonerror="true">
-			<arg value="clone"/>
-			<arg value="-r${repo.version}"/>
-			<arg value="${hgbase.url}${repo.name}"/>
-		</exec>
-	</target>
-
 	<!-- Prepare the build directory -->
 	<target name="prepare">
 		<tstamp/>
@@ -110,8 +63,6 @@
 		<copy todir="${build.etc}">
 			<fileset dir="${etc.dir}"/>
 			<filterset begintoken="@@" endtoken="@@">
-				<filter token="TMSLOG.VERSION"
-					value="${tms-log.version}"/>
 				<filter token="PROXY.HOST"
 					value="${proxy.host}"/>
 				<filter token="PROXY.PORT"
@@ -129,7 +80,7 @@
 
 	<!-- Compile the source code -->
 	<target name="compile"
-		depends="check,prepare"
+		depends="prepare"
 		description="--> compile the source code">
 		<mkdir dir="${build.classes}"/>
 		<javac srcdir="${build.src}"
@@ -147,11 +98,7 @@
 	<target name="jar"
 		depends="compile"
 		description="--> generate the ${name} jar files">
-		<jar jarfile="${build.lib}/${name}-${version}.jar"
-		     manifest="${build.etc}/${manifest}">
-			<fileset dir="${etc.dir}">
-				<include name="location_lookup.xml"/>
-			</fileset>
+		<jar jarfile="${build.lib}/${name}-${version}.jar">
 			<fileset dir="${build.classes}">
 				<include name="us/mn/state/dot/tdxml/**"/>
 			</fileset>
