@@ -82,7 +82,7 @@ abstract public class XmlClient implements Runnable {
 		try {
 			readXmlFile();
 		}
-		catch(IOException ioe){
+		catch(IOException ioe) {
 			logger.warning("IOException reading data from " + url);
 			logger.warning(ioe.getMessage());
 		}
@@ -154,6 +154,7 @@ abstract public class XmlClient implements Runnable {
 		return url;
 	}
 
+	/** Check if the client is running */
 	public boolean isRunning() {
 		return thread != null;
 	}
